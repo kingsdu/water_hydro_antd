@@ -5,6 +5,8 @@ import SecondOneColumn from '../components/SecondOneColumn'
 import SecondTwoColumn from '../components/SecondTwoColumn'
 import SecondThreeColumn from '../components/SecondThreeColumn'
 import ThirdColumn from '../components/ThirdColumn'
+import FourOneColumn from '../components/FourOneColumn'
+import FourTwoColumn from '../components/FourTwoColumn'
 
 export default class HomeContainer extends Component {
     render(){
@@ -40,14 +42,14 @@ export default class HomeContainer extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={18}>
+                    <Col span={12}>
                         <Card className='home-2-1'>
-                            
+                            <FourOneColumn/>
                         </Card>
                     </Col>
-                    <Col span={6}>
+                    <Col span={12}>
                         <Card className='home'>
-                            
+                            <FourTwoColumn/>
                         </Card>
                     </Col>
                 </Row>
