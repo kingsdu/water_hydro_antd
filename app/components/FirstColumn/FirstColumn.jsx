@@ -8,19 +8,10 @@ const FirstColumn = ()=> {
     return (
         <div>
             <Row>
-                <Col span={7}>
-                    <div className='border carousel'>
-                        <Carousel autoplay>
-                            <div><img src="http://i2.bvimg.com/622218/afdf320e83826001.jpg"/></div>
-                            <div><img src="http://i2.bvimg.com/622218/390c5516e1e9edbf.jpg"/></div>
-                            <div><img src="http://i2.bvimg.com/622218/fd93bb7f719da0f2.jpg"/></div>
-                        </Carousel>                     
-                    </div>
-                </Col>
-                <Col span={8} offset={2}>
+                <Col span={16}>
                     <NoticeColumn
                     id='notice'
-                    title='通知公告'
+                    title='公会动态'
                     type='in_notices'
                     isMore={true}>                    
                     </NoticeColumn>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router'
 
-const NewsList = ({newsData}) => {
+const NewsList = ({newsData,isCenter}) => {
     if (!newsData) {
         return <h3>没有数据</h3>;
     }
@@ -14,13 +14,19 @@ const NewsList = ({newsData}) => {
         </li>
     ));
 
-
     return (
-        <div className='newsList'>
+        isCenter ?
+        <div className='newsList-center'>
             <ul>
                 {newsList}
             </ul>
         </div>
+        :
+        <div className='newsList'>
+            <ul>
+                {newsList}
+            </ul>
+        </div>       
     )
 }
 
