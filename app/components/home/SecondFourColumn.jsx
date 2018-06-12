@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import {Row, Col} from 'antd'
 import ColumnHeader from './ColumnHeader'
-import NewsListBlock from './NewsListBlock'
+import NewsListBlock from '../common/NewsListBlock'
 
 const SecondFourColumn = () =>{
     return(

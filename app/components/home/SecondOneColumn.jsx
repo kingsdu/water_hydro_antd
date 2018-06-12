@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
-import ColumnHeader from '../components/ColumnHeader'
-import HotNotice from '../components/HotNotice'
-import BranchIntro from '../components/BranchIntro'
+import ColumnHeader from './ColumnHeader'
+import HotNotice from './HotNotice'
+import BranchIntro from './BranchIntro'
 
 const SecondOneColumn = () =>{
     return (
@@ -11,8 +11,10 @@ const SecondOneColumn = () =>{
             id='notice'
             title='热点公告'
             type='in_notices'
+            iconType='2'
             isMore={false}
-            isCenter={true}/>
+            isCenter={true}
+            />
         </div>
     )
 }

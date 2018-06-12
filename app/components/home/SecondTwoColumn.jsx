@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 import BranchIntro from './BranchIntro'
-import ColumnHeader from '../components/ColumnHeader'
+import ColumnHeader from './ColumnHeader'
 
 const SecondTwoColumn = () =>{
     return(

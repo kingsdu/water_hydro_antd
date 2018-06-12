@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import VipShow from './VipShow'
-import ColumnHeader from '../components/ColumnHeader'
+import ColumnHeader from './ColumnHeader'
 
 const FourOneColumn = () => {
     return (

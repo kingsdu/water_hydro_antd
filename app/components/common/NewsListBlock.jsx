@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
-import {getNewsData} from '../common/fetch'
-import NewsList from '../components/NewsList'
+import {getNewsData} from '../../common/fetch'
+import NewsList from './NewsList'
 
 import Loading from './Loading'
 
@@ -30,10 +30,10 @@ export default class NewsListBlock extends Component {
 
     render() {
         const {isLoading} = this.state.isLoading;
-        const isCenter = this.props.isCenter;
+        const {isCenter,iconType} = this.props;
         return(
             <div>
-                {isLoading ? <Loading /> : <NewsList newsData={this.state.data} isCenter={isCenter}/>}
+                {isLoading ? <Loading /> : <NewsList newsData={this.state.data} isCenter={isCenter} iconType={iconType}/>}
             </div>
         )
     }

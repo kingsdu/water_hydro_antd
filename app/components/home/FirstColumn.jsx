@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Row, Col} from 'antd'
 
-import NoticeColumn from '../Notice/NoticeColumn'
-import MemberService from '../MemberService/MemberService'
+import NoticeColumn from './NoticeColumn'
+import MemberService from './MemberService'
 
 const FirstColumn = ()=> {
     return (
@@ -13,6 +13,7 @@ const FirstColumn = ()=> {
                     id='notice'
                     title='公会动态'
                     type='in_notices'
+                    iconType='1'
                     isMore={true}>                    
                     </NoticeColumn>
                 </Col>

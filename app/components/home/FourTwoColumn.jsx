@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import ColumnHeader from '../components/ColumnHeader'
+import ColumnHeader from './ColumnHeader'
 
-import ScienceDomain from '../components/ScienceDomain'
+import ScienceDomain from './ScienceDomain'
 
 const FourTwoColumn = () => {
     return (

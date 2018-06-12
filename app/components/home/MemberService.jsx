@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import ColumnHeader from '../ColumnHeader'
+import ColumnHeader from './ColumnHeader'
 
-import MemberServiceDetail from '../MemberServiceDetail'
+import MemberServiceDetail from './MemberServiceDetail'
 
 export default class MemberService extends Component {
     render(){

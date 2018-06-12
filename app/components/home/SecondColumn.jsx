@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Row, Col, Tabs} from 'antd'
 
-import NoticeColumn from './Notice/NoticeColumn'
+import NoticeColumn from './NoticeColumn'
 
 const SecondColumn = ()=> {
     return (

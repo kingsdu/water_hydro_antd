@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import {Card, BackTop, Icon, Col, Row} from 'antd'
-import FirstColumn from '../components/FirstColumn/FirstColumn'
-import SecondOneColumn from '../components/SecondOneColumn'
-import SecondTwoColumn from '../components/SecondTwoColumn'
-import SecondThreeColumn from '../components/SecondThreeColumn'
-import SecondFourColumn from '../components/SecondFourColumn'
-import SecondFiveColumn from '../components/SecondFiveColumn'
-import ThirdColumn from '../components/ThirdColumn'
-import FourOneColumn from '../components/FourOneColumn'
-import FourTwoColumn from '../components/FourTwoColumn'
+import FirstColumn from '../components/home/FirstColumn'
+import SecondOneColumn from '../components/home/SecondOneColumn'
+import SecondTwoColumn from '../components/home/SecondTwoColumn'
+import SecondThreeColumn from '../components/home/SecondThreeColumn'
+import SecondFourColumn from '../components/home/SecondFourColumn'
+import SecondFiveColumn from '../components/home/SecondFiveColumn'
+import ThirdColumn from '../components/home/ThirdColumn'
+import FourOneColumn from '../components/home/FourOneColumn'
+import FourTwoColumn from '../components/home/FourTwoColumn'
 
 export default class HomeContainer extends Component {
     render(){

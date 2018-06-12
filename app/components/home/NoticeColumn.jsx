@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import ColumnHeader from '../ColumnHeader'
+import ColumnHeader from './ColumnHeader'
 import {Row, Col, Carousel} from 'antd'
 
-import NewsListBlock from '../NewsListBlock'
+import NewsListBlock from '../common/NewsListBlock'
 
 export default class NoticeColumn extends Component {
     render(){
-        const {type, isMore, total, title, id} = this.props;
+        const {type, isMore, total, title, id, iconType} = this.props;
         return(
             <div>
                 <ColumnHeader
@@ -24,7 +24,7 @@ export default class NoticeColumn extends Component {
                         </div>
                     </Col>
                     <Col span={12}>
-                        <NewsListBlock type='guonei'count={5}/>   
+                        <NewsListBlock type='guonei'count={5} iconType={iconType}/>   
                     </Col>
                 </Row>               
             </div>

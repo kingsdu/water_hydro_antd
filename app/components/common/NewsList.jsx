@@ -1,7 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router'
 
-const NewsList = ({newsData,isCenter}) => {
+import { Icon } from 'antd'
+
+const NewsList = ({newsData,isCenter,iconType}) => {
+    let type = 'right';
+    switch(iconType){
+        case '1' : type='right'
+        break;
+        case '2' : type='right-circle'
+        break;
+        case '3' : type='swap-right'
+        break;
+        default: type='right'
+        break;
+    }
+
+
     if (!newsData) {
         return <h3>没有数据</h3>;
     }
@@ -9,7 +24,7 @@ const NewsList = ({newsData,isCenter}) => {
     const newsList = newsData.map((newsItem, index) =>(
         <li key={newsItem.uniquekey}>
             <Link to={`spot/${newsItem.uniquekey}`}>
-                {newsItem.title}
+                <Icon type={type} /> {newsItem.title}
             </Link>
         </li>
     ));
