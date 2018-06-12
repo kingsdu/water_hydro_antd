@@ -1,16 +1,16 @@
 import React, {Component} from 'react'
 
 import BranchIntro from './BranchIntro'
+import ColumnHeader from '../components/ColumnHeader'
 
 const SecondTwoColumn = () =>{
     return(
         <div>
-            <BranchIntro
-            id='notice'
-            title='公会简介'
-            type='in_notices'
+            <ColumnHeader
+            title='分会简介'
             isMore={false}
             isCenter={true}/>
+            <BranchIntro/>
         </div>
     )
 }

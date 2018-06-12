@@ -4,6 +4,8 @@ import FirstColumn from '../components/FirstColumn/FirstColumn'
 import SecondOneColumn from '../components/SecondOneColumn'
 import SecondTwoColumn from '../components/SecondTwoColumn'
 import SecondThreeColumn from '../components/SecondThreeColumn'
+import SecondFourColumn from '../components/SecondFourColumn'
+import SecondFiveColumn from '../components/SecondFiveColumn'
 import ThirdColumn from '../components/ThirdColumn'
 import FourOneColumn from '../components/FourOneColumn'
 import FourTwoColumn from '../components/FourTwoColumn'
@@ -27,10 +29,16 @@ export default class HomeContainer extends Component {
                         <Card className='home-2-1'>
                             <SecondTwoColumn/>                      
                         </Card>
+                        <Card className='home-2-1'>
+                            <SecondThreeColumn/>                      
+                        </Card>
                     </Col>
                     <Col span={17}>
                         <Card className='home'>
-                            <SecondThreeColumn/>
+                            <SecondFourColumn/>
+                        </Card>
+                        <Card className='home'>
+                            <SecondFiveColumn/>
                         </Card>
                     </Col>   
                 </Row>

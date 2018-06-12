@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col, Carousel} from 'antd'
+import {Row, Col} from 'antd'
 
 import NoticeColumn from '../Notice/NoticeColumn'
 import MemberService from '../MemberService/MemberService'
@@ -16,7 +16,7 @@ const FirstColumn = ()=> {
                     isMore={true}>                    
                     </NoticeColumn>
                 </Col>
-                <Col span={4} offset={2}>
+                <Col span={6} offset={1}>
                     <MemberService 
                     id='notice'
                     title='会员服务'
