@@ -11,7 +11,7 @@ const SecondOneColumn = () =>{
             id='notice'
             title='热点公告'
             type='in_notices'
-            iconType='2'
+            iconType=''
             isMore={false}
             isCenter={true}
             />

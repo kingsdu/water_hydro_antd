@@ -13,7 +13,7 @@ const FirstColumn = ()=> {
                     id='notice'
                     title='公会动态'
                     type='in_notices'
-                    iconType='1'
+                    iconType='2'
                     isMore={true}>                    
                     </NoticeColumn>
                 </Col>

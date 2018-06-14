@@ -7,9 +7,7 @@ import 'antd/dist/antd.less'
 import './style/App'
 import './style/Base'
 import './style/Home'
-import './style/ColumnHeader'
-import './style/NewsList'
-import './style/Member'
+import './style/Branch'
 
 render(
     <div>

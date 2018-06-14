@@ -1,0 +1,31 @@
+import React, {Component} from 'react'
+import {Col, Row} from 'antd'
+
+const ContentText = ({contentData}) => {
+    return(
+        <div>
+            {contentData&&contentData.map(
+                item => (
+                <div className='ContentText'>
+                    <h1>{item.title}</h1>
+                    <Row>
+                        <Col span={24}>
+                            {
+                                item.content.split("|").map(
+                                    item => (
+                                        <p className='ContentText_p'>{item}</p>
+                                    )
+                                )
+                            }
+                        </Col>                      
+                    </Row> 
+                </div> 
+                )
+            )}
+        </div>
+    )
+}
+    
+
+
+export default ContentText

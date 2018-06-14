@@ -1,3 +1,3 @@
-# react-simple-o2o-demo
+# water_hydro_antd
 
-搭建 webpack + React 开发环境，详情参考[这里](./docs/README.md)
+长江水利委网站，基于React实现的政府网站，详情参考[这里](./docs/README.md)

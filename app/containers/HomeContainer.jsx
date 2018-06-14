@@ -61,6 +61,11 @@ export default class HomeContainer extends Component {
                         </Card>
                     </Col>
                 </Row>
+                <BackTop>
+                    <div className="ant-back-top-inner">
+                    <Icon type="arrow-up"/>
+                    </div>
+                </BackTop>
             </div>
         )
     }

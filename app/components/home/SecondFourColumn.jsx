@@ -14,7 +14,7 @@ const SecondFourColumn = () =>{
                     id='xhxw'
                     isMore={true}
                     isCenter={false}/>
-                    <NewsListBlock isCenter={false}/>
+                    <NewsListBlock isCenter={false} iconType='1'/>
                 </Col>
                 <Col span={10} offset={2}>
                     <ColumnHeader
@@ -22,7 +22,7 @@ const SecondFourColumn = () =>{
                     id='xsjl'
                     isMore={true}
                     isCenter={false}/>
-                    <NewsListBlock isCenter={false}/>
+                    <NewsListBlock isCenter={false} iconType='1'/>
                 </Col>
             </Row>
             <Row>
@@ -32,7 +32,7 @@ const SecondFourColumn = () =>{
                     id='bzjl'
                     isMore={true}
                     isCenter={false}/>
-                    <NewsListBlock isCenter={false}/>
+                    <NewsListBlock isCenter={false} iconType='1'/>
                 </Col>
                 <Col span={10} offset={2}>
                     <ColumnHeader
@@ -40,7 +40,7 @@ const SecondFourColumn = () =>{
                     id='px'
                     isMore={true}
                     isCenter={false}/>
-                    <NewsListBlock isCenter={false}/>
+                    <NewsListBlock isCenter={false} iconType='1'/>
                 </Col>
             </Row>
         </div>

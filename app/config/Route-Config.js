@@ -1,16 +1,18 @@
 import React from 'react'
-import {Router,Route,IndexRoute,Redirect,hashHistory} from 'react-router'
+import { HashRouter,Route, Redirect,Switch} from 'react-router-dom'
 
 import WebContainer from '../containers/WebContainer'
-import HomeContainer from '../components/HomeContainer'
-
+import BranchContainer from '../containers/BranchContainer'
 
 const RootRoter = (
-    <Router history={ hashHistory }>
-        <Route path="/" component={ WebContainer }>
-            <IndexRoute  component={ HomeContainer }/>
-        </Route>
-    </Router>
+    <HashRouter>
+        <div>
+            <Route exact path="/" component={ WebContainer }/>
+            <Route path="/branch" component={ BranchContainer }/>
+        </div>
+    </HashRouter>
 )
+
+
 
 export default RootRoter

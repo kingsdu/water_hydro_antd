@@ -1,18 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { Icon } from 'antd'
 
 const NewsList = ({newsData,isCenter,iconType}) => {
-    let type = 'right';
+    let type = '';
     switch(iconType){
         case '1' : type='right'
         break;
-        case '2' : type='right-circle'
+        case '2' : type='right-circle-o'
         break;
         case '3' : type='swap-right'
         break;
-        default: type='right'
+        case '4' : type='verticle-left'
+        break;
+        default: type = ''
         break;
     }
 
