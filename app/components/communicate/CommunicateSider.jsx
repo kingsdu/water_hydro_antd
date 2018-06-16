@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { branch_menu } from '../../config/constant/branch_menu';
+import { Communicate } from '../../config/constant/Communicate';
 import SiderMenu from '../../components/common/SiderMenu';
 
 const { Sider } = Layout;
@@ -19,9 +19,9 @@ class CommunicateSider extends Component {
     render() {
         return (
             <SiderMenu
-            menus={ branch_menu }
+            menus={ Communicate }
             mode="inline"
-            defaultOpenKeys={['app1']}
+            defaultOpenKeys={['app2']}
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}
             style={{ width: 197 }}/>

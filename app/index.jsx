@@ -8,6 +8,7 @@ import './style/App'
 import './style/Base'
 import './style/Home'
 import './style/Branch'
+import './style/Communite'
 
 render(
     <div>

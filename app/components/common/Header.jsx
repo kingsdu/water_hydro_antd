@@ -25,7 +25,7 @@ const Head = () => {
                         <ul className='header_tab'>
                             <li><NavLink to='/' activeClassName='header_curPage'>首页</NavLink></li>
                             <li><NavLink to='/branch/intro/brachInfo' activeClassName='header_curPage'>分会介绍</NavLink></li>
-                            <li><NavLink to='/app/test' activeClassName='header_curPage'>学术交流</NavLink></li>
+                            <li><NavLink to='/child/structure/dynamicsWork' activeClassName='header_curPage'>学术交流</NavLink></li>
                             <li><NavLink to='/movie' activeClassName='header_curPage'>表彰奖励</NavLink></li>
                             <li><NavLink to='/movie' activeClassName='header_curPage'>资质认证</NavLink></li>
                             <li><NavLink to='/movie' activeClassName='header_curPage'>科普园地</NavLink></li>

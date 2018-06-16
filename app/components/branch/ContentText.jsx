@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Col, Row} from 'antd'
+import {Card, Col, Row} from 'antd'
 
 const ContentText = ({contentData}) => {
     return(

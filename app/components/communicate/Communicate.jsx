@@ -1,20 +1,42 @@
 import React, {Component} from 'react'
-import ContentHeader from '../common/ContentHeader'
+import CommunicateHeader from '../communicate/CommunicateHeader'
 
 import {Col, Row} from 'antd'
+import {getNewsListData} from '../../common/fetch'
+import ContentNewsList from '../communicate/ContentNewsList'
+
+
 
 export default class Communicate extends Component{
+    state = {
+        data: null
+    }
+
     render(){
         const params = this.props.match.params.branchName
         return(
             <div>
                 <Row>
-                    <ContentHeader title={params}/>
+                    <CommunicateHeader title={params}/>
                 </Row>
                 <Row>
-                    <ContentText contentData={branch_intro}/>
+                    <ContentNewsList contentListData={this.state.data}/>
                 </Row>
             </div>
         )
+    }
+
+    componentDidMount(){
+        const result = getNewsListData()
+        result.then(res =>{
+            return res.json()
+        }).then(json =>{
+            const data = json
+            if(data.length){
+                this.setState({
+                    data:data
+                })
+            }
+        })
     }
 }
