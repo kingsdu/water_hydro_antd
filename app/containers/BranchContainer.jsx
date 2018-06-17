@@ -5,26 +5,19 @@ import CRoutes from '../config/C_Route'
 
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
+import BranchContent from '../components/branch/BranchContent'
+
 
 class BranchContainer extends Component {
     render(){
-        const category = this.props.match.params.category
+        const params = this.props.match.params
         return(
         <Layout>
             <Header/>
                 <div className='wrap center'>
                     <Row>
-                        <Col span={5}>
-                            <Card>
-                                <BranchSider category={category}/>
-                            </Card>
-                        </Col>
-                        <Col span={18} offset={1}>
-                            <Layout>
-                                <Card>
-                                    <CRoutes/>
-                                </Card>
-                            </Layout>
+                        <Col span={24}>              
+                            <CRoutes/>
                         </Col>
                     </Row>
                 </div>

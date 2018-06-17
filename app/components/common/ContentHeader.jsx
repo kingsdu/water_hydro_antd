@@ -1,6 +1,5 @@
 import React from 'react'
 import {Icon, Col, Row} from 'antd'
-
 import { switchNameByModule } from '../../common/getColumnName'
 
 

@@ -8,16 +8,12 @@ import BranchContent from '../components/branch/BranchContent'
 import OrganizationStr from '../components/branch/OrganizationStr'
 import Communicate from '../components/communicate/Communicate'
 
-
 export default class C_Route extends Component {
     render() {
         return(
-            <Content style={{ margin: '0 16px', overflow: 'initial' }}>
+            <Content>
                 <Switch>
-                    <Route path="/child/:category/:module" component={BranchContent}/>
-                    <Route path="/branch/structure/:branchName" component={OrganizationStr}/>
-                    
-                    <Route path="/child/structure/:branchName" component={Communicate}/>        
+                    <Route path="/child/:category/:module" component={BranchContent}/>    
                 </Switch>
             </Content>
         )

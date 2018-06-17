@@ -5,6 +5,7 @@ import WebContainer from '../containers/WebContainer'
 import BranchContainer from '../containers/BranchContainer'
 import CommuniteContainer from '../containers/CommuniteContainer'
 import CommuniteDetails from '../containers/CommuniteDetails'
+import BranchContent from '../components/branch/BranchContent';
 
 
 const RootRoter = (

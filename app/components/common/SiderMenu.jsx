@@ -14,7 +14,6 @@ const renderMenuItem =
                 </Link>
         </Menu.Item>;
 
-
 const renderSubMenu =
     ({ key, title, icon, link, sub, ...props }) =>
         <Menu.SubMenu
@@ -30,11 +29,15 @@ const renderSubMenu =
             {sub && sub.map(item => renderMenuItem(item))}
         </Menu.SubMenu>;
 
+const MenuData = ({menus,...props}) => {
+    return(
+        <Menu {...props}>
+            {menus && menus.map(
+                item => item.key && item.key.length ?
+                    renderSubMenu(item) : renderMenuItem(item)
+            )}
+        </Menu>
+    )
+} 
 
-export default ({ menus, ...props }) => 
-    <Menu {...props}>
-    {menus && menus.map(
-        item => item.key && item.key.length ?
-            renderSubMenu(item) : renderMenuItem(item)
-    )}
-</Menu>;
+export default MenuData

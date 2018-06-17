@@ -54,7 +54,6 @@ export default class BranchSider extends Component {
             onClick={this.handleClick}
             defaultSelectedKeys={[current]}
             style={{ width: 197 }}/>
-            
         )
     }
 }
