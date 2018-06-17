@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { Communicate } from '../../config/constant/Communicate';
 import SiderMenu from '../../components/common/SiderMenu';
 
 const { Sider } = Layout;

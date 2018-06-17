@@ -3,7 +3,6 @@ import {Layout, Card, Icon, Row} from 'antd'
 
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
-import GetNewsData from '../components/communicate/GetNewsData'
 
 import { getNewsDetailsData } from '../common/fetch'
 import ContentText  from '../components/branch/ContentText'

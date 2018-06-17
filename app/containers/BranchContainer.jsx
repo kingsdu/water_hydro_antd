@@ -8,6 +8,7 @@ import Footer from '../components/common/Footer'
 
 class BranchContainer extends Component {
     render(){
+        const category = this.props.match.params.category
         return(
         <Layout>
             <Header/>
@@ -15,7 +16,7 @@ class BranchContainer extends Component {
                     <Row>
                         <Col span={5}>
                             <Card>
-                                <BranchSider/>
+                                <BranchSider category={category}/>
                             </Card>
                         </Col>
                         <Col span={18} offset={1}>

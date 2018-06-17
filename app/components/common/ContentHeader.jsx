@@ -1,22 +1,16 @@
 import React from 'react'
 import {Icon, Col, Row} from 'antd'
 
-const ContentHeader = ({title}) => {
-    const c_title = "关于分会";
-    let c_subTitle = "";
-    switch(title){
-        case 'brachInfo' : c_subTitle="分会介绍"
-        break;
-        case 'OrganizationStr' : c_subTitle="组织结构"
-        break;
-        default: c_subTitle = "分会章程"
-        break;
-    }
+import { switchNameByModule } from '../../common/getColumnName'
 
+
+//新闻详情页面头部
+const ContentHeader = ({params}) => {
+    const title = switchNameByModule(params.category,params.module).split('|')
     return(
         <div className='ContentHeader'>
-            <span className='span-left'>{c_subTitle}</span>
-            <span className='span-right'>{c_title}<Icon type="right" />{c_subTitle}</span>
+            <span className='span-left'>{title[1]}</span>
+            <span className='span-right'>{title[0]}<Icon type="right" />{title[1]}</span>
         </div>
     )
 }

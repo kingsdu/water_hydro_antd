@@ -11,8 +11,7 @@ const RootRoter = (
     <HashRouter>
         <div>
             <Route exact path="/" component={ WebContainer }/>
-            <Route path="/branch" component={ BranchContainer }/>
-            <Route path="/child" component={ CommuniteContainer }/>
+            <Route path="/child/:category/:module" component={ BranchContainer }/>
             <Route path="/content/:id" component={CommuniteDetails} />
         </div>
     </HashRouter>
