@@ -21,5 +21,10 @@ export function getNewsDetailsData(id) {
 
 
 
+//获取分会介绍详情
+export function getBranchInfoData(id) {
+    const result = get('/api/branchIntro/' + id)
+    return result
+}
 
 

@@ -5,7 +5,7 @@ import ContentHeader from '../common/ContentHeader'
 
 export default class OrganizationStr extends Component{
     render(){
-        const params = this.props.match.params.branchName
+        const params = this.props.match.params.module
         return(
             <div className='OrganizationStr'>
                 <Row>

@@ -28,7 +28,21 @@ router.get('/api/newsDetails/:id', function *(next) {
             return item
         }
     })
+    this.body = resData;
+})
 
+//获取新闻详情信息
+var branchIntro = require('./home/branch_intro.js')
+router.get('/api/branchIntro/:id', function *(next) {
+    const params = this.params
+    const id = params.id
+    
+    const resData = branchIntro.filter(function(item){
+        if(item.id == id){
+            return item
+        }
+    })
+    
     this.body = resData;
 })
 

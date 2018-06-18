@@ -6,6 +6,13 @@ const ContentText = ({contentData}) => {
         <div>
             {contentData&&contentData.map(
                 item => (
+                item.imageUrl ? 
+                <div className='OrganizationStr'>
+                    <Row>
+                        <img src={item.imageUrl}/>   
+                    </Row>
+                </div>
+                :
                 <div className='ContentText'>
                     <h1>{item.title}</h1>
                     <Row>
