@@ -1,16 +1,14 @@
 import {getBranchInfoData} from '../common/fetch'
 
+import { branchInfo } from '../config/constant/branchInfo'
+
 export function getContentByModule(module){
     let content = ''
     let id = ''
     switch (module) {
-        // case 'brachInfo' : id = '1'
-        // break;
-        // case 'organization' : id = '2'
-        // break;
-        case 'brachInfo' : content = getBranchInfoData(id='1')
+        case 'brachInfo' : content = getDataByID(id='1')
         break;
-        case 'organization' : content = getBranchInfoData(id='2')
+        case 'organization' : content = getDataByID(id='2')
         break;
         case 'regulation' : content = getBranchInfoData(id='1')
         break;
@@ -25,5 +23,17 @@ export function getContentByModule(module){
     }
     return content
 }
+
+
+export function getDataByID(id){
+    const data =branchInfo.filter(function(item){
+        if(item.id == id){
+            return item
+        }
+    })
+    return data
+}
+
+
 
 
