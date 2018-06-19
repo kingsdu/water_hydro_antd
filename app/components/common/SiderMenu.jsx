@@ -1,58 +1,51 @@
-import React from 'react';
+import React, {Component}from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
-
+import { getdefaultName } from '../../common/getColumnName'
 import { menu } from '../../config/constant/menu'
 
-const renderMenuItem =
-    ({key,title,icon}) =>
-        <Menu.Item
-                key={key}
-            >
-                <Link to={key}>
-                    {icon && <Icon type={icon} />}
-                    <span className="nav-text">{title}</span>
-                </Link>
-        </Menu.Item>;
 
-const renderSubMenu =
-    ({ key, title, icon, sub}) =>
-        <Menu.SubMenu
-            key={key}
-            title={
-                <span>
-                    {icon && <Icon type={icon} />}
-                    <span className="nav-text">{title}</span>
-                </span>
+export default class SliderMenu extends Component{
+    state = {
+        openKeys: [''],
+        data:[],
+    };
+
+    render() {
+        const category = this.props.category;
+        const menuData = menu.filter(function(item){
+            if(item.key == category){
+                return item.key
             }
-        >
-            {sub && sub.map(item => renderMenuItem(item))}
-        </Menu.SubMenu>;
+        })
+        const defaultOpenKeys = getdefaultName(category).split("|")[0]
+        const defaultSelectedKeys = getdefaultName(category).split("|")[1]
 
-const onOpenChange = () =>{
+        /*
+        此处需要使用
+        openKeys 和 defaultSelectedKeys的组合
+        openKeys：当前展开的 SubMenu 菜单项 key 数组(使用defaultOpenKeys会导致切换页面菜单无法自动打开)    //sub层
+        defaultSelectedKeys：初始选中的菜单项 key 数组   //item层
+        */
+        return(
+            <Menu
+            mode={'inline'} 
+            defaultSelectedKeys={[defaultSelectedKeys]}
+            openKeys={[defaultOpenKeys]}
+            style={{ width: 197 }}>
+                {
+                    menuData && menuData.map((item) => {
+                        return (
+                            <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.title}</span></span>}>
+                                {item.sub && item.sub.map(subItem => (
+                                    <Menu.Item key={subItem.key}> <Link to={subItem.key}>{subItem.title}</Link></Menu.Item>
+                                    ))}
+                            </Menu.SubMenu>
+                        )
+                    })
+                }
+            </Menu>
+        )
+    }
 
 }
-
-const SliderMenu = ({category}) => {
-    const menuData = menu.filter(function(item){
-        if(item.key == category){
-            return item.key
-        }
-    })
-
-    return(
-        //antd中于default相关的就需要，在UI第一遍初始化时，就确定值
-        //可以用用openkeys和selectkeys代替
-        <Menu mode={'inline'}
-        openKeys={[menuData[0].key]}
-        selectedKeys={[menuData[0].sub[0].key]}
-        style={{ width: 197 }}>
-            {menuData && menuData.map(
-                item => item.key && item.key.length ?
-                    renderSubMenu(item) : renderMenuItem(item)
-            )}
-        </Menu>
-    )
-} 
-
-export default SliderMenu

@@ -108,3 +108,45 @@ export function switchNameByModule(category,module){
     }
     return title+"|"+subTitle
 }
+
+
+
+//根据模块名称获取defaultSelectedKeys和defaultOpenKeys
+export function getdefaultName(category){
+    let defaultSelectedKeys = ''
+    let defaultOpenKeys = ''
+    switch (category) {
+        case 'branch':
+            defaultOpenKeys = 'branch'
+            defaultSelectedKeys = '/child/branch/brachInfo'
+            break;
+        case 'academic':
+            defaultOpenKeys = 'academic'
+            defaultSelectedKeys = '/child/academic/dynamicsWork'
+            break;
+        case 'award':
+            defaultOpenKeys = 'award'
+            defaultSelectedKeys = '/child/award/rewardDynamics'
+            break;
+        case 'certification':
+            defaultOpenKeys = 'certification'
+            defaultSelectedKeys = '/child/certification/titlereview'
+            break;
+        case 'SciencePark':
+            defaultOpenKeys = 'SciencePark'
+            defaultSelectedKeys = '/child/SciencePark/scienceDynamics'
+            break;
+        case 'membershipService':
+            defaultOpenKeys = 'membershipService'
+            defaultSelectedKeys = '/child/membershipService/titlereview'
+            break;
+        case 'digitalData':
+            defaultOpenKeys = 'digitalData'
+            defaultSelectedKeys = '/child/digitalData/academicPapers'
+            break;
+        default:
+            break;
+    }
+    return defaultOpenKeys+"|"+defaultSelectedKeys
+}
+
