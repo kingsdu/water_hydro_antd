@@ -8,7 +8,7 @@ export default class HotNotice extends Component{
     render(){
         const {isMore, isCenter, title, id, iconType} = this.props;
         return(
-            <div>
+            <div className='HotNotice'>
                 <ColumnHeader
                 title={title}
                 id={id}

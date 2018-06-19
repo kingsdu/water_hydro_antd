@@ -3,28 +3,29 @@ import ColumnHeader from './ColumnHeader'
 import {Row, Col, Carousel} from 'antd'
 
 import NewsListBlock from '../common/NewsListBlock'
+import FirstColumHeader from '../../components/common/FirstColumHead'
+import NewsTitCon from '../../components/common/NewsTitCon'
 
 export default class NoticeColumn extends Component {
     render(){
         const {type, isMore, total, title, id, iconType} = this.props;
         return(
-            <div>
-                <ColumnHeader
-                 title={title}
-                 id={id}
-                 isMore={isMore}/>
+            <div className ='NoticeColumn'>
                 <Row>
-                    <Col span={12}>
-                         <div className='border carousel'>
-                            <Carousel autoplay>
-                                <div><img src="http://i2.bvimg.com/622218/afdf320e83826001.jpg"/></div>
-                                <div><img src="http://i2.bvimg.com/622218/390c5516e1e9edbf.jpg"/></div>
-                                <div><img src="http://i2.bvimg.com/622218/fd93bb7f719da0f2.jpg"/></div>
-                            </Carousel>                
-                        </div>
+                    <Col span={24}>
+                        <FirstColumHeader params={'焦距动态'}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={11} className='Col-2'>
+                        <img src='http://i2.bvimg.com/622218/390c5516e1e9edbf.jpg'/>            
                     </Col>
                     <Col span={12}>
-                        <NewsListBlock type='guonei'count={5} iconType={iconType}/>   
+                        <ColumnHeader
+                            title={title}
+                            id={id}
+                            isMore={isMore}/>
+                        <NewsTitCon/>
                     </Col>
                 </Row>               
             </div>

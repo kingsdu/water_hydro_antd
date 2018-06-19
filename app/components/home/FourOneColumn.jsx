@@ -1,16 +1,11 @@
 import React, {Component} from 'react'
-import VipShow from './VipShow'
-import ColumnHeader from './ColumnHeader'
+
+import SliderPic from '../home/SliderPic'
 
 const FourOneColumn = () => {
     return (
         <div>
-            <ColumnHeader
-            title='会员风采'
-            id='xhxw'
-            isMore={true}
-            isCenter={false}/>
-            <VipShow/>
+            <SliderPic imageUrl={'http://i1.bvimg.com/622218/1b5b65d1576565b5.png'}/>
         </div>
     )
 }

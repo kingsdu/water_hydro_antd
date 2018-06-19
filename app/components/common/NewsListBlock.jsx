@@ -30,10 +30,10 @@ export default class NewsListBlock extends Component {
 
     render() {
         const {isLoading} = this.state.isLoading;
-        const {isCenter,iconType} = this.props;
+        const {haveLine} = this.props;
         return(
             <div>
-                {isLoading ? <Loading /> : <NewsList newsData={this.state.data} isCenter={isCenter} iconType={iconType}/>}
+                {isLoading ? <Loading /> : <NewsList newsData={this.state.data} haveLine={haveLine}/>}
             </div>
         )
     }

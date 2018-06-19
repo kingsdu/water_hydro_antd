@@ -6,6 +6,8 @@ import SecondTwoColumn from '../components/home/SecondTwoColumn'
 import SecondThreeColumn from '../components/home/SecondThreeColumn'
 import SecondFourColumn from '../components/home/SecondFourColumn'
 import SecondFiveColumn from '../components/home/SecondFiveColumn'
+import SecondSixColumn from '../components/home/SecondSixColumn'
+import SecondSevenColumn from '../components/home/SecondSevenColumn'
 import ThirdColumn from '../components/home/ThirdColumn'
 import FourOneColumn from '../components/home/FourOneColumn'
 import FourTwoColumn from '../components/home/FourTwoColumn'
@@ -16,7 +18,7 @@ export default class HomeContainer extends Component {
             <div>
                 <Row>
                     <Col span={24}>
-                        <Card className='home'>
+                        <Card className='home-1'>
                             <FirstColumn/>     
                         </Card>
                     </Col>
@@ -26,38 +28,39 @@ export default class HomeContainer extends Component {
                         <Card className='home-2-1'>
                             <SecondOneColumn/>                      
                         </Card>
-                        <Card className='home-2-1'>
+                        <Card className='home-2-2'>
                             <SecondTwoColumn/>                      
                         </Card>
-                        <Card className='home-2-1'>
+                        <Card className='home-2-3'>
                             <SecondThreeColumn/>                      
+                        </Card>
+                        <Card className='home-2-4'>
+                            <SecondFourColumn/>                 
                         </Card>
                     </Col>
                     <Col span={17}>
-                        <Card className='home'>
-                            <SecondFourColumn/>
-                        </Card>
-                        <Card className='home'>
+                        <Card className='home-2-5'>
                             <SecondFiveColumn/>
+                        </Card>
+                        <Card className='home-2-6'>
+                            <SecondSixColumn/>
+                        </Card>
+                        <Card className='home-2-7'>
+                            <SecondSevenColumn/>
                         </Card>
                     </Col>   
                 </Row>
                 <Row>
                     <Col span={24}>
-                        <Card className='home'>
+                        <Card className='home-3-1'>
                             <ThirdColumn/>
                         </Card>
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={12}>
-                        <Card className='home-2-1'>
+                    <Col span={24}>
+                        <Card className='home-4-1'>
                             <FourOneColumn/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        <Card className='home'>
-                            <FourTwoColumn/>
                         </Card>
                     </Col>
                 </Row>

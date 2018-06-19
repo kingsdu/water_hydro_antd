@@ -29,6 +29,10 @@ const renderSubMenu =
             {sub && sub.map(item => renderMenuItem(item))}
         </Menu.SubMenu>;
 
+const onOpenChange = () =>{
+
+}
+
 const SliderMenu = ({category}) => {
     const menuData = menu.filter(function(item){
         if(item.key == category){

@@ -1,32 +1,34 @@
 import React, {Component} from 'react'
-import {Row, Col} from 'antd'
+import {Row, Col ,Carousel} from 'antd'
 
 import NoticeColumn from './NoticeColumn'
 import MemberService from './MemberService'
 
 const FirstColumn = ()=> {
     return (
-        <div>
-            <Row>
-                <Col span={16}>
-                    <NoticeColumn
-                    id='notice'
-                    title='公会动态'
-                    type='in_notices'
-                    iconType='2'
-                    isMore={true}>                    
-                    </NoticeColumn>
-                </Col>
-                <Col span={6} offset={1}>
-                    <MemberService 
-                    id='notice'
-                    title='会员服务'
-                    type='in_notices'
-                    isMore={true}>    
-                    </MemberService>
-                </Col>
-            </Row>
-        </div>
+        <div className='carousel'>
+            <Carousel autoplay={true}
+            dots={false}>
+                <div>
+                    <img src="http://i4.bvimg.com/622218/57b552ad14f89019.jpg"/>
+                    <div className='carousel-font'>
+                        <p>欢迎加入中国地球物理学会水利电力分会</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="http://i4.bvimg.com/622218/e6f2168939039b8b.jpg"/>
+                    <div className='carousel-font'>
+                        <p>欢迎加入中国地球物理学会水利电力分会</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="http://i4.bvimg.com/622218/07dc78977037ec62.jpg"/>
+                    <div className='carousel-font'>
+                        <p>欢迎加入中国地球物理学会水利电力分会</p>
+                    </div>
+                </div>
+            </Carousel>
+      </div>
     )
 }
 
