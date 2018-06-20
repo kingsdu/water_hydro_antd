@@ -40,13 +40,13 @@
     margin-right: 10px;
     margin-bottom: 10px;
     .ant-card-body{
-        padding: 20px 20px;
+        padding: 29px 20px;
     }
 
     .HotNotice{
         background-color: #F5F2ED;
         border: 1px solid gray;
-        border-radius:10px;
+        border-radius:5px;
         padding: 20px 10px 20px;
     }
 
@@ -80,17 +80,17 @@
     margin-right: 10px;
     margin-bottom: 10px;
     .ant-card-body{
-        padding: 20px 20px;
+        padding: 30px 20px;
     }
 
     .PredictionActivity{
         border: 1px solid #797979;
-        border-radius: 10px;
+        border-radius: 5px;
         .PredictionAtyHeader{
             margin-bottom: 10px;
             background-color: #7AAFD9;
             border: 1px solid #797979;
-            border-radius: 10px;
+            border-radius: 5px 5px 0px 0px;
             p{
                 font-size: 22px;
                 font-weight: bold;
@@ -106,7 +106,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     .ant-card-body{
-        padding: 20px 20px;
+        padding: 30px 20px;
     }
 
     .column_header_center{
@@ -135,10 +135,22 @@
 
     .SecondThreeColumn{
         border: 1px solid #797979;
-        border-radius:10px;
+        border-radius:5px;
         .columnHeader-div{
             padding: 10px 10px 0px 10px;
         }
+
+        // 分会介绍
+        .branchIntro{
+            border-radius:0px 0px 5px 5px;
+            p{
+                font-size: 16px;
+                text-align: center;
+                border: 1px solid gray;
+                margin: 10px;
+            }
+        }
+        background: linear-gradient(to bottom, #fff, #4682B4); 
     }
 }
 
@@ -146,12 +158,11 @@
     margin-right: 10px;
     margin-bottom: 10px;
     .ant-card-body{
-        padding: 20px 20px;
+        padding: 30px 20px;
     }
-
     .SecondFourColumn{
         border: 1px solid #797979;
-        border-radius: 10px;
+        border-radius: 5px;
         width: 260px;
         //可切换头部布局
         .SwitchHeader{
@@ -163,7 +174,16 @@
                 margin-bottom: 10px;
             }
         }
+        background: linear-gradient(to bottom, #fff, #4682B4); 
     }
+
+    .ant-tabs-nav{
+        color: #235A91;
+    }
+    .ant-tabs-tab-active{
+        color: #235A91;
+    }
+
 }
     
 
@@ -173,7 +193,7 @@
     //整体卡片的边距
     .ant-card-body{
         padding: 10px 20px 0px 20px;
-        height: 220px;
+        height: 200px;
     }
 
     // 控制四块新闻部分，上面两块和下面两块的距离
@@ -184,7 +204,7 @@
     .NoticeColumn{
         img{
             height: 160px;
-            width: 260px;
+            width: 290px;
         }
 
         .Col-2{
@@ -268,9 +288,10 @@
                 text-indent:25px;      
             }
             .vipshow{
-                padding: 20px 0px 0px 0px;
-                height: 200px;
-                background-color: #6A9BD2;
+                height: 210px;
+                // background-color: #6A9BD2;
+                background:url('http://i1.bvimg.com/622218/583d3251e90040c1.png') no-repeat;
+                background-position: 0px 0px;
                 border: 1px solid #797979;
                 img{
                     margin:10px 0px 10px 15px; 
@@ -280,6 +301,13 @@
             }
             .name-p{
                 font-size: 26px;
+            }
+
+            .bottom-p{
+                height: 39px;
+                background-color: #4B7BA1;
+                width:100%;
+                border: 1px solid #797979
             }
         }
     }
@@ -297,14 +325,13 @@
     //科普乐园
     .ScienceDomain{
         p{
-            padding-left:11px;
+            padding:5px 0px 0px 11px;
+            font-size:16px;
+            color: #0381B4;
         }
         img{
-            height: 50px;
-            width: 60px;
-        }
-        Row{
-            padding-top: 10px;
+            height: 70px;
+            width: 80px;
         }
     }
 
@@ -313,8 +340,10 @@
             background-color: #CEEFFE;
             border: 1px solid #797979;
             border-radius: 10px;
-            margin-top:10px;
+            margin-top:30px;
             p{
+                background:url('http://i4.bvimg.com/622218/f1a35f278f3e9b6d.jpg') no-repeat;
+                background-position: 12px 15px;
                 text-align: center;
                 line-height:36px;
                 font-size: 14px;               
@@ -374,37 +403,21 @@
 
     //首页轮播大图
     .SliderPic{
-        img{
-            height: 110px;
-            width: 1020px;
+        .img1{
+            height: 80px;
+            width: 270px;
+        }
+        .img2{
+            height: 80px;
+            width: 270px;
         }
     }
 }
 
-//会员风采模块
-.vipshow{
-    img{
-        margin-top:10px;
-        width: 160px;
-        height: 180px;
-    }
-    p{
-        padding-Top: 35px;
-        font-size: 16px;
-    }
-}
 
 
 
-// 分会介绍
-.branchIntro{
-    p{
-        font-size: 16px;
-        text-align: center;
-        border: 1px solid gray;
-        margin: 10px;
-    }
-}
+
 
 
 
@@ -438,20 +451,28 @@
     line-height: 30px;
     padding: 0px 10px 0px 0px;
     margin-bottom: 8px;
-    .column_title{
+    .column_title {
         font-size: 15px;
         font-weight: bold;
         display: inline-block;
         width: 80px;
         line-height: 30px;
-        border-bottom: 2px solid #797979;
+        border-bottom: 2px solid #235A91;
         a {
-          color: #797979;
+          color: #235A91;
         }
     }
     .column_more {
         float: right;
         color: #B0C4DE;
+    }
+    .column_header_span{
+        padding: 0px 5px 6px 0px;
+        border-bottom: 2px solid #235A91;
+        img{
+            width: 5px;
+            height: 20px;
+        }
     }
 }
 

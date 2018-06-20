@@ -12,15 +12,20 @@ export default class NoticeColumn extends Component {
         return(
             <div className ='NoticeColumn'>
                 <Row>
-                    <Col span={24}>
-                        <FirstColumHeader params={'焦距动态'}/>
+                    <Col span={9} className='Col-2'>
+                        <Carousel autoplay={true} vertical={true} dots={true}>
+                            <div>
+                                <img src='http://i2.bvimg.com/622218/afdf320e83826001.jpg'/>
+                            </div>
+                            <div>
+                                <img src='http://i2.bvimg.com/622218/390c5516e1e9edbf.jpg'/>
+                            </div>
+                            <div>
+                                <img src='http://i2.bvimg.com/622218/2e9c109744f794c4.jpg'/>
+                            </div>                           
+                        </Carousel>          
                     </Col>
-                </Row>
-                <Row>
-                    <Col span={10} className='Col-2'>
-                        <img src='http://i2.bvimg.com/622218/390c5516e1e9edbf.jpg'/>            
-                    </Col>
-                    <Col span={13}>
+                    <Col span={13} offset={1}>
                         <ColumnHeader
                             title={title}
                             id={id}

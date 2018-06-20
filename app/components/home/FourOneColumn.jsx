@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import SliderPic from '../home/SliderPic'
 
 const FourOneColumn = () => {

@@ -26,13 +26,15 @@ const SecondSevenColumn = () => {
                     <div className='VipShow-out'>
                         <ColumnHeader
                         title='会员风采'
-                        id='xhxw'
                         isMore={true}
                         isCenter={false}/>
                         <VipShow/>
                     </div>
                 </Col>
             </Row>
+            <div>
+                
+            </div>
         </div>
     )
 }

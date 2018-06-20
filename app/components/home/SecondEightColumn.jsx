@@ -11,14 +11,28 @@ const SecondEightColumn = () => {
         <div className='SecondEightColumn'>
             <Row>
                 <Col span={7}>
-                    <ColumnHeader
-                        title={'专利'}
-                        id={'1'}
-                        isMore={true}
-                        isCenter={false}/>
-                        <NewsListBlock haveLine={true} count={6}/> 
+                    <Row>
+                        <Col span={24}>
+                            <ColumnHeader
+                                title={'专利'}
+                                id={'1'}
+                                isMore={true}
+                                isCenter={false}/>
+                                <NewsListBlock haveLine={true} count={4}/> 
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={24}>
+                            <ColumnHeader
+                                title={'产品'}
+                                id={'1'}
+                                isMore={true}
+                                isCenter={false}/>
+                                <NewsListBlock haveLine={true} count={4}/> 
+                        </Col>
+                    </Row>
                 </Col>
-                <Col span={7} offset={1}>
+                <Col span={8} offset={1}>
                     <ColumnHeader
                         title='科普乐园'
                         isMore={true}
