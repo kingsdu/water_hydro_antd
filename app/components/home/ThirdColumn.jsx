@@ -31,7 +31,7 @@ export default class ThirdColumn extends Component{
                                 id={'1'}
                                 isMore={true}
                                 isCenter={false}/>
-                                <NewsListBlock haveLine={true}/> 
+                                <NewsListBlock haveLine={true} count={4}/> 
                         </Col>
                         <Col span={5} offset={1}>
                             <ColumnHeader
@@ -39,7 +39,7 @@ export default class ThirdColumn extends Component{
                                 id={'1'}
                                 isMore={true}
                                 isCenter={false}/>
-                                <NewsListBlock haveLine={true}/> 
+                                <NewsListBlock haveLine={true} count={4}/> 
                         </Col>
                     </Row>
                 </div> 

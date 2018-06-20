@@ -8,7 +8,7 @@ import NewsTitCon from '../../components/common/NewsTitCon'
 
 export default class NoticeColumn extends Component {
     render(){
-        const {type, isMore, total, title, id, iconType} = this.props;
+        const {isMore, title, id} = this.props;
         return(
             <div className ='NoticeColumn'>
                 <Row>
@@ -17,10 +17,10 @@ export default class NoticeColumn extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={11} className='Col-2'>
+                    <Col span={10} className='Col-2'>
                         <img src='http://i2.bvimg.com/622218/390c5516e1e9edbf.jpg'/>            
                     </Col>
-                    <Col span={12}>
+                    <Col span={13}>
                         <ColumnHeader
                             title={title}
                             id={id}

@@ -13,10 +13,7 @@ const SecondFiveColumn = () =>{
             <Row className='row-bottom'>
                 <Col span={24}>
                     <NoticeColumn
-                        id='notice'
                         title='图片新闻'
-                        type='in_notices'
-                        iconType='2'
                         isMore={true}>                    
                     </NoticeColumn>
                 </Col>

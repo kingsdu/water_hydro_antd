@@ -3,8 +3,25 @@ var router = require('koa-router')();
 
 //首页新闻展示
 var newsData = require('./home/news.js')
-router.get('/api/homeNews', function *(next) {
-    this.body = newsData
+router.get('/api/homeNews/:count', function *(next) {
+    const count = this.params.count
+    let data = ''
+    if(count == '4'){
+        data = newsData.filter(function(item){
+            if(item.id != '5' && item.id != '6'){
+                return item
+            }
+        })
+    }else if(count == '5'){
+        data = newsData.filter(function(item){
+            if(item.id != '6'){
+                return item
+            }
+        })
+    }else{
+        data = newsData
+    }
+    this.body = data
 })
 
 

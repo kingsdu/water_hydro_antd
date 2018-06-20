@@ -10,13 +10,39 @@ export function getContentByModule(module){
         break;
         case 'organization' : content = getDataByID(id='2')
         break;
-        case 'regulation' : content = getBranchInfoData(id='1')
+        case 'regulation' : content = getDataByID(id='3')
         break;
         case 'history' : content = getBranchInfoData(id='2')
         break;
         case 'event' : content = getBranchInfoData(id='2')
         break;
-        case 'documents' : content = getBranchInfoData(id='2')
+        case 'dynamicsWork' : content = getBranchInfoData(id='2')
+        break;
+        case 'eventsNotice' : content = getBranchInfoData(id='2')
+        break;
+        case 'notices' : content = getBranchInfoData(id='2')
+        break;
+        case 'skillDynamics' : content = getBranchInfoData(id='2')
+        break;
+        case 'rewardDynamics' : content = getBranchInfoData(id='2')
+        break;
+        case 'rewardRecommendation' : content = getBranchInfoData(id='2')
+        break;
+        case 'awardsIntroduced' : content = getBranchInfoData(id='2')
+        break;
+        case 'YearendAwards' : content = getBranchInfoData(id='2')
+        break;
+        case 'titlereview' : content = getBranchInfoData(id='2')
+        break;
+        case 'reviewRule' : content = getBranchInfoData(id='2')
+        break;
+        case 'notices' : content = getBranchInfoData(id='2')
+        break;
+        case 'skillDynamics' : content = getBranchInfoData(id='2')
+        break;
+        case 'scienceDynamics' : content = getBranchInfoData(id='2')
+        break;
+        case 'publication' : content = getBranchInfoData(id='2')
         break;
         default: id = ""
         break;
@@ -26,7 +52,7 @@ export function getContentByModule(module){
 
 
 export function getDataByID(id){
-    const data =branchInfo.filter(function(item){
+    const data = branchInfo.filter(function(item){
         if(item.id == id){
             return item
         }

@@ -8,6 +8,7 @@ import SecondFourColumn from '../components/home/SecondFourColumn'
 import SecondFiveColumn from '../components/home/SecondFiveColumn'
 import SecondSixColumn from '../components/home/SecondSixColumn'
 import SecondSevenColumn from '../components/home/SecondSevenColumn'
+import SecondEightColumn from '../components/home/SecondEightColumn'
 import ThirdColumn from '../components/home/ThirdColumn'
 import FourOneColumn from '../components/home/FourOneColumn'
 import FourTwoColumn from '../components/home/FourTwoColumn'
@@ -48,14 +49,10 @@ export default class HomeContainer extends Component {
                         <Card className='home-2-7'>
                             <SecondSevenColumn/>
                         </Card>
-                    </Col>   
-                </Row>
-                <Row>
-                    <Col span={24}>
-                        <Card className='home-3-1'>
-                            <ThirdColumn/>
+                        <Card className='home-2-8'>
+                            <SecondEightColumn/>
                         </Card>
-                    </Col>
+                    </Col>   
                 </Row>
                 <Row>
                     <Col span={24}>

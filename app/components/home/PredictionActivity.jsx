@@ -11,7 +11,7 @@ const PredictionActivity = ({title,isCenter}) => {
         <div className='PredictionActivity'>
             <PredictionAtyHeader
             title={title}/>
-            <NewsListBlock haveLine={true}/> 
+            <NewsListBlock haveLine={true} count={5}/> 
         </div>
     )
 }

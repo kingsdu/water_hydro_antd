@@ -12,10 +12,11 @@ export default class NewsListBlock extends Component {
     }
 
     componentDidMount() {
+        const { count } = this.props;
         this.setState({
             isLoading: true
         });
-        const result = getNewsData()
+        const result = getNewsData(count)
         result.then(res =>{
             return res.json()
         }).then(json =>{

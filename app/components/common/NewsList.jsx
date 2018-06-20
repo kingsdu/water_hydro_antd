@@ -7,8 +7,8 @@ const NewsList = ({newsData,haveLine}) => {
     }
 
     const newsList = newsData.map((newsItem, index) =>(
-        <li key={newsItem.uniquekey}>
-            <Link to={newsItem.uniquekey}>
+        <li key={newsItem.id}>
+            <Link to={newsItem.id}>
                 {newsItem.title}
             </Link>
         </li>

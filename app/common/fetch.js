@@ -1,7 +1,7 @@
 import { get } from './get'
 
-export function getNewsData() {
-    const result = get('/api/homeNews')
+export function getNewsData(count) {
+    const result = get('/api/homeNews/'+count)
     return result
 }
 
