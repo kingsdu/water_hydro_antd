@@ -11,7 +11,7 @@ export default class VipShow extends Component{
                     <div>
                         <Row>
                             <Col span={8}>
-                                <img src="http://i1.bvimg.com/622218/c7c2cfb958fecdf9.jpg"/>
+                                <img src="http://i4.bvimg.com/622218/c7c2cfb958fecdf9.jpg"/>
                             </Col>
                             <Col span={14} offset={1}>
                                 <p className='name-p'>王毅</p>

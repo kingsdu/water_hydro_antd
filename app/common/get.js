@@ -32,7 +32,6 @@ export function get_params(url,params){
             'Accept': 'application/json, text/plain, */*'
         }
     }); 
-
     return result;
 }
 

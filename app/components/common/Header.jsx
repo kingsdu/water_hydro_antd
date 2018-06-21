@@ -14,7 +14,7 @@ const Head = () => {
                         <a href='/' className='logo'/>
                     </Col>
                     <Col span={11} offset={2}>
-                        <img src='http://i2.bvimg.com/622218/909a7e21222fc3b5.jpg' className='branch-title'/>
+                        <img src='http://i4.bvimg.com/622218/909a7e21222fc3b5.jpg' className='branch-title'/>
                     </Col>
                     <Col span={2} offset={5}>
                         <Button type="primary">登录</Button>
