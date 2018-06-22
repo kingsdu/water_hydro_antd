@@ -9,7 +9,11 @@ const SecondTwoColumn = () =>{
         <div>
            <PredictionActivity
            title='活动预告'
-           isCenter={true}/>
+           type='PredictionActivity'
+           isMore={false}
+           isCenter={true}
+           haveLine={true}
+           />
         </div>
     )
 }

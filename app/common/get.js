@@ -3,16 +3,16 @@ import 'es6-promise'
 
 export function get(url) {
     var result = fetch(url, {
-        credentials: 'include',
+        method: 'GET', 
         headers: {
-            'Accept': 'application/json, text/plain, */*'
+            'content-type':'application/json'
         }
     });
-
     return result;
 }
 
 
+//GET方式  带参数方式
 export function get_params(url,params){
     if(params){
         let paramsArray = [];
@@ -21,18 +21,29 @@ export function get_params(url,params){
         if (url.search(/\?/) === -1) {  
             url += '?' + paramsArray.join('&')  
         } else {  
-            url += '&' + paramsArray.join('&')  
+            url += '&' + paramsArray.join('&') 
         }
     }
-    //fetch请求  
-    var result = fetch(url,{  
+
+    const result = fetch(url, {
         method: 'GET', 
-        credentials: 'include',
         headers: {
-            'Accept': 'application/json, text/plain, */*'
+            'content-type':'application/json'
         }
-    }); 
-    return result;
+    });
+
+    return result.then(response=> {
+        return response.json();
+    }).catch(err=>
+        console.log('parsing failed', err)
+    );
 }
 
+
+// return result.then(response=> {
+//     console.log('response.json()', response.json())
+//     return response.json();
+// }).catch(err=>
+//     console.log('parsing failed', err)
+// );
 

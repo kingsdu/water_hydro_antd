@@ -148,6 +148,7 @@
                 text-align: center;
                 border: 1px solid gray;
                 margin: 10px;
+                color: #235A91;
             }
         }
         background: linear-gradient(to bottom, #fff, #4682B4); 
@@ -216,13 +217,17 @@
                 font-size: 20px;
                 font-weight: bold;
                 color: #1F5B93;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap; //文本不换行，这样超出一行的部分被截取，显示...
             }
             .content{
                 margin-top: 10px;
                 color: #1F5B93;
                 font-size: 16px;
+                text-indent:25px;
             }
-        }
+       }
     }
 
     .FirstColumHeader{

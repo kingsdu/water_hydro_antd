@@ -15,20 +15,20 @@ const SecondEightColumn = () => {
                         <Col span={24}>
                             <ColumnHeader
                                 title={'专利'}
-                                id={'1'}
+                                type='patent'
                                 isMore={true}
                                 isCenter={false}/>
-                                <NewsListBlock haveLine={true} count={4}/> 
+                                <NewsListBlock haveLine={true} type='patent' count={4}/> 
                         </Col>
                     </Row>
                     <Row>
                         <Col span={24}>
                             <ColumnHeader
                                 title={'产品'}
-                                id={'1'}
+                                type='product'
                                 isMore={true}
                                 isCenter={false}/>
-                                <NewsListBlock haveLine={true} count={4}/> 
+                                <NewsListBlock haveLine={true} type='product' count={4}/> 
                         </Col>
                     </Row>
                 </Col>

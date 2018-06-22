@@ -14,13 +14,14 @@ const SecondSevenColumn = () => {
                 <Col span={7}>
                     <ColumnHeader
                     title={'技术展示'}
-                    id={'2'}
+                    type={'skillShow'}
                     isMore={true}
                     isCenter={false}/>
-                    <PicContent 
+                    <PicContent
+                    type={'skillShow'}
                     content={'一种规范化度安徽省水利建设'}
                     imageUrl={'http://i2.bvimg.com/622218/804a1454df9c824b.jpg'}/>
-                    <NewsListBlock haveLine={true} count={4}/> 
+                    <NewsListBlock haveLine={true} count={4} type={'skillShow'}/> 
                 </Col>
                 <Col span={16} offset={1}>
                     <div className='VipShow-out'>

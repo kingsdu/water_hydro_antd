@@ -1,5 +1,46 @@
 
-//根据传入的module获取菜单名称
+import { SERVER_PATH } from '../config/constant/commonConstant'
+import { get , get_params} from './get'
+/**
+ * 公共工具封装
+*/
+
+
+// 获取首页more所需要的route
+export function getHomeTarget(type){
+    let route = ''
+    switch (type) {
+        case 'BranchIntro':
+            route = '/child/branch/brachInfo'
+            break;
+        case 'academicExchange':
+            route = '/child/academic/dynamicsWork'
+            break;
+        case 'recognitionAward':
+            route = '/child/award/rewardDynamics'
+            break;
+        case 'Review':
+            route = '/child/certification/titlereview'
+            break;
+        case 'skillShow':
+            route = '/child/SciencePark/scienceDynamics'
+            break;
+        case 'patent':
+            route = '/child/SciencePark/publication'
+            break;
+        case 'product':
+            route = '/child/SciencePark/publication'
+            break;
+        default:
+            break;
+    }
+
+    return route
+}
+
+
+
+// 根据module 生成对应的菜单子栏目名称
 export function switchNameByModule(category,module){
     let title = ''
     let subTitle = ''
@@ -111,6 +152,106 @@ export function switchNameByModule(category,module){
 
 
 
+// 根据module 获取对应的内容列表
+// startPage size 
+export function getContentByModule(startPage,size,module){
+    let content = ''
+    let route = ''
+    switch (module) {
+        case 'brachInfo' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'organization' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'regulation' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'history' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'event' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'dynamicsWork' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'eventsNotice' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'notices' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'skillDynamics' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'rewardDynamics' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'rewardRecommendation' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'awardsIntroduced' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'YearendAwards' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'titlereview' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'reviewRule' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'notices' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'skillDynamics' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'scienceDynamics' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+        case 'publication' : 
+        route = 'news/getTitleList';
+        content = getDataByServerID(route,startPage,size);
+        break;
+    }
+    return content;
+}
+
+
+//根据route、pageNum、pageSize获取对应后台数据
+export function getDataByServerID(route,pageNum,pageSize){
+    const params = {
+        pageNum:pageNum,
+        pageSize:pageSize
+    }    
+    const data = get_params(SERVER_PATH+route,params)
+    return data;
+}
+
+
+
+
 //根据模块名称获取defaultSelectedKeys和defaultOpenKeys
 export function getdefaultName(category){
     let defaultSelectedKeys = ''
@@ -149,4 +290,3 @@ export function getdefaultName(category){
     }
     return defaultOpenKeys+"|"+defaultSelectedKeys
 }
-

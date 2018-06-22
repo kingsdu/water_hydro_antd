@@ -14,35 +14,38 @@ const SecondSixColumn = () =>{
                 <Col span={7}>
                     <ColumnHeader
                     title={'学术交流'}
-                    id={'1'}
+                    type='academicExchange'
                     isMore={true}
                     isCenter={false}/>
-                    <PicContent 
-                    content={'中国要认真学习领会省水利局长会议精神'}
-                    imageUrl={'http://i4.bvimg.com/622218/502285443975ff9f.jpg'}/>
-                    <NewsListBlock haveLine={true} count={4}/> 
+                    <PicContent
+                     content={'为贯彻落实《深化标准化工作改革方案》'}
+                     imageUrl={'http://i4.bvimg.com/622218/502285443975ff9f.jpg'}
+                     type='academicExchange'/>
+                    <NewsListBlock haveLine={true} count={4} type='academicExchange'/> 
                 </Col>
                 <Col span={7} offset={1}>
                     <ColumnHeader
                     title={'表彰奖励'}
-                    id={'1'}
+                    type='recognitionAward'
                     isMore={true}
                     isCenter={false}/>
-                    <PicContent 
+                    <PicContent
+                    type='recognitionAward'
                     content={'改进服务手段，提升服务质，增强'}
                     imageUrl={'http://i4.bvimg.com/622218/7b8541c58cef52f3.jpg'}/>
-                    <NewsListBlock haveLine={true} count={4}/> 
+                    <NewsListBlock haveLine={true} count={4} type='recognitionAward'/> 
                 </Col>
                 <Col span={7} offset={1}>
                     <ColumnHeader
                     title={'评审'}
-                    id={'1'}
+                    type='Review'
                     isMore={true}
                     isCenter={false}/>
                     <PicContent 
+                    type='Review'
                     content={'基建局的指导和广大会员单位的大力'}
                     imageUrl={'http://i4.bvimg.com/622218/f4773f6423d7de0c.jpg'}/>
-                    <NewsListBlock haveLine={true} count={4}/> 
+                    <NewsListBlock haveLine={true} count={4} type='Review'/> 
                 </Col>
             </Row>
         </div>

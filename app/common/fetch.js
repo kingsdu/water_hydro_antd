@@ -1,4 +1,5 @@
-import { get } from './get'
+import { SERVER_PATH } from '../config/constant/commonConstant'
+import { get , get_params} from './get'
 
 export function getNewsData(count) {
     const result = get('/api/homeNews/'+count)
@@ -9,6 +10,12 @@ export function getNewsData(count) {
 //获取新闻列表
 export function getNewsListData() {
     const result = get('/api/newsList')
+    return result
+}
+
+//获取新闻列表
+export function getTestData() {
+    const result = get('/api/test')
     return result
 }
 
@@ -26,5 +33,67 @@ export function getBranchInfoData(id) {
     const result = get('/api/branchIntro/' + id)
     return result
 }
+
+
+
+/* 新添加的  所有通过Tomcat获取数据的接口 */
+
+
+//通过首页类型获取所有首页的数据
+export function getHomeDateByType(startPage,pageSize,type){
+    const params = {
+        pageNum:startPage,
+        pageSize:pageSize
+    }
+    let url = '' //请求后台路由，根据type决定
+    let resultData = '' //服务端请求结果
+    switch (type) {
+        case 'HotNotice':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'PredictionActivity':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'PicNews':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'academicExchange':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'recognitionAward':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'Review':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'skillShow':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'patent':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        case 'product':
+            url = SERVER_PATH +'news/getTitleList';
+            resultData = get_params(url,params);
+            break;
+        default:
+            break;
+    }
+
+    return resultData;
+}
+
+
+
+
+
 
 

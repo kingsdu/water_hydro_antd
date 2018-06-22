@@ -7,7 +7,7 @@ import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer'
 
 import BranchSider from '../../components/branch/BranchSider'
-import { getContentByModule } from '../../common/getContentByModule'
+import { getContentByModule } from '../../common/utils'
 
 
 export default class BranchContent extends Component{
@@ -24,7 +24,7 @@ export default class BranchContent extends Component{
                     <Col span={18} offset={1}>
                         <Card>
                             <ContentHeader params={params}/>
-                            <ContentHolder params={params}/>
+                            <ContentHolder params={params} count={20}/>
                         </Card>
                     </Col>
                 </Row>

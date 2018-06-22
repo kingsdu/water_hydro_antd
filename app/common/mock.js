@@ -34,6 +34,14 @@ router.get('/api/newsList', function *(next) {
 
 
 
+//新闻测试json数据
+var testList = require('./home/test.js')
+router.get('/api/test', function *(next) {
+    this.body = testList;
+})
+
+
+
 //获取新闻详情信息
 var newsDetails = require('./home/newsDetails.js')
 router.get('/api/newsDetails/:id', function *(next) {
@@ -66,6 +74,6 @@ router.get('/api/branchIntro/:id', function *(next) {
 
 
 // 开始服务并生成路由
-app.use(router.routes())
-   .use(router.allowedMethods());
-app.listen(3001);
+// app.use(router.routes())
+//    .use(router.allowedMethods());
+// app.listen(3001);

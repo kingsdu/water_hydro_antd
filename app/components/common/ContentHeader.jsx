@@ -1,6 +1,6 @@
 import React from 'react'
 import {Icon, Col, Row} from 'antd'
-import { switchNameByModule } from '../../common/getColumnName'
+import { switchNameByModule } from '../../common/utils'
 
 
 //新闻详情页面头部

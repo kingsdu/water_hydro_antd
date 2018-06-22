@@ -18,11 +18,11 @@ const ContentText = ({contentData}) => {
                     <Row>
                         <Col span={24}>
                             {
-                                item.content.split("|").map(
-                                    item => (
-                                        <p className='ContentText_p'>{item}</p>
-                                    )
-                                )
+                                // item && item.content.split("").map(
+                                //     item => (
+                                //         <p className='ContentText_p'>{item}</p>
+                                //     )
+                                // )
                             }
                         </Col>                      
                     </Row> 

@@ -1,20 +1,20 @@
 import React, {Component} from 'react'
-import {Row, Col, Carousel} from 'antd'
+import {Row, Col} from 'antd'
 
 import ColumnHeader from './ColumnHeader'
 import NewsListBlock from '../common/NewsListBlock'
 
 export default class HotNotice extends Component{
     render(){
-        const {isMore, isCenter, title, id} = this.props;
+        const {isMore, isCenter, type, title ,haveLine} = this.props;
         return(
             <div className='HotNotice'>
                 <ColumnHeader
+                type={type}
                 title={title}
-                id={id}
                 isMore={isMore}
                 isCenter={isCenter}/>
-                <NewsListBlock count={5} isCenter={true}/> 
+                <NewsListBlock type={type} count={5} haveLine={haveLine}/> 
             </div>
         )
     }

@@ -1,40 +1,32 @@
 import React, {Component} from 'react'
 
-import {getNewsData} from '../../common/fetch'
+import {getHomeDateByType} from '../../common/fetch'
 import NewsList from './NewsList'
-
-import Loading from './Loading'
 
 export default class NewsListBlock extends Component {
     state = {
         data: null,
-        isLoading: false
+        startPage: 1,
     }
 
     componentDidMount() {
-        const { count } = this.props;
-        this.setState({
-            isLoading: true
-        });
-        const result = getNewsData(count)
-        result.then(res =>{
-            return res.json()
-        }).then(json =>{
-            const data = json
-            if(data.length){
+        const { startPage} = this.state;
+        const { type,count } = this.props;
+        const data = getHomeDateByType(startPage,count,type)
+        data.then((data)=>{
+            if(data.Result == 'success'){
                 this.setState({
-                    data:data
-                })
-            }
-        })
+                    data: data.Data,
+                }); 
+            }      
+       })
     }
 
     render() {
-        const {isLoading} = this.state.isLoading;
         const {haveLine} = this.props;
         return(
             <div>
-                {isLoading ? <Loading /> : <NewsList newsData={this.state.data} haveLine={haveLine}/>}
+                {<NewsList newsData={this.state.data} haveLine={haveLine}/>}
             </div>
         )
     }

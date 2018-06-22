@@ -8,12 +8,11 @@ const SecondOneColumn = () =>{
     return (
         <div>
             <HotNotice
-            id='notice'
             title='热点公告'
-            type='in_notices'
-            iconType=''
+            type='HotNotice'
             isMore={false}
             isCenter={true}
+            haveLine={true}
             />
         </div>
     )

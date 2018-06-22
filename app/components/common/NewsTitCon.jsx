@@ -1,17 +1,48 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Row, Col} from 'antd'
+import {getHomeDateByType} from '../../common/fetch'
 
-const NewsTitCon = ({params}) => {
-    return(
-        <div className='newsTitCon'>
-            <p className='title'>
-                自然资源部召开研讨座谈会 听取意见
-            </p>
-            <p className='content'>
-                会议传达了2018年全省水利局长会议精神，共同学习了《安徽省发展改革委 安徽省民政厅 安徽省财政厅 安徽省国资委 安徽省物价局转发国家发展改革委等部　加强预算执行管理，加快财政支出进度。
-            </p>
-        </div>
-    )
+export default class NewsTitCon extends Component{
+    state = {
+        data:null,
+        pageStart:1,
+        size:1
+    }
+
+    componentDidMount(){
+        const type = this.props.type
+        const {pageStart,size} = this.state
+        const result = getHomeDateByType(pageStart,size,type)
+        result.then((data)=>{
+            if(data.Result == 'success'){
+                this.setState({
+                    data: data.Data,
+                }); 
+            }     
+       })
+    }
+
+    
+    render(){
+        return(
+            <div>
+                {
+                    this.state.data && this.state.data.map((item) => {
+                        return(
+                            <div className='newsTitCon'>   
+                                <p className='title'>
+                                    {item.title}
+                                </p>
+                                <p className='content'>
+                                    {
+                                        item.content.substring(0,80)+"..."
+                                    }
+                                </p>
+                            </div>
+                        )
+                    })
+                }
+            </div>                   
+        )
+    }
 }
-
-export default NewsTitCon

@@ -14,7 +14,9 @@ const SecondFiveColumn = () =>{
                 <Col span={24}>
                     <NoticeColumn
                         title='图片新闻'
-                        isMore={true}>                    
+                        type='PicNews'
+                        isCenter={false}
+                        isMore={false}>                    
                     </NoticeColumn>
                 </Col>
             </Row>

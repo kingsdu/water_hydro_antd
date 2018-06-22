@@ -1,7 +1,7 @@
 import React, {Component}from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
-import { getdefaultName } from '../../common/getColumnName'
+import { getdefaultName } from '../../common/utils'
 import { menu } from '../../config/constant/menu'
 
 
@@ -39,7 +39,7 @@ export default class SliderMenu extends Component{
                             <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.title}</span></span>}>
                                 {item.sub && item.sub.map(subItem => (
                                     <Menu.Item key={subItem.key}> <Link to={subItem.key}>{subItem.title}</Link></Menu.Item>
-                                    ))}
+                                ))}
                             </Menu.SubMenu>
                         )
                     })
