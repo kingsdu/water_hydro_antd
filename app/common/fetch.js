@@ -40,48 +40,49 @@ export function getBranchInfoData(id) {
 
 
 //通过首页类型获取所有首页的数据
-export function getHomeDateByType(startPage,pageSize,type){
+export function getHomeDateByType(startPage,pageSize,type,serverType){
     const params = {
         pageNum:startPage,
-        pageSize:pageSize
+        pageSize:pageSize,
+        type:serverType,
     }
     let url = '' //请求后台路由，根据type决定
     let resultData = '' //服务端请求结果
     switch (type) {
         case 'HotNotice':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'PredictionActivity':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'PicNews':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'academicExchange':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'recognitionAward':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'Review':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'skillShow':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'patent':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         case 'product':
-            url = SERVER_PATH +'news/getTitleList';
+            url = SERVER_PATH +'allInfo/getInfoList';
             resultData = get_params(url,params);
             break;
         default:

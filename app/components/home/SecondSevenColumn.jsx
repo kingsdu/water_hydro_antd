@@ -20,8 +20,9 @@ const SecondSevenColumn = () => {
                     <PicContent
                     type={'skillShow'}
                     content={'一种规范化度安徽省水利建设'}
-                    imageUrl={'http://i2.bvimg.com/622218/804a1454df9c824b.jpg'}/>
-                    <NewsListBlock haveLine={true} count={4} type={'skillShow'}/> 
+                    imageUrl={'http://i2.bvimg.com/622218/804a1454df9c824b.jpg'}
+                    serverType='6'/>
+                    <NewsListBlock haveLine={true} count={4} type={'skillShow'}  serverType='6'/> 
                 </Col>
                 <Col span={16} offset={1}>
                     <div className='VipShow-out'>

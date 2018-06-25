@@ -11,8 +11,8 @@ export default class NewsListBlock extends Component {
 
     componentDidMount() {
         const { startPage} = this.state;
-        const { type,count } = this.props;
-        const data = getHomeDateByType(startPage,count,type)
+        const { type,count,serverType } = this.props;
+        const data = getHomeDateByType(startPage,count,type,serverType)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({

@@ -10,6 +10,7 @@ const SecondOneColumn = () =>{
             <HotNotice
             title='热点公告'
             type='HotNotice'
+            serverType='8'
             isMore={false}
             isCenter={true}
             haveLine={true}

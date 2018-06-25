@@ -10,6 +10,7 @@ const SecondTwoColumn = () =>{
            <PredictionActivity
            title='活动预告'
            type='PredictionActivity'
+           serverType='5'
            isMore={false}
            isCenter={true}
            haveLine={true}

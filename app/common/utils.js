@@ -1,6 +1,8 @@
 
 import { SERVER_PATH } from '../config/constant/commonConstant'
 import { get , get_params} from './get'
+
+
 /**
  * 公共工具封装
 */
@@ -157,94 +159,109 @@ export function switchNameByModule(category,module){
 export function getContentByModule(startPage,size,module){
     let content = ''
     let route = ''
+    let serverType=''
     switch (module) {
         case 'brachInfo' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'branchIntro/getInfoById';
+        content = getDataByServerID(route,1);
         break;
         case 'organization' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'branchIntro/getInfoById';
+        content = getDataByServerID(route,2);
         break;
         case 'regulation' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'branchIntro/getInfoById';
+        content = getDataByServerID(route,3);
         break;
         case 'history' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'branchIntro/getInfoById';
+        content = getDataByServerID(route,4);
         break;
         case 'event' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'dynamicsWork' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'allInfo/getInfoList';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
         break;
         case 'eventsNotice' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'allInfo/getInfoList';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
         break;
         case 'notices' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'allInfo/getInfoList';
+        content = getNewsList(route,startPage,size);
         break;
         case 'skillDynamics' : 
-        route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        route = 'allInfo/getInfoList';
+        content = getNewsList(route,startPage,size);
         break;
         case 'rewardDynamics' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'rewardRecommendation' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'awardsIntroduced' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'YearendAwards' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'titlereview' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'reviewRule' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'notices' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'skillDynamics' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'scienceDynamics' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
         case 'publication' : 
         route = 'news/getTitleList';
-        content = getDataByServerID(route,startPage,size);
+        content = getNewsList(route,startPage,size);
         break;
     }
     return content;
 }
 
 
-//根据route、pageNum、pageSize获取对应后台数据
-export function getDataByServerID(route,pageNum,pageSize){
+//根据route、pageNum、pageSize获取新闻列表数据
+export function getNewsList(route,pageNum,pageSize,serverType){
     const params = {
         pageNum:pageNum,
-        pageSize:pageSize
+        pageSize:pageSize,
+        type:serverType,
     }    
+    const data = get_params(SERVER_PATH+route,params)
+    return data;
+}
+
+
+// 根据id，获取指定新闻
+export function getDataByServerID(route,id){
+    const params = {
+        id:id
+    }
+    
     const data = get_params(SERVER_PATH+route,params)
     return data;
 }
@@ -290,3 +307,41 @@ export function getdefaultName(category){
     }
     return defaultOpenKeys+"|"+defaultSelectedKeys
 }
+
+
+
+//根据Module区分菜单详情到底是哪种布局
+/**
+ * 
+ * @param module 
+ * @return 有list类型和无list类型
+ */
+export function getMenuDetailByModule(module){
+    let menuType = ''
+    if(module == 'brachInfo' || module=='organization' || module=='regulation' 
+    ||module=='history' || module=='event' || module=='documents'){
+        menuType = 'NoList'
+    }else if(testRegex(module)){
+        menuType = 'Details'
+    }else{
+        menuType = 'List'
+    }
+    return menuType
+}
+
+
+
+// 检测id是否是数字
+export function testRegex(id){
+    const regex = new RegExp("^[0-9]*$")
+    if(regex.test(id)){
+        return true
+    }else{
+        return false
+    }
+    return false
+}
+
+
+
+

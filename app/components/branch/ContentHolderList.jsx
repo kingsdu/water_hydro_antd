@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
 
 import { getBranchInfoData } from '../../common/fetch'
-import ContentText from '../../components/branch/ContentText'
-import { getContentByModule } from '../../common/utils'
-import { switchNameByModule } from '../../common/utils'
+import ContentTextList from '../../components/branch/ContentTextList'
+import { getContentByModule,switchNameByModule } from '../../common/utils'
 
 //获取内容部分数据
-export default class ContentHolder extends Component{
+export default class ContentHolderList extends Component{
     state = {
         data: null,
         startpage:1
@@ -43,8 +42,8 @@ export default class ContentHolder extends Component{
 
     render(){
         return(
-            <div className='ContentHolder'>
-                <ContentText contentData={this.state.data}/>
+            <div className='ContentHolderList'>
+                <ContentTextList data={this.state.data} categoty={this.props.params.category}/>
             </div>
         )
     }

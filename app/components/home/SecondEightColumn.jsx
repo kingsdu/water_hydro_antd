@@ -18,7 +18,7 @@ const SecondEightColumn = () => {
                                 type='patent'
                                 isMore={true}
                                 isCenter={false}/>
-                                <NewsListBlock haveLine={true} type='patent' count={4}/> 
+                                <NewsListBlock haveLine={true} type='patent' count={4}  serverType='1'/> 
                         </Col>
                     </Row>
                     <Row>
@@ -28,7 +28,7 @@ const SecondEightColumn = () => {
                                 type='product'
                                 isMore={true}
                                 isCenter={false}/>
-                                <NewsListBlock haveLine={true} type='product' count={4}/> 
+                                <NewsListBlock haveLine={true} type='product' count={4}  serverType='1'/> 
                         </Col>
                     </Row>
                 </Col>

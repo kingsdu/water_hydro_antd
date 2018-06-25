@@ -13,7 +13,7 @@ export default class C_Route extends Component {
         return(
             <Content>
                 <Switch>
-                    <Route path="/child/:category/:module" component={BranchContent}/>    
+                    <Route path="/child/:category/:module" component={BranchContent}/>      
                 </Switch>
             </Content>
         )

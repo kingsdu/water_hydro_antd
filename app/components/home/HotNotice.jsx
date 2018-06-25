@@ -6,7 +6,7 @@ import NewsListBlock from '../common/NewsListBlock'
 
 export default class HotNotice extends Component{
     render(){
-        const {isMore, isCenter, type, title ,haveLine} = this.props;
+        const {isMore, isCenter, type, title ,haveLine ,serverType} = this.props;
         return(
             <div className='HotNotice'>
                 <ColumnHeader
@@ -14,7 +14,7 @@ export default class HotNotice extends Component{
                 title={title}
                 isMore={isMore}
                 isCenter={isCenter}/>
-                <NewsListBlock type={type} count={5} haveLine={haveLine}/> 
+                <NewsListBlock type={type} count={5} haveLine={haveLine} serverType={serverType}/> 
             </div>
         )
     }

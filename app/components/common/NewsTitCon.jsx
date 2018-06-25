@@ -10,9 +10,9 @@ export default class NewsTitCon extends Component{
     }
 
     componentDidMount(){
-        const type = this.props.type
+        const {type,serverType} = this.props
         const {pageStart,size} = this.state
-        const result = getHomeDateByType(pageStart,size,type)
+        const result = getHomeDateByType(pageStart,size,type,serverType)
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({

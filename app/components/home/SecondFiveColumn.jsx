@@ -15,6 +15,7 @@ const SecondFiveColumn = () =>{
                     <NoticeColumn
                         title='图片新闻'
                         type='PicNews'
+                        serverType='1'
                         isCenter={false}
                         isMore={false}>                    
                     </NoticeColumn>

@@ -2,7 +2,6 @@ import React, {Component}from 'react'
 import {Row, Col} from 'antd'
 import {getHomeDateByType} from '../../common/fetch'
 
-
 //图片和新闻内容共同显示模块
 export default class PicContent extends Component{
     state = {
@@ -12,14 +11,14 @@ export default class PicContent extends Component{
     }
 
     componentDidMount(){
-        const type = this.props.type
+        const {type,serverType} = this.props
         const {pageStart,size} = this.state
-        const result = getHomeDateByType(pageStart,size,type)
+        const result = getHomeDateByType(pageStart,size,type,serverType)
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
                     data: data.Data,
-                }); 
+                });            
             }     
        })
     }
@@ -34,21 +33,13 @@ export default class PicContent extends Component{
                                 <Row>
                                     <Col span={12}>
                                         {
-                                            item.picture 
-                                            ?
-                                            <img src={item.picture}/>
-                                            :
-                                            <img src={imageUrl}/>
+                                            handlePic(item)
                                         }
                                     </Col>
                                     <Col span={12}>
-                                        <p>{
-                                            item.content 
-                                            ?
-                                            item.content.substring(0,20)+'...'
-                                            :
-                                            {content}
-                                        }</p>
+                                        {
+                                            handleContent(item)
+                                        }
                                     </Col>
                                 </Row>
                              )
@@ -58,3 +49,53 @@ export default class PicContent extends Component{
         )
     }
 }
+
+
+
+const handlePic = ({content}) => {
+    const data = content.split('#')
+    let suffix = ''
+    let imageUrl = ''
+    for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+        if(element.lastIndexOf("\.") != -1){
+            suffix = element.substring(element.lastIndexOf("\.")+1,element.length)
+            if(suffix == 'jpg' || suffix=='png' || suffix=='JPEG'){
+                imageUrl = element
+                return(
+                    <img src={imageUrl}/>
+                )
+            }else{
+                return(
+                    <img src={"http://i2.bvimg.com/622218/804a1454df9c824b.jpg"}/>
+                )
+            }
+        }
+    }
+    return(
+        <img src={"http://i2.bvimg.com/622218/804a1454df9c824b.jpg"}/>
+    )
+}
+
+
+const handleContent = ({content}) => {
+    const data = content.split('#')
+    let suffix = ''
+    let imageUrl = ''
+    for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+        if(element.lastIndexOf("\.") != -1){
+            continue;
+        }else{
+            return(
+                <p>
+                   {element.substring(0,20)+'...' }
+                </p>
+            )
+        }
+    }
+}
+
+
+
+

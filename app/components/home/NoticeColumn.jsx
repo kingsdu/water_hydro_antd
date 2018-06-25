@@ -8,7 +8,7 @@ import NewsTitCon from '../../components/common/NewsTitCon'
 
 export default class NoticeColumn extends Component {
     render(){
-        const {isMore, title, isCenter, type} = this.props;
+        const {isMore, title, isCenter, type, serverType} = this.props;
         return(
             <div className ='NoticeColumn'>
                 <Row>
@@ -32,6 +32,7 @@ export default class NoticeColumn extends Component {
                             isCenter={isCenter}
                             isMore={isMore}/>
                         <NewsTitCon
+                        serverType={serverType}
                         type={type}/>
                     </Col>
                 </Row>               
