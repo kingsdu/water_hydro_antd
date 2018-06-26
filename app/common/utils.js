@@ -1,4 +1,3 @@
-
 import { SERVER_PATH } from '../config/constant/commonConstant'
 import { get , get_params} from './get'
 
@@ -161,80 +160,99 @@ export function getContentByModule(startPage,size,module){
     let route = ''
     let serverType=''
     switch (module) {
+        //关于分会
         case 'brachInfo' : 
         route = 'branchIntro/getInfoById';
         content = getDataByServerID(route,1);
         break;
+        //组织结构
         case 'organization' : 
         route = 'branchIntro/getInfoById';
         content = getDataByServerID(route,2);
         break;
+        //分会章程
         case 'regulation' : 
         route = 'branchIntro/getInfoById';
         content = getDataByServerID(route,3);
         break;
+        //发展历程
         case 'history' : 
         route = 'branchIntro/getInfoById';
         content = getDataByServerID(route,4);
         break;
+        //大事记
         case 'event' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //工作动态
         case 'dynamicsWork' : 
         route = 'allInfo/getInfoList';
-        serverType = '2'
+        serverType = '1'
         content = getNewsList(route,startPage,size,serverType);
         break;
+        //活动公告
         case 'eventsNotice' : 
         route = 'allInfo/getInfoList';
         serverType = '2'
         content = getNewsList(route,startPage,size,serverType);
         break;
+        //通知
         case 'notices' : 
         route = 'allInfo/getInfoList';
         content = getNewsList(route,startPage,size);
         break;
+        //技术动态
         case 'skillDynamics' : 
         route = 'allInfo/getInfoList';
         content = getNewsList(route,startPage,size);
         break;
+        //奖励动态
         case 'rewardDynamics' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //奖励推荐
         case 'rewardRecommendation' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //奖励介绍
         case 'awardsIntroduced' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //历年获奖情况
         case 'YearendAwards' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //职称评审
         case 'titlereview' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //评审细则
         case 'reviewRule' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //
         case 'notices' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //
         case 'skillDynamics' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //科普动态
         case 'scienceDynamics' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
         break;
+        //评审公告
         case 'publication' : 
         route = 'news/getTitleList';
         content = getNewsList(route,startPage,size);
@@ -343,5 +361,112 @@ export function testRegex(id){
 }
 
 
+// 获取某一类新闻的总条数。只涉及有新闻列表页的内容
+export function getInfoCount(module){
+    let route = ''
+    let serverType = ''
+    let content = ''
+    switch (module) {
+        //工作动态
+        case 'dynamicsWork' : 
+        route = 'allInfo/getInfoCount';
+        serverType = '1'
+        content = getCount(route,serverType);
+        break;
+        //活动公告
+        case 'eventsNotice' : 
+        route = 'allInfo/getInfoCount';
+        serverType = '5'
+        content = getCount(route,serverType);
+        break;
+        //通知
+        case 'notices' : 
+        route = 'allInfo/getInfoCount';
+        serverType = '8'
+        content = getCount(route,serverType);
+        break;
+        //技术动态
+        case 'skillDynamics' : 
+        route = 'allInfo/getInfoCount';
+        serverType = '6'
+        content = getCount(route,serverType);
+        break;
+        //奖励动态
+        case 'rewardDynamics' : 
+        route = 'news/getInfoCount';
+        serverType = '3'
+        content = getCount(route,serverType);
+        break;
+        //奖励推荐
+        case 'rewardRecommendation' : 
+        route = 'news/getInfoCount';
+        serverType = '3'
+        content = getCount(route,serverType);
+        break;
+        //奖励介绍
+        case 'awardsIntroduced' : 
+        route = 'news/getInfoCount';
+        serverType = '3'
+        content = getCount(route,serverType);
+        break;
+        //历年获奖情况
+        case 'YearendAwards' : 
+        route = 'news/getInfoCount';
+        serverType = '3'
+        content = getCount(route,serverType);
+        break;
+        //赞助单位
+        case 'Sponsors' : 
+        route = 'news/getInfoCount';
+        serverType = '2'
+        content = getCount(route,serverType);
+        break;
+        //职称评审
+        case 'titlereview' : 
+        route = 'news/getInfoCount';
+        serverType = '4'
+        content = getCount(route,serverType);
+        break;
+        //评审细则
+        case 'reviewRule' : 
+        route = 'news/getInfoCount';
+        serverType = '4'
+        content = getCount(route,serverType);
+        break;
+        //评审公告
+        case 'reviewNotice' : 
+        route = 'news/getInfoCount';
+        serverType = '7'
+        content = getCount(route,serverType);
+        break;
+        //科普动态
+        case 'scienceDynamics' : 
+        route = 'news/getInfoCount';
+        serverType = '7'
+        content = getCount(route,serverType);
+        break;
+        //出版刊物
+        case 'publication' : 
+        route = 'news/getInfoCount';
+        serverType = '7'
+        content = getCount(route,serverType);
+        break;
+        //评审公告
+        case 'publication' : 
+        route = 'news/getTitleList';
+        content = getNewsList(route,startPage,size);
+        break;
+    }
+    return content
+}
+
+
+export function getCount(route,type){
+    const params = {
+        type:type,
+    }    
+    const data = get_params(SERVER_PATH+route,params)
+    return data;
+}
 
 

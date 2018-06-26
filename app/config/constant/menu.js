@@ -34,8 +34,8 @@ export const menu = [
         sub: [
             { key: '/child/certification/titlereview', title: '职称评审', icon: '', },
             { key: '/child/certification/reviewRule', title: '评审细则', icon: '', },
-            { key: '/child/certification/notices', title: '职称申请', icon: '', },
-            { key: '/child/certification/skillDynamics', title: '评审公告', icon: '', }
+            { key: '/child/certification/application', title: '职称申请', icon: '', },
+            { key: '/child/certification/reviewNotice', title: '评审公告', icon: '', }
         ],
     },
     {
