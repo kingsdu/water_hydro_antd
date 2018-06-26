@@ -2,20 +2,20 @@ import React, {Component} from 'react'
 
 import { getBranchInfoData } from '../../common/fetch'
 import ContentText from '../../components/branch/ContentText'
-import { getContentByModule } from '../../common/utils'
-import { switchNameByModule } from '../../common/utils'
+import { getContentByModule,switchNameByModule,getMenuDetailByModule } from '../../common/utils'
+import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstant'
+
 
 //获取内容部分数据
 export default class ContentHolder extends Component{
     state = {
         data: null,
-        startpage:1
     }
 
     componentDidMount() {
         const module = this.props.params.module;
-        const count = this.props.count;
-        const start = this.state.startpage;
+        const count = DEFAULT_COUNT;
+        const start = DEFAULT_START;
         const data = getContentByModule(start,count,module)
         data.then((data)=>{
             if(data.Result == 'success'){
@@ -26,19 +26,23 @@ export default class ContentHolder extends Component{
        })
     }
 
-
-    componentDidUpdate(){
-        const module = this.props.params.module;
-        const count = this.props.count;
-        const start = this.state.startpage;
-        const data = getContentByModule(start,count,module)
-        data.then((data)=>{
-            if(data.Result == 'success'){
-                this.setState({
-                    data: data.Data
-                }); 
-            }      
-       })
+    componentWillReceiveProps(nextProps) {
+        const module = nextProps.params.module
+        const menuType = getMenuDetailByModule(module)
+        if(menuType == 'NoList'){
+            if(module !== this.props.params.module){
+                const count = DEFAULT_COUNT;
+                const start = DEFAULT_START;
+                const result = getContentByModule(start,count,module)
+                result.then((data)=>{
+                    if(data.Result == 'success'){
+                        this.setState({
+                            data: data.Data
+                        }); 
+                    }      
+                })
+            }
+        }
     }
 
     render(){

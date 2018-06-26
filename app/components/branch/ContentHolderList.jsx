@@ -14,7 +14,6 @@ import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstan
 export default class ContentHolderList extends Component{
     state = {
         data: null,
-        startpage:1,
         current:1,
     }
 
@@ -22,24 +21,11 @@ export default class ContentHolderList extends Component{
         const module = this.props.params.module;
         const count = DEFAULT_COUNT;
         const total = this.props.total;
-        const start = this.state.startpage;
+        const start = DEFAULT_START;
         const data = getContentByModule(start,count,module)
         data.then((data)=>{
             if(data.Result == 'success'){
-                this.setState({
-                    data: data.Data
-                }); 
-            }      
-       })
-    }
-
-    componentDidUpdate(){
-        const module = this.props.params.module;
-        const count = this.props.count;
-        const start = this.state.startpage;
-        const data = getContentByModule(start,count,module)
-        data.then((data)=>{
-            if(data.Result == 'success'){
+                console.log("data.Data",data.Data)
                 this.setState({
                     data: data.Data
                 }); 
@@ -48,7 +34,25 @@ export default class ContentHolderList extends Component{
     }
 
 
-    //这个page的回传很6
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.params.module !== this.props.params.module){
+            const module = nextProps.params.module;
+            const count = DEFAULT_COUNT;
+            const start = this.state.current;
+            const data = getContentByModule(start,count,module)
+            data.then((data)=>{
+                if(data.Result == 'success'){
+                    this.setState({
+                        data: data.Data,
+                        current:1,
+                    }); 
+                }      
+            })
+        }
+    }
+    
+
+    //这个page的回传
     pageChange = page => {
         this.setState({
             current: page
@@ -65,6 +69,7 @@ export default class ContentHolderList extends Component{
             }     
        })
     }
+
 
     render(){
         return(

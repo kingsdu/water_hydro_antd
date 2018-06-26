@@ -27,7 +27,7 @@ export default class CommuniteDetails extends Component {
             </div>
         )
     }
-
+    
     componentDidMount(){
         const id = this.props.match.params.id
         const result = getNewsDetailsData(id)

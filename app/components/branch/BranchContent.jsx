@@ -29,6 +29,26 @@ export default class BranchContent extends Component{
        })
     }
 
+    componentWillReceiveProps(nextProps) {
+        const params = nextProps.match.params
+        //判断是那种类型：1 NoList；2 List；3 Details
+        const menuType = getMenuDetailByModule(params.module)
+        if(menuType == 'List'){
+            if(nextProps.match.params.module !== this.props.match.params.module){
+                const module = nextProps.match.params.module;
+                const result = getInfoCount(module);
+                result.then((data)=>{
+                    if(data.Result == 'success'){
+                        this.setState({
+                            data: data.Data,
+                        }); 
+                    }     
+               })
+            }
+        } 
+    }
+
+
 
     render(){
         const params = this.props.match.params
