@@ -281,8 +281,13 @@ export function getContentByModule(startPage,size,module){
         break;
         //大事记
         case 'event' : 
-        route = 'news/getTitleList';
-        content = getNewsList(route,startPage,size);
+        route = 'branchIntro/getInfoById';
+        content = getDataByServerID(route,5);
+        break;
+        //相关文件
+        case 'documents' : 
+        route = 'branchIntro/getInfoById';
+        content = getDataByServerID(route,6);
         break;
         //工作动态
         case 'dynamicsWork' : 

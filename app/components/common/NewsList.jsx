@@ -6,9 +6,9 @@ const NewsList = ({newsData,haveLine}) => {
         return <h3>没有数据</h3>;
     }
 
-    const newsList = newsData.map((newsItem, index) =>(
+    const newsList = newsData.map((newsItem) =>(
         <li key={newsItem.id}>
-            <Link to={newsItem.id}>
+            <Link to='/'>
                 {newsItem.title}
             </Link>
         </li>

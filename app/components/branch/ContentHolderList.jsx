@@ -20,12 +20,10 @@ export default class ContentHolderList extends Component{
     componentDidMount() {
         const module = this.props.params.module;
         const count = DEFAULT_COUNT;
-        const total = this.props.total;
         const start = DEFAULT_START;
         const data = getContentByModule(start,count,module)
         data.then((data)=>{
             if(data.Result == 'success'){
-                console.log("data.Data",data.Data)
                 this.setState({
                     data: data.Data
                 }); 

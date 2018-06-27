@@ -5,7 +5,7 @@ import { Button } from 'antd'
 
 const {Header} = Layout
 
-const Head = () => {
+const CommonHeader = () => {
     return (
         <div className='outer-header'>
             <Header className='wrap'>
@@ -39,4 +39,4 @@ const Head = () => {
     )
 }
 
-export default Head
+export default CommonHeader

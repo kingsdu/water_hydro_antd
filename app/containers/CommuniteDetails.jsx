@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Layout, Card, Icon, Row} from 'antd'
 
-import Header from '../components/common/Header'
+import Header from '../components/common/CommonHeader'
 import Footer from '../components/common/Footer'
 
 import { getNewsDetailsData } from '../common/fetch'

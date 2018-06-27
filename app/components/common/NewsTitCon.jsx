@@ -29,7 +29,7 @@ export default class NewsTitCon extends Component{
                 {
                     this.state.data && this.state.data.map((item) => {
                         return(
-                            <div className='newsTitCon'>   
+                            <div className='newsTitCon' key={item.id}>   
                                 <p className='title'>
                                     {item.title}
                                 </p>

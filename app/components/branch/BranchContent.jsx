@@ -1,15 +1,14 @@
 import React, {Component} from 'react'
 import ContentHeader from '../common/ContentHeader'
-import ContentText from '../../components/branch/ContentText'
 import ContentHolder from '../../components/branch/ContentHolder'
 import ContentHolderList from '../../components/branch/ContentHolderList'
 import ContentDetails from '../../components/branch/ContentDetails'
 import {Col, Row ,Card} from 'antd'
-import Header from '../../components/common/Header'
-import Footer from '../../components/common/Footer'
 
 import BranchSider from '../../components/branch/BranchSider'
-import { getContentByModule,getMenuDetailByModule,getInfoCount} from '../../common/utils'
+import {getContentByModule , getMenuDetailByModule,getInfoCount} from '../../common/utils'
+import {DEFAULT_COUNT , DEFAULT_START} from '../../config/constant/commonConstant'
+
 
 export default class BranchContent extends Component{
     state={
@@ -19,14 +18,28 @@ export default class BranchContent extends Component{
     //获取总页数，但此方法只在一处被使用，性能方面做的不好（代码腐化）
     componentDidMount(){
         const module = this.props.match.params.module;
-        const result = getInfoCount(module);
-        result.then((data)=>{
-            if(data.Result == 'success'){
-                this.setState({
-                    data: data.Data,
-                }); 
-            }     
-       })
+        const menuType = getMenuDetailByModule(module)
+        if(menuType == 'NoList'){
+            const count = DEFAULT_COUNT;
+            const start = DEFAULT_START;
+            const data = getContentByModule(start,count,module)
+            data.then((data)=>{
+                if(data.Result == 'success'){
+                    this.setState({
+                        data: data.Data
+                    }); 
+                }      
+           })
+        }else if(menuType == 'List'){
+            const result = getInfoCount(module);
+            result.then((data)=>{
+                if(data.Result == 'success'){
+                    this.setState({
+                        data: data.Data,
+                    }); 
+                }     
+           })
+        }
     }
 
     componentWillReceiveProps(nextProps) {

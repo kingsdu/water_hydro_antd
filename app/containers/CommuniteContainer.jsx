@@ -4,7 +4,7 @@ import { Layout,Card,Row,Col } from 'antd';
 import CommunicateSider from '../components/communicate/CommunicateSider'
 import CRoutes from '../config/C_Route'
 
-import Header from '../components/common/Header'
+import Header from '../components/common/CommonHeader'
 import Footer from '../components/common/Footer'
 
  export default class CommuniteContainer extends Component{

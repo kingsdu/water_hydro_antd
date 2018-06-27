@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
-import {Card, Col, Row} from 'antd'
+import React from 'react'
+import {Col, Row} from 'antd'
 
 const ContentText = ({contentData}) => {
     return(
         <div>
             {contentData&&contentData.map(
                 item => (
-                    <div className='ContentText'>
+                    <div className='ContentText' key={item.id}>
                         <h1>{item.title}</h1>
                         <div className='ContentText-span'>
                             <span className='span-1'>浏览次数：10</span><span>发布时间：{item.date} </span>
@@ -18,11 +18,11 @@ const ContentText = ({contentData}) => {
                                         item => (
                                             item.indexOf(':') != -1
                                             ?
-                                            <div className='ContentText-img'>
+                                            <div className='ContentText-img' key={item.id}>
                                                 <img src={item} className='ContentText_image'/>
                                             </div>
                                             :
-                                            <p className='ContentText_p'>
+                                            <p className='ContentText_p' key={item.id}>
                                                 {item}
                                             </p>
                                         )

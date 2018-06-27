@@ -24,13 +24,12 @@ export default class PicContent extends Component{
     }
 
     render(){
-        const{imageUrl,content} = this.props
         return(
             <div className='PicContent'>      
                     {
                          this.state.data && this.state.data.map((item) => {
                              return(
-                                <Row>
+                                <Row key={item.id}>
                                     <Col span={12}>
                                         {
                                             handlePic(item)
@@ -80,8 +79,6 @@ const handlePic = ({content}) => {
 
 const handleContent = ({content}) => {
     const data = content.split('#')
-    let suffix = ''
-    let imageUrl = ''
     for (let index = 0; index < data.length; index++) {
         const element = data[index];
         if(element.lastIndexOf("\.") != -1){

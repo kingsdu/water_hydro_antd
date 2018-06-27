@@ -13,7 +13,6 @@ export default class ContentDetails extends Component{
 
     componentDidMount(){
         const id = this.props.params.module;
-        const category = this.props.params.category;
         const route = 'allInfo/getInfoById'
         const result = getDataByServerID(route,id)
         result.then((data)=>{
