@@ -1,18 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import RootRouter from './config/Route-Config'
+import RootRoute from './routes/RootRoute'
 
-import 'antd/dist/antd.less'
-import './style/App'
-import './style/Base'
-import './style/Home'
-import './style/Branch'
-import './style/Communite'
+import './style/BaseCSS'
 
 render(
     <div>
-      {RootRouter}
+       {RootRoute}
     </div>,
     document.getElementById('root')
 )
