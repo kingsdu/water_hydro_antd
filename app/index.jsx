@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import RootRoute from './routes/RootRoute'
 
 import './style/BaseCSS'
+import './style/HomeCSS'
 
 render(
     <div>

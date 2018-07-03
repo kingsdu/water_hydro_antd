@@ -15,11 +15,11 @@ export default class HomeFooter extends Component{
                             <p className='bottom-p'>Email：dqwlxslsd@126.com</p>
                         </Col>
                         <Col span={2} offset={2}>
-                            <img src='http://i4.bvimg.com/622218/ec2ec077566a2750.png'/>
+                            <img src='http://chuantu.biz/t6/337/1530426170x-1404817497.jpg'/>
                         </Col>
                         <Col span={8} offset={1}>
-                            <img className='bottom-img' src='http://i4.bvimg.com/622218/8759f967c1c3272b.png'/>
-                            <img src='http://i4.bvimg.com/622218/8759f967c1c3272b.png'/>
+                            <img className='bottom-img' src='http://chuantu.biz/t6/337/1530426202x-1404817497.jpg'/>
+                            <img src='http://chuantu.biz/t6/337/1530426202x-1404817497.jpg'/>
                             <div>
                                 <p className='bottom-img-p-l'>官方微信</p>
                                 <p className='bottom-img-p'>小程序</p>
