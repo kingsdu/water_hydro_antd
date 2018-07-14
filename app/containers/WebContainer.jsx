@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import CommonHeader from '../components/common/CommonHeader'
-import Footer from '../components/common/Footer'
+import CommonFooter from '../components/common/Footer'
 import HomeContainer from '../containers/HomeContainer'
 
 export default class WebContainer extends Component{
@@ -11,7 +11,7 @@ export default class WebContainer extends Component{
                     <div className='wrap center'>
                         <HomeContainer/>
                     </div>
-                <Footer/>
+                <CommonFooter/>
             </div>
         )
     }

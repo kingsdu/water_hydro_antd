@@ -3,7 +3,7 @@ import {Layout, Row, Col} from 'antd'
 
 const {Footer} = Layout
 
-const Foot = () => {
+const CommonFooter = () => {
     return (
         <div className='outer-footer'>
             <Footer className='wrap tc'>
@@ -30,4 +30,4 @@ const Foot = () => {
     )
 }
 
-export default Foot
+export default CommonFooter

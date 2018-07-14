@@ -15,7 +15,7 @@ export default class ContentTextList extends Component{
                             <div className='ContentTextList' key={item.id}>
                                 <Row className='Row'>
                                     <Col className='content-link' span={20}>
-                                        <Link className='link' to={'/child/detail/'+item.id}>>{item.title}</Link>
+                                        <Link className='link' to={'/child/detail/'+item.id} target="_Blank">{item.title}</Link>
                                     </Col>
                                     <Col span={3} offset={1}>
                                         {item.date}

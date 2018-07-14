@@ -14,14 +14,14 @@ import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstan
 export default class ContentHolderList extends Component{
     state = {
         data: null,
-        current:1,
+        start:DEFAULT_START,
+        count:DEFAULT_COUNT,
+        current:1
     }
 
     componentDidMount() {
         const module = this.props.module;
-        const start = DEFAULT_START;
-        const count = DEFAULT_COUNT;
-        const data = getContentByModule(start,count,module)
+        const data = getContentByModule(this.state.start,this.state.count,module)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -29,6 +29,21 @@ export default class ContentHolderList extends Component{
                 }); 
             }      
        })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const module = nextProps.module
+        if(module !== this.props.module){
+            const data = getContentByModule(this.state.start,this.state.count,module)
+            data.then((data)=>{
+                if(data.Result == 'success'){
+                    this.setState({
+                        data: data.Data,
+                        current:1
+                    }); 
+                }      
+           })
+        }
     }
     
 
@@ -54,7 +69,7 @@ export default class ContentHolderList extends Component{
     render(){
         return(
             <div className='ContentHolderList'>
-                <ContentTextList data={this.state.data} categoty={"academic"}/>
+                <ContentTextList data={this.state.data} categoty={this.props.categoty}/>
                 <PaginationBlock current={this.state.current} total={this.props.total} defaultPageSize={DEFAULT_COUNT} onChange={this.pageChange}/>
             </div>
         )

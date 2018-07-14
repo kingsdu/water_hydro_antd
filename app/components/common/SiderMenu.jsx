@@ -13,7 +13,6 @@ export default class SliderMenu extends Component{
 
     render() {
         const category = this.props.category;
-        //补丁方法
         const resCategory = getChildItem(category)
         const menuData = menu.filter(function(item){
             if(item.key == resCategory){

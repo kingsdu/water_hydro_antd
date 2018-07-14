@@ -4,20 +4,25 @@ import { Layout } from 'antd';
 
 const { Content, Footer } = Layout;
 
-import BranchContent from '../components/branch/BranchContent'
-import AcdemicContainer from '../components/academic'
+import BranchContainer from '../containers/BranchContainer'
+import AcdemicContainer from '../containers/AcdemicContainer'
 import ContentDetails from '../components/branch/ContentDetails'
+import AwardContainer from '../containers/AwardContainer'
+import CertificationContainer from '../containers/CertificationContainer'
+import ScienceParkContainer from '../containers/ScienceParkContainer'
+
 
 export default class C_Route extends Component {
     render() {
         return(
-            <Content>
-                 <Switch>
-                    <Route path="/child/branch/:module" component={BranchContent}/>    
-                    <Route path="/child/academic/:module" component={AcdemicContainer}/>
-                    <Route path="/child/detail/:module" component={ContentDetails}/>
-                </Switch>
-            </Content>
+            <Switch>
+                <Route path="/child/branch/:module" component={BranchContainer}/>    
+                <Route path="/child/academic/:module" component={AcdemicContainer}/>
+                <Route path="/child/award/:module" component={AwardContainer}/>
+                <Route path="/child/certification/:module" component={CertificationContainer}/>
+                <Route path="/child/SciencePark/:module" component={ScienceParkContainer}/>
+                <Route path="/child/detail/:module" component={ContentDetails}/>
+            </Switch>
         )
     }
 }
