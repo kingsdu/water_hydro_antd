@@ -8,6 +8,9 @@ module.exports = {
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {
         filename: "bundle.js"
+        // path: path.resolve(__dirname, './output'),
+        // filename: '[name].[chunkhash:8].bundle.js',
+        // chunkFilename: '[name]-[id].[chunkhash:8].bundle.js',    
     },
     // 可以在sources里调试
     devtool: "cheap-module-eval-source-map",
