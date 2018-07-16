@@ -4,7 +4,6 @@ import {Col, Row ,Card} from 'antd'
 import BranchSider from '../components/branch/BranchSider'
 import ContentHeader from '../components/common/ContentHeader'
 import ContentHolderList from '../components/branch/ContentHolderList'
-import { DEFAULT_COUNT,DEFAULT_START } from '../config/constant/commonConstant'
 import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/utils'
 
 

@@ -1,23 +1,21 @@
 import React, {Component} from 'react'
-import ContentHeader from '../components/common/ContentHeader'
-import ContentHolder from '../components/branch/ContentHolder'
-import ContentHolderList from '../components/branch/ContentHolderList'
-import ContentDetails from '../components/branch/ContentDetails'
 import {Col, Row ,Card} from 'antd'
 
 import BranchSider from '../components/branch/BranchSider'
-import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/utils'
-import {DEFAULT_COUNT , DEFAULT_START} from '../config/constant/commonConstant'
-
-
+import ContentHeader from '../components/common/ContentHeader'
+import MemberFrom from '../components/memberService/MemberForm'
 /**
- * 分会介绍模块
+ * 会员服务
+ * --申请会员
+ * --职称评审
+ * --会员风采
  */
-export default class BranchContainer extends Component{
-    state = {
+export default class MembershipContainer extends Component{
+    state={
         data:null,
-        category:"branch"
+        category:"membershipService"
     }
+
 
     render(){
         return(
@@ -31,7 +29,7 @@ export default class BranchContainer extends Component{
                     <Col span={18} offset={1}>
                         <Card>
                             <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                            <ContentHolder module={this.props.match.params.module} count={20}/>
+                            <MemberFrom/>
                         </Card>
                     </Col>
                 </Row>

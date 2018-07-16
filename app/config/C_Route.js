@@ -10,7 +10,7 @@ import ContentDetails from '../components/branch/ContentDetails'
 import AwardContainer from '../containers/AwardContainer'
 import CertificationContainer from '../containers/CertificationContainer'
 import ScienceParkContainer from '../containers/ScienceParkContainer'
-
+import MembershipContainer from '../containers/MembershipContainer'
 
 export default class C_Route extends Component {
     render() {
@@ -21,6 +21,7 @@ export default class C_Route extends Component {
                 <Route path="/child/award/:module" component={AwardContainer}/>
                 <Route path="/child/certification/:module" component={CertificationContainer}/>
                 <Route path="/child/SciencePark/:module" component={ScienceParkContainer}/>
+                <Route path="/child/membershipService/:module" component={MembershipContainer}/>
                 <Route path="/child/detail/:module" component={ContentDetails}/>
             </Switch>
         )

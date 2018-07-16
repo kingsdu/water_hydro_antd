@@ -47,8 +47,7 @@ export const menu = [
         sub: [
             { key: '/child/membershipService/ApplyMembership', title: '申请会员', icon: '', },
             { key: '/child/membershipService/titleReview', title: '职称评审', icon: '', },
-            { key: '/child/membershipService/memberInformation', title: '会员风采', icon: '', },
-            { key: '/child/membershipService/titleProject', title: '职称项目', icon: '', }
+            { key: '/child/membershipService/memberInformation', title: '会员风采', icon: '', }
         ],
     },
     {

@@ -10,6 +10,8 @@ import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/u
 
 /**
  * 学术交流
+ * 
+ * 
  */
 export default class AcdemicContainer extends Component{
     state={

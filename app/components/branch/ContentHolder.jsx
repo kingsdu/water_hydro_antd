@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import { getBranchInfoData } from '../../common/fetch'
 import ContentText from '../../components/branch/ContentText'
-import { getContentByModule,switchNameByModule,getMenuDetailByModule } from '../../common/utils'
+import { getContentByModule,switchNameByModule,getMenuDetailByModule} from '../../common/utils'
 import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstant'
 
 /**

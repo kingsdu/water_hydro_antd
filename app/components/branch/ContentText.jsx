@@ -8,9 +8,9 @@ const ContentText = ({contentData}) => {
                 item => (
                     <div className='ContentText' key={item.id}>
                         <h1>{item.title}</h1>
-                        <div className='ContentText-span'>
+                        {/* <div className='ContentText-span'>
                             <span className='span-1'>浏览次数：10</span><span>发布时间：{item.date} </span>
-                        </div>
+                        </div> */}
                         <Row>
                             <Col span={24}>
                                 {

@@ -249,33 +249,28 @@ export function getContentByModule(startPage,size,module){
     switch (module) {
         //关于分会
         case 'brachInfo' : 
-        route = 'branchIntro/getInfoById';
-        content = getDataByServerID(route,1);
+        route = 'basicInfo/front/getBasicInfoByType';
+        content = getDataByType(route,1);
         break;
         //组织结构
         case 'organization' : 
-        route = 'branchIntro/getInfoById';
-        content = getDataByServerID(route,2);
+        route = 'basicInfo/front/getBasicInfoByType';
+        content = getDataByType(route,2);
         break;
         //分会章程
         case 'regulation' : 
-        route = 'branchIntro/getInfoById';
-        content = getDataByServerID(route,3);
-        break;
-        //发展历程
-        case 'history' : 
-        route = 'branchIntro/getInfoById';
-        content = getDataByServerID(route,4);
+        route = 'basicInfo/front/getBasicInfoByType';
+        content = getDataByType(route,3);
         break;
         //大事记
         case 'event' : 
-        route = 'branchIntro/getInfoById';
-        content = getDataByServerID(route,5);
+        route = 'basicInfo/front/getBasicInfoByType';
+        content = getDataByType(route,5);
         break;
         //相关文件
         case 'documents' : 
-        route = 'branchIntro/getInfoById';
-        content = getDataByServerID(route,6);
+        route = 'basicInfo/front/getBasicInfoByType';
+        content = getDataByType(route,6);
         break;
         /* 学术交流模块 */
         //工作动态
@@ -382,6 +377,18 @@ export function getDataByServerID(route,id){
         id:id
     }
     
+    const data = get_params(SERVER_PATH+route,params)
+    return data;
+}
+
+/**
+ * 根据类型获取新闻
+*/
+export function getDataByType(route,type){
+    const params = {
+        type:type
+    }
+
     const data = get_params(SERVER_PATH+route,params)
     return data;
 }
