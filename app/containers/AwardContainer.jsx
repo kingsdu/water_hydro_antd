@@ -55,7 +55,7 @@ export default class AwardContainer extends Component{
                     <Col span={18} offset={1}>
                         <Card>
                             <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                            <ContentHolderList module={this.props.match.params.module} total={this.state.data}/>
+                            <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
                         </Card>
                     </Col>
                 </Row>

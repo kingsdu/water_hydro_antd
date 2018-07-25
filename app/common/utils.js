@@ -63,18 +63,52 @@ export function switchNameByModule(category,module){
             default: subTitle = ""
             break;
         }
+    }else if(category == 'dynamic'){
+        title = '分会动态'
+        switch(module){
+            case 'announcement' : subTitle="通知公告"
+            break;
+            case 'news' : subTitle="学会新闻"
+            break;
+            case 'technicalDynamics' : subTitle="技术动态"
+            break;
+            default: subTitle = ""
+            break;
+        }
     }else if(category == 'academic'){
         title = '学术交流'
         switch(module){
-            case 'branch_dynamicsWork' : subTitle="工作动态"
+            case 'meetingAnnouncement' : subTitle="会议通知"
             break;
-            case 'branch_Annual' : subTitle="学会年会"
+            case 'academicConference' : subTitle="学会会议"
             break;
-            case 'branch_meeting' : subTitle="学术会议"
+            case 'callForPapers' : subTitle="征文通知"
             break;
-            case 'branch_training' : subTitle="学会培训"
+            default: subTitle = ""
             break;
-            case 'branch_activity' : subTitle="纪念活动"
+        }
+    }else if(category == 'SciencePark'){
+        title = '科普园地'
+        switch(module){
+            case 'sciencePropaganda' : subTitle="科普宣传"
+            break;
+            case 'scientificKnowledge' : subTitle="科普知识"
+            break;
+            case 'scientificJournal' : subTitle="学会期刊"
+            break;
+            default: subTitle = ""
+            break;
+        }
+    }else if(category == 'membershipService'){
+        title = '会员服务'
+        switch(module){
+            case 'incorporationProcess' : subTitle="入会流程"
+            break;
+            case 'rightsAndObligations' : subTitle="权利义务"
+            break;
+            case 'memberInformation' : subTitle="会员风采"
+            break;
+            case 'applicationForMembership' : subTitle="入会申请"
             break;
             default: subTitle = ""
             break;
@@ -86,43 +120,9 @@ export function switchNameByModule(category,module){
             break;
             case 'awardsIntroduced' : subTitle="奖项介绍"
             break;
+            case 'AwardApplication' : subTitle="奖项申报"
+            break;
             case 'Sponsors' : subTitle="赞助单位"
-            break;
-            default: subTitle = ""
-            break;
-        }
-    }else if(category == 'certification'){
-        title = '资质认证'
-        switch(module){
-            case 'certificationProject' : subTitle="认证项目"
-            break;
-            case 'trainingCourses' : subTitle="培训课程"
-            break;
-            case 'titleApplication' : subTitle="职称申请"
-            break;
-            default: subTitle = ""
-            break;
-        }
-    }else if(category == 'SciencePark'){
-        title = '科普园地'
-        switch(module){
-            case 'scienceDynamics' : subTitle="科普成果"
-            break;
-            case 'publication' : subTitle="科普知识"
-            break;
-            default: subTitle = ""
-            break;
-        }
-    }else if(category == 'membershipService'){
-        title = '会员服务'
-        switch(module){
-            case 'titlereview' : subTitle="职称评审"
-            break;
-            case 'reviewRule' : subTitle="评审细则"
-            break;
-            case 'titleApplication' : subTitle="职称申请"
-            break;
-            case 'reviewNotice' : subTitle="评审公告"
             break;
             default: subTitle = ""
             break;
@@ -130,15 +130,11 @@ export function switchNameByModule(category,module){
     }else if(category == 'digitalData'){
         title = '数字资料'
         switch(module){
-            case 'academicPapers' : subTitle="学术论文"
+            case 'annualMeeting' : subTitle="学术年会"
             break;
-            case 'conference' : subTitle="会议活动"
+            case 'digitalConference' : subTitle="学术会议"
             break;
-            case 'powerPoint' : subTitle="PPT"
-            break;
-            case 'video' : subTitle="视频"
-            break;
-            case 'atlas' : subTitle="图集"
+            case 'commemorativeEvent' : subTitle="纪念活动"
             break;
             default: subTitle = ""
             break;
@@ -154,88 +150,126 @@ export function getInfoCount(module){
     let serverType = ''
     let content = ''
     switch (module) {
-        //工作动态
-        case 'branch_dynamicsWork' : 
-        route = 'allInfo/getInfoCount';
+        /* 分会动态 */
+        //通知公告
+        case 'announcement' : 
+        route = 'BranchDynamic/getBranchCount';
         serverType = '1'
         content = getCount(route,serverType);
         break;
-        //学会年会
-        case 'branch_Annual' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '5'
+        //分会新闻
+        case 'news' : 
+        route = 'BranchDynamic/getBranchCount';
+        serverType = '2'
         content = getCount(route,serverType);
         break;
-        //学术会议
-        case 'branch_meeting' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '8'
+        //技术动态
+        case 'technicalDynamics' : 
+        route = 'BranchDynamic/getBranchCount';
+        serverType = '3'
         content = getCount(route,serverType);
         break;
-        //学术培训
-        case 'branch_training' : 
-        route = 'allInfo/getInfoCount';
+        /* 学术交流 */
+        case 'meetingAnnouncement' : 
+        route = 'Academic/getAcademicCount';
         serverType = '1'
         content = getCount(route,serverType);
         break;
-        //纪念活动
-        case 'branch_activity' : 
+        case 'academicConference' : 
+        route = 'Academic/getAcademicCount';
+        serverType = '2'
+        content = getCount(route,serverType);
+        break;
+        case 'callForPapers' : 
+        route = 'Academic/getAcademicCount';
+        serverType = '3'
+        content = getCount(route,serverType);
+        break;
+        /* 科普园地 */
+         //科普宣传
+         case 'sciencePropaganda' : 
+         route = 'SciencePark/getScienceCount';
+         serverType = '1'
+         content = getCount(route,serverType);
+         break;
+         //科普知识
+         case 'scientificKnowledge' : 
+         route = 'SciencePark/getScienceCount';
+         serverType = '2'
+         content = getCount(route,serverType);
+         break;
+        //学会期刊
+        case 'scientificJournal' : 
+        route = 'SciencePark/getScienceCount';
+        serverType = '3'
+        content = getCount(route,serverType);
+        break;
+        /* 会员专区 */
+        //会员风采
+        case 'memberInformation' : 
+        route = 'member/getPassedMembersCount';
+        serverType = '2'
+        content = getCount(route,serverType);
+        break;
+        //入会申请
+        case 'applicationForMembership' : 
         route = 'allInfo/getInfoCount';
         serverType = '6'
         content = getCount(route,serverType);
         break;
-        /* 评审奖励 */
+        /* 表彰奖励 */
         //奖励动态
         case 'rewardDynamics' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '6'
+        route = 'AwardInfos/getAwardCount';
+        serverType = '1'
         content = getCount(route,serverType);
         break;
-        //奖励介绍
+        //奖项介绍
         case 'awardsIntroduced' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '1'
+        route = 'AwardInfos/getAwardCount';
+        serverType = '2'
+        content = getCount(route,serverType);
+        break;
+        //奖项申报
+        case 'AwardApplication' : 
+        route = '';
+        serverType = '6'
         content = getCount(route,serverType);
         break;
         //赞助单位
         case 'Sponsors' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '3'
-        content = getCount(route,serverType);
-        break;
-        /* 资质认证 */
-        //认证项目
-        case 'certificationProject' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '3'
-        content = getCount(route,serverType);
-        break;
-        //培训课程
-        case 'trainingCourses' : 
-        route = 'allInfo/getInfoCount';
+        route = 'AwardInfos/getAwardSponsorCount';
         serverType = '1'
         content = getCount(route,serverType);
         break;
-        //职称申请
-        case 'titleApplication' : 
-        route = 'allInfo/getInfoCount';
-        serverType = '6'
-        content = getCount(route,serverType);
-        break;
-        /* 科普园地 */
-        //科普动态
-        case 'scienceDynamics' : 
-        route = 'allInfo/scienceDynamics';
+        /* 数字资料 */
+        //学术年会
+        case 'annualMeeting' : 
+        route = 'digital/getDataActivityCount';
         serverType = '1'
         content = getCount(route,serverType);
         break;
-        //出版刊物
-        case 'publication' : 
-        route = 'allInfo/publication';
-        serverType = '6'
+        //学术会议
+        case 'digitalConference' : 
+        route = 'digital/getDataActivityCount';
+        serverType = '2'
+        content = getCount(route,serverType);
+        break;
+        //纪念活动
+        case 'commemorativeEvent' : 
+        route = 'digital/getDataActivityCount';
+        serverType = '3'
         content = getCount(route,serverType);
         break;
     }
+    return content
+}
+
+
+//数字资料模块
+export function getDigtalAllCount(id,type){
+    const route = 'digital/getDataActivityCount';
+    const content = getDigtalCount(route,id,type);
     return content
 }
 
@@ -249,114 +283,161 @@ export function getContentByModule(startPage,size,module){
     switch (module) {
         //关于分会
         case 'brachInfo' : 
-        route = 'basicInfo/front/getBasicInfoByType';
+        route = 'branchIntro/getBranchByType';
         content = getDataByType(route,1);
         break;
         //组织结构
         case 'organization' : 
-        route = 'basicInfo/front/getBasicInfoByType';
+        route = 'branchIntro/getBranchByType';
         content = getDataByType(route,2);
         break;
         //分会章程
         case 'regulation' : 
-        route = 'basicInfo/front/getBasicInfoByType';
+        route = 'branchIntro/getBranchByType';
         content = getDataByType(route,3);
         break;
         //大事记
         case 'event' : 
-        route = 'basicInfo/front/getBasicInfoByType';
-        content = getDataByType(route,5);
+        route = 'branchIntro/getBranchByType';
+        content = getDataByType(route,4);
         break;
         //相关文件
         case 'documents' : 
-        route = 'basicInfo/front/getBasicInfoByType';
-        content = getDataByType(route,6);
+        route = 'branchIntro/getBranchByType';
+        content = getDataByType(route,5);
         break;
-        /* 学术交流模块 */
-        //工作动态
-        case 'branch_dynamicsWork' : 
-        route = 'allInfo/getInfoList';
+        /* 分会动态模块 */
+        //通知公告
+        case 'announcement' : 
+        route = 'BranchDynamic/getBranchDynamicNewsByType';
         serverType = '1'
         content = getNewsList(route,startPage,size,serverType);
         break;
-        //学术年会
-        case 'branch_Annual' : 
-        route = 'allInfo/getInfoList';
-        serverType = '5'
+        //学会新闻
+        case 'news' : 
+        route = 'BranchDynamic/getBranchDynamicNewsByType';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
+        break;
+        //技术动态
+        case 'technicalDynamics' : 
+        route = 'BranchDynamic/getBranchDynamicNewsByType';
+        serverType = '3'
+        content = getNewsList(route,startPage,size,serverType);
+        break;
+        /* 学会交流 */
+        //会议通知
+        case 'meetingAnnouncement' : 
+        route = 'Academic/getAcademicInfoByType';
+        serverType = '1'
         content = getNewsList(route,startPage,size,serverType);
         break;
         //学术会议
-        case 'branch_meeting' : 
-        route = 'allInfo/getInfoList';
-        serverType = '8'
-        content =getNewsList(route,startPage,size,serverType);
+        case 'academicConference' : 
+        route = 'Academic/getAcademicInfoByType';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
         break;
-        //学会培训
-        case 'branch_training' : 
-        route = 'allInfo/getInfoList';
-        serverType = '6'
-        content =getNewsList(route,startPage,size,serverType);
+        //征文通知
+        case 'callForPapers' : 
+        route = 'Academic/getAcademicInfoByType';
+        serverType = '3'
+        content = getNewsList(route,startPage,size,serverType);
         break;
-        //纪念活动
-        case 'branch_activity' : 
-        route = 'allInfo/getInfoList';
+        /* 科普园地 */
+        //科普宣传
+        case 'sciencePropaganda' : 
+        route = 'SciencePark/getScienceParkInfoByType';
+        serverType = '1'
+        content = getNewsList(route,startPage,size,serverType);
+        break;
+        //科普知识
+        case 'scientificKnowledge' : 
+        route = 'SciencePark/getScienceParkInfoByType';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
+        break;
+        //学会期刊
+        case 'scientificJournal' : 
+        route = 'SciencePark/getScienceParkInfoByType';
         serverType = '3'
         content =getNewsList(route,startPage,size,serverType);
         break;
-        /* 表彰奖励模块 */
+        /* 会员专区 */
+        //入会流程
+        case 'incorporationProcess' : 
+        route = 'member/selectMPByType';
+        serverType = '1'
+        content = getDataByType(route,serverType);
+        break;
+        //权利与义务
+        case 'rightsAndObligations' : 
+        route = 'member/selectMOByType';
+        serverType = '1'
+        content = getDataByType(route,serverType);
+        break;
+        //会员风采
+        case 'memberInformation' : 
+        route = 'member/selectMemberShow';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
+        break;
+        /* 表彰奖励 */
         //奖励动态
         case 'rewardDynamics' : 
-        route = 'allInfo/getInfoList';
-        serverType = '6'
+        route = 'AwardInfos/getAwardInfosByType';
+        serverType = '1'
         content =getNewsList(route,startPage,size,serverType);
         break;
         //奖项介绍
         case 'awardsIntroduced' : 
-        route = 'allInfo/getInfoList';
-        serverType = '1'
+        route = 'AwardInfos/getAwardInfosByType';
+        serverType = '2'
         content =getNewsList(route,startPage,size,serverType);
         break;
         //赞助单位
         case 'Sponsors' : 
-        route = 'allInfo/getInfoList';
-        serverType = '3'
-        content =getNewsList(route,startPage,size,serverType);
+        route = 'AwardInfos/getAwardSponsorList';
+        serverType = ''
+        content = getNewsList(route,startPage,size,serverType);
         break;
-        /* 资质认证模块 */
-        //资质认证
-        case 'certificationProject' : 
-        route = 'allInfo/getInfoList';
-        serverType = '3'
-        content =getNewsList(route,startPage,size,serverType);
-        break;
-        //培训课程
-        case 'trainingCourses' : 
-        route = 'allInfo/getInfoList';
-        serverType = '1'
-        content =getNewsList(route,startPage,size,serverType);
-        break;
-        //职称申请
-        case 'titleApplication' : 
-        route = 'allInfo/getInfoList';
-        serverType = '6'
-        content =getNewsList(route,startPage,size,serverType);
-        break;
-        /* 科普园地 */
-        //科普动态
-        case 'scienceDynamics' : 
-        route = 'allInfo/getInfoList';
+        /* 数字资料 */
+        //学术年会
+        case 'annualMeeting' : 
+        route = 'digital/getDataActivityList';
         serverType = '1'
         content = getNewsList(route,startPage,size,serverType);
         break;
-        //出版刊物
-        case 'publication' : 
-        route = 'allInfo/getInfoList';
-        serverType = '6'
+        //学术会议
+        case 'digitalConference' : 
+        route = 'digital/getDataActivityList';
+        serverType = '2'
+        content = getNewsList(route,startPage,size,serverType);
+        break;
+        //纪念活动
+        case 'commemorativeEvent' : 
+        route = 'digital/getDataActivityList';
+        serverType = '3'
         content = getNewsList(route,startPage,size,serverType);
         break;
     }
     return content;
 }
+
+
+//获取数字资料二层数据
+export function getDigtialSecondData(id,type,startPage,size){
+    const route = 'digital/getDigitalDataByTypeId';
+    const params = {
+        pageNum:startPage,
+        pageSize:size,
+        type:type,
+        id:id,
+    }    
+    const data = get_params(SERVER_PATH+route,params)
+    return data;
+}
+
 
 
 //根据route、pageNum、pageSize获取新闻列表数据
@@ -371,6 +452,8 @@ export function getNewsList(route,pageNum,pageSize,serverType){
 }
 
 
+
+
 // 根据id，获取指定新闻
 export function getDataByServerID(route,id){
     const params = {
@@ -380,6 +463,8 @@ export function getDataByServerID(route,id){
     const data = get_params(SERVER_PATH+route,params)
     return data;
 }
+
+
 
 /**
  * 根据类型获取新闻
@@ -405,21 +490,25 @@ export function getdefaultName(category){
             defaultOpenKeys = 'branch'
             defaultSelectedKeys = '/child/branch/brachInfo'
             break;
+        case 'dynamic':
+        defaultOpenKeys = 'dynamic'
+        defaultSelectedKeys = '/child/dynamic/announcement'
+            break;
         case 'academic':
             defaultOpenKeys = 'academic'
-            defaultSelectedKeys = '/child/academic/branch_dynamicsWork'
+            defaultSelectedKeys = '/child/academic/meetingAnnouncement'
+            break;
+        case 'SciencePark':
+            defaultOpenKeys = 'SciencePark'
+            defaultSelectedKeys = '/child/SciencePark/sciencePropaganda'
+            break;    
+        case 'membershipService':
+            defaultOpenKeys = 'membershipService'
+            defaultSelectedKeys = '/child/membershipService/incorporationProcess'
             break;
         case 'award':
             defaultOpenKeys = 'award'
             defaultSelectedKeys = '/child/award/rewardDynamics'
-            break;
-        case 'certification':
-            defaultOpenKeys = 'certification'
-            defaultSelectedKeys = '/child/certification/titlereview'
-            break;
-        case 'SciencePark':
-            defaultOpenKeys = 'SciencePark'
-            defaultSelectedKeys = '/child/SciencePark/scienceDynamics'
             break;
         case 'membershipService':
             defaultOpenKeys = 'membershipService'
@@ -427,7 +516,7 @@ export function getdefaultName(category){
             break;
         case 'digitalData':
             defaultOpenKeys = 'digitalData'
-            defaultSelectedKeys = '/child/digitalData/academicPapers'
+            defaultSelectedKeys = '/child/digitalData/annualMeeting'
             break;
         default:
             break;
@@ -480,6 +569,17 @@ export function getCount(route,type){
 }
 
 
+//获取数字资料模块个数
+export function getDigtalCount(route,id,type){
+    const params = {
+        id:id,
+        type:type
+    }    
+    const data = get_params(SERVER_PATH+route,params)
+    return data;
+}
+
+
 
 export function getChildItem(category){
     let resCategory = ''
@@ -492,3 +592,29 @@ export function getChildItem(category){
     return resCategory
 }
 
+
+
+
+export function getDetailRouteByCategory(category){
+    let route = ''
+    switch (category) {
+        case "dynamic":
+            route = 'BranchDynamic/getBranchDynamicById'
+            break;
+        case 'academic':
+            route = 'Academic/getAcademicById'
+            break;
+        case 'SciencePark':
+            route = 'SciencePark/getScienceParkInfoById'
+            break;
+        case 'SciencePark_Journal':
+            route = 'SciencePark/getScienceJournalById'
+            break;
+        case 'award':
+            route = 'AwardInfos/getAwardInfosById'
+            break;
+        default:
+            break;
+    }
+    return route;
+}

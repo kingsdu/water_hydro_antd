@@ -166,7 +166,7 @@ class MemberFrom extends Component{
      * 同意会员规则
      */
     handleAgreeRule = (e) => {
-        e.preventDefault();
+        // e.preventDefault();//开启导致点击两次才能选中
         this.setState({
             agreeRule: !this.state.agreeRule,
         })
@@ -430,13 +430,14 @@ class MemberFrom extends Component{
                     </div>
                 </FormItem>
                 <FormItem {...agreeFormItemLayout }>
-                    {getFieldDecorator('agreement', {
-                        valuePropName: 'checked',
-                    })(
+                    <div>
                         <Checkbox
-                        onChange={this.handleAgreeRule}
-                        >我已仔细阅读<a href="#" target="_blank">会员细则</a></Checkbox>
-                    )}
+                            onChange={this.handleAgreeRule}>
+                        </Checkbox>
+                        <span>
+                            我已仔细阅读<a href="#" target="_blank">会员细则</a>
+                        </span>
+                    </div>
                 </FormItem>
                 <FormItem {...tailFormItemLayout}>
                     {

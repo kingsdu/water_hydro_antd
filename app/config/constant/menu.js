@@ -10,13 +10,36 @@ export const menu = [
         ],
     },
     {
+        key: 'dynamic', title: '分会动态', icon: 'appstore',
+        sub: [
+            { key: '/child/dynamic/announcement', title: '通知公告', icon: '', },
+            { key: '/child/dynamic/news', title: '学会新闻', icon: '', },
+            { key: '/child/dynamic/technicalDynamics', title: '技术动态', icon: '', }
+        ],
+    },
+    {
         key: 'academic', title: '学术交流', icon: 'appstore',
         sub: [
-            { key: '/child/academic/branch_dynamicsWork', title: '工作动态', icon: '', },
-            { key: '/child/academic/branch_Annual', title: '学会年会', icon: '', },
-            { key: '/child/academic/branch_meeting', title: '学术会议', icon: '', },
-            { key: '/child/academic/branch_training', title: '学会培训', icon: '', },
-            { key: '/child/academic/branch_activity', title: '纪念活动', icon: '', }
+            { key: '/child/academic/meetingAnnouncement', title: '会议通知', icon: '', },
+            { key: '/child/academic/academicConference', title: '学术会议', icon: '', },
+            { key: '/child/academic/callForPapers', title: '征文通知', icon: '', }
+        ],
+    },
+    {
+        key: 'SciencePark', title: '科普园地', icon: 'appstore',
+        sub: [
+            { key: '/child/SciencePark/sciencePropaganda', title: '科普宣传', icon: '', },
+            { key: '/child/SciencePark/scientificKnowledge', title: '科普知识', icon: '', },
+            { key: '/child/SciencePark/scientificJournal', title: '学会期刊', icon: '', }
+        ],
+    },
+    {
+        key: 'membershipService', title: '会员专区', icon: 'appstore',
+        sub: [
+            { key: '/child/membershipService/incorporationProcess', title: '入会流程', icon: '', },
+            { key: '/child/membershipService/rightsAndObligations', title: '权利与义务', icon: '', },
+            { key: '/child/membershipService/memberInformation', title: '会员风采', icon: '', },
+            { key: '/child/membershipService/applicationForMembership', title: '入会申请', icon: '', }
         ],
     },
     {
@@ -24,6 +47,7 @@ export const menu = [
         sub: [
             { key: '/child/award/rewardDynamics', title: '奖励动态', icon: '', },
             { key: '/child/award/awardsIntroduced', title: '奖项介绍', icon: '', },
+            { key: '/child/award/AwardApplication', title: '奖项申报', icon: '', },
             { key: '/child/award/Sponsors', title: '赞助单位', icon: '', }
         ],
     },
@@ -31,33 +55,16 @@ export const menu = [
         key: 'certification', title: '资质认证', icon: 'appstore',
         sub: [
             { key: '/child/certification/certificationProject', title: '认证项目', icon: '', },
-            { key: '/child/certification/trainingCourses', title: '培训课程', icon: '', },
-            { key: '/child/certification/qualificatioApplication', title: '资质申请', icon: '', }
-        ],
-    },
-    {
-        key: 'SciencePark', title: '科普园地', icon: 'appstore',
-        sub: [
-            { key: '/child/SciencePark/scienceDynamics', title: '科普动态', icon: '', },
-            { key: '/child/SciencePark/scientificKnowledge', title: '科普知识', icon: '', },
-        ],
-    },
-    {
-        key: 'membershipService', title: '会员服务', icon: 'appstore',
-        sub: [
-            { key: '/child/membershipService/ApplyMembership', title: '申请会员', icon: '', },
-            { key: '/child/membershipService/titleReview', title: '职称评审', icon: '', },
-            { key: '/child/membershipService/memberInformation', title: '会员风采', icon: '', }
+            { key: '/child/certification/qualificatioApplication', title: '资质申请', icon: '', },
+            { key: '/child/certification/certificateInquiry', title: '证书查询', icon: '', }
         ],
     },
     {
         key: 'digitalData', title: '数字资料', icon: 'appstore',
         sub: [
-            { key: '/child/digitalData/academicPapers', title: '学术论文', icon: '', },
-            { key: '/child/digitalData/conference', title: '会议活动', icon: '', },
-            { key: '/child/digitalData/powerPoint', title: 'PPT', icon: '', },
-            { key: '/child/digitalData/video', title: '视频', icon: '', },
-            { key: '/child/digitalData/atlas', title: '图集', icon: '', }
+            { key: '/child/digitalData/digital1/annualMeeting', title: '学术年会', icon: '', },
+            { key: '/child/digitalData/digital1/digitalConference', title: '学术会议', icon: '', },
+            { key: '/child/digitalData/digital1/commemorativeEvent', title: '纪念活动', icon: '', }
         ],
     }
 ];

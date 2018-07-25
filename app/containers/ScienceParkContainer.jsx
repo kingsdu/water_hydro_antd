@@ -20,7 +20,6 @@ export default class ScienceParkContainer extends Component{
         const module = this.props.match.params.module;
         const result = getInfoCount(module);
         result.then((data)=>{
-            console.log("data",data)
             if(data.Result == 'success'){
                 this.setState({
                     data: data.Data
@@ -56,7 +55,7 @@ export default class ScienceParkContainer extends Component{
                     <Col span={18} offset={1}>
                         <Card>
                             <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                            <ContentHolderList module={this.props.match.params.module} total={this.state.data}/>
+                            <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
                         </Card>
                     </Col>
                 </Row>

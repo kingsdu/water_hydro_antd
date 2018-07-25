@@ -8,26 +8,24 @@ import { DEFAULT_COUNT,DEFAULT_START } from '../config/constant/commonConstant'
 import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/utils'
 
 
-/**
- * 学术交流
- */
-export default class AcdemicContainer extends Component{
+export default class DynamicContainer extends Component{
     state={
         data:null,
-        category:"academic"
+        category:"dynamic"
     }
-
-     componentDidMount(){
+    
+    componentDidMount(){
         const module = this.props.match.params.module;
         const result = getInfoCount(module);
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
-                    data: data.Data
+                    data: data.Data,
                 }); 
             }      
        })
     }
+
 
     componentWillReceiveProps(nextProps) {
         const module = nextProps.match.params.module
@@ -63,4 +61,6 @@ export default class AcdemicContainer extends Component{
             </div>
         )
     }
+
+
 }

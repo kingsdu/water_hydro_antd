@@ -25,12 +25,12 @@ const CommonHeader = () => {
                         <ul className='header_tab'>
                             <li><NavLink to='/' activeClassName='header_curPage'>首页</NavLink></li>
                             <li><NavLink to='/child/branch/brachInfo' activeClassName='header_curPage'>分会介绍</NavLink></li>
-                            <li><NavLink to='/child/academic/branch_dynamicsWork' activeClassName='header_curPage'>学术交流</NavLink></li>
+                            <li><NavLink to='/child/dynamic/announcement' activeClassName='header_curPage'>分会动态</NavLink></li>
+                            <li><NavLink to='/child/Academic/meetingAnnouncement' activeClassName='header_curPage'>学术交流</NavLink></li>
+                            <li><NavLink to='/child/SciencePark/sciencePropaganda' activeClassName='header_curPage'>科普园地</NavLink></li>
+                            <li><NavLink to='/child/membershipService/incorporationProcess' activeClassName='header_curPage'>会员专区</NavLink></li>
                             <li><NavLink to='/child/award/rewardDynamics' activeClassName='header_curPage'>表彰奖励</NavLink></li>
-                            <li><NavLink to='/child/certification/certificationProject' activeClassName='header_curPage'>资质认证</NavLink></li>
-                            <li><NavLink to='/child/SciencePark/scienceDynamics' activeClassName='header_curPage'>科普园地</NavLink></li>
-                            <li><NavLink to='/child/membershipService/titlereview' activeClassName='header_curPage'>会员服务</NavLink></li>
-                            <li><NavLink to='/child/digitalData/academicPapers' activeClassName='header_curPage'>数字资料</NavLink></li>
+                            <li><NavLink to='/child/digitalData/digital1/annualMeeting' activeClassName='header_curPage'>数字资料</NavLink></li>
                         </ul>
                     </Col>
                 </Row>

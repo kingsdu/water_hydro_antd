@@ -9,6 +9,7 @@ import './style/Base'
 import './style/Home'
 import './style/Branch'
 import './style/Communite'
+import './style/member'
 
 render(
     <div>

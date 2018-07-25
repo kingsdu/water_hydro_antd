@@ -1,17 +1,15 @@
 import React, {Component} from 'react'
-
-import { getBranchInfoDat } from '../../common/fetch'
-import ContentTextList from '../../components/branch/ContentTextList'
+import {Col, Row} from 'antd'
+import MemberShowHolder from '../branch/MemberShowHolder'
 import { getContentByModule,switchNameByModule,getNewsList } from '../../common/utils'
 import PaginationBlock from '../common/PaginationBlock'
 import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstant'
 
 /**
- * 获取内容部分数据
- * 包括内容列表页面、详情页面和下方的页码页面
- * 列表页面和详情页面需要在一个container中
+ * 展示图片的部分
  */
-export default class ContentHolderList extends Component{
+
+export default class ContentPicHolder extends Component{
     state = {
         data: null,
         start:DEFAULT_START,
@@ -32,7 +30,7 @@ export default class ContentHolderList extends Component{
        })
     }
 
-    
+
     componentWillReceiveProps(nextProps) {
         const module = nextProps.module
         if(module !== this.props.module){
@@ -47,7 +45,8 @@ export default class ContentHolderList extends Component{
            })
         }
     }
-    
+
+
 
     //这个page的回传
     pageChange = page => {
@@ -71,7 +70,7 @@ export default class ContentHolderList extends Component{
     render(){
         return(
             <div className='ContentHolderList'>
-                <ContentTextList data={this.state.data} category={this.props.category}/>
+                <MemberShowHolder data={this.state.data}/>
                 <PaginationBlock current={this.state.current} total={this.props.total} defaultPageSize={DEFAULT_COUNT} onChange={this.pageChange}/>
             </div>
         )

@@ -1,17 +1,15 @@
 import React, {Component} from 'react'
 
 import { getBranchInfoDat } from '../../common/fetch'
-import ContentTextList from '../../components/branch/ContentTextList'
-import { getContentByModule,switchNameByModule,getNewsList } from '../../common/utils'
+import DigtaSecondlTextList from '../../components/branch/DigtaSecondlTextList'
+import { getContentByModule,switchNameByModule,getDigtialSecondData } from '../../common/utils'
 import PaginationBlock from '../common/PaginationBlock'
 import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstant'
 
 /**
- * 获取内容部分数据
- * 包括内容列表页面、详情页面和下方的页码页面
- * 列表页面和详情页面需要在一个container中
+ * 数字资料第二层
  */
-export default class ContentHolderList extends Component{
+export default class DigitalSecond extends Component{
     state = {
         data: null,
         start:DEFAULT_START,
@@ -19,10 +17,9 @@ export default class ContentHolderList extends Component{
         current:1
     }
 
-
-    componentDidMount() {
-        const module = this.props.module;
-        const data = getContentByModule(this.state.start,this.state.count,module)
+    componentDidMount(){
+        const{id,type} = this.props;
+        const data = getDigtialSecondData(id,type,this.state.start,this.state.count)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -32,46 +29,45 @@ export default class ContentHolderList extends Component{
        })
     }
 
-    
-    componentWillReceiveProps(nextProps) {
-        const module = nextProps.module
-        if(module !== this.props.module){
-            const data = getContentByModule(this.state.start,this.state.count,module)
+    componentWillReceiveProps(nextProps){
+        const id = nextProps.id
+        if(module !== this.props.id){
+            const{id,type} = this.props;
+            const data = getDigtialSecondData(id,type,this.state.start,this.state.count)
             data.then((data)=>{
                 if(data.Result == 'success'){
                     this.setState({
-                        data: data.Data,
-                        current:1
+                        data: data.Data
                     }); 
                 }      
-           })
+            })
         }
     }
-    
 
-    //这个page的回传
-    pageChange = page => {
+     //这个page的回传
+     pageChange = page => {
         this.setState({
             current: page
         })
-        const module = this.props.module;
+        const{id,type} = this.props;
         const start = page;
         const count = DEFAULT_COUNT;
-        const result = getContentByModule(start,count,module);
-        result.then((data)=>{
+        const data = getDigtialSecondData(id,type,this.state.start,this.state.count)
+        data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
-                    data: data.Data,
+                    data: data.Data
                 }); 
-            }     
-       })
+            }      
+        })
     }
+
 
 
     render(){
         return(
             <div className='ContentHolderList'>
-                <ContentTextList data={this.state.data} category={this.props.category}/>
+                <DigtaSecondlTextList data={this.state.data} type={this.props.type}/>
                 <PaginationBlock current={this.state.current} total={this.props.total} defaultPageSize={DEFAULT_COUNT} onChange={this.pageChange}/>
             </div>
         )

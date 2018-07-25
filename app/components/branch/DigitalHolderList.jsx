@@ -1,24 +1,21 @@
 import React, {Component} from 'react'
 
 import { getBranchInfoDat } from '../../common/fetch'
-import ContentTextList from '../../components/branch/ContentTextList'
+import DigtalTextList from '../../components/branch/DigtalTextList'
 import { getContentByModule,switchNameByModule,getNewsList } from '../../common/utils'
 import PaginationBlock from '../common/PaginationBlock'
 import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstant'
 
 /**
- * 获取内容部分数据
- * 包括内容列表页面、详情页面和下方的页码页面
- * 列表页面和详情页面需要在一个container中
+ * 数字资料模块List详情页面
  */
-export default class ContentHolderList extends Component{
+export default class DigitalHolderList extends Component{
     state = {
         data: null,
         start:DEFAULT_START,
         count:DEFAULT_COUNT,
         current:1
     }
-
 
     componentDidMount() {
         const module = this.props.module;
@@ -71,7 +68,7 @@ export default class ContentHolderList extends Component{
     render(){
         return(
             <div className='ContentHolderList'>
-                <ContentTextList data={this.state.data} category={this.props.category}/>
+                <DigtalTextList data={this.state.data}/>
                 <PaginationBlock current={this.state.current} total={this.props.total} defaultPageSize={DEFAULT_COUNT} onChange={this.pageChange}/>
             </div>
         )
