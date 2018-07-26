@@ -11,6 +11,10 @@ import './style/Branch'
 import './style/Communite'
 import './style/member'
 
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
+
 render(
     <div>
       {RootRouter}

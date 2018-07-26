@@ -1,25 +1,11 @@
 import React, {Component} from 'react'
 
-export default class DigitalWordSet extends Component{
-
-
-    renderTitle(){
-        const title = this.props.data&&this.props.data.map(
-            item =>(
-                <div>
-                    {item.title}
-                </div>
-            )
-        )
-        return title
-    }
-
-
+export default class DigitalVideoSet extends Component{
 
     render(){
         return(
-            <div className='wordSet_div'>
-                <p>数字资料>讲稿</p>
+            <div className='videoSet_div'>
+                <p>数字资料>视频</p>
                 {
                     this.props.data&&this.props.data.map(
                         item => (
@@ -27,12 +13,11 @@ export default class DigitalWordSet extends Component{
                                 <p>{item.title}</p>
                                 <p>作者：{item.author}</p>
                                 <p>会议时间：{item.pubtime}</p>
-                                <span><a href={item.file_path}>下载附件</a></span>
+                                <span><a href={item.file_path}>会议视频文件</a></span>
                            </div>
                         )
                     )
                 }
-
             </div>
         )
     }
