@@ -28,9 +28,6 @@ export default class BranchIntro extends Component{
                 </Row>
                 <Row>
                     <Col span={8}>
-                        <Link to='/child/branch/history'><p>发展</p></Link>
-                    </Col>
-                    <Col span={8}>
                         <Link to='/child/branch/event'><p>大事记</p></Link>
                     </Col>
                     <Col span={8}>

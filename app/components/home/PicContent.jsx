@@ -1,19 +1,18 @@
 import React, {Component}from 'react'
 import {Row, Col} from 'antd'
-import {getHomeDateByType} from '../../common/fetch'
+import {getHomeDateByType} from '../../common/utils'
+import { HOME_DEFAULT_START} from '../../config/constant/commonConstant'
+
 
 //图片和新闻内容共同显示模块
 export default class PicContent extends Component{
     state = {
-        data:null,
-        pageStart:1,
-        size:1
+        data:null
     }
 
     componentDidMount(){
         const {type,serverType} = this.props
-        const {pageStart,size} = this.state
-        const result = getHomeDateByType(pageStart,size,type,serverType)
+        const result = getHomeDateByType(HOME_DEFAULT_START,1,type,serverType)
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -23,27 +22,34 @@ export default class PicContent extends Component{
        })
     }
 
+    //第一行带图片部分
+    renderFirstRow(){
+        const data = this.state.data;
+        const result = data&&data.map(
+            item => (
+                <Row>
+                    <Col span={11} offset={0}>
+                        <img src={item.picture_url}/>
+                    </Col>
+                    <Col span={11} className='Col_content'>
+                        {
+                            item.content.split('#')[0].indexOf(':')!= -1
+                            ? 
+                            item.content.split('#')[1].substring(0,40)+"..."
+                            :
+                            item.content.split('#')[0].substring(0,40)+"..."
+                        }
+                    </Col>
+                </Row>
+            )
+        )
+        return result;
+    }
+
     render(){
         return(
             <div className='PicContent'>      
-                    {
-                         this.state.data && this.state.data.map((item) => {
-                             return(
-                                <Row key={item.id}>
-                                    <Col span={12}>
-                                        {
-                                            handlePic(item)
-                                        }
-                                    </Col>
-                                    <Col span={12}>
-                                        {
-                                            handleContent(item)
-                                        }
-                                    </Col>
-                                </Row>
-                             )
-                         })
-                    }
+                {this.renderFirstRow()}
             </div>
         )
     }
@@ -51,47 +57,47 @@ export default class PicContent extends Component{
 
 
 
-const handlePic = ({content}) => {
-    const data = content.split('#')
-    let suffix = ''
-    let imageUrl = ''
-    for (let index = 0; index < data.length; index++) {
-        const element = data[index];
-        if(element.lastIndexOf("\.") != -1){
-            suffix = element.substring(element.lastIndexOf("\.")+1,element.length)
-            if(suffix == 'jpg' || suffix=='png' || suffix=='JPEG'){
-                imageUrl = element
-                return(
-                    <img src={imageUrl}/>
-                )
-            }else{
-                return(
-                    <img src={"http://chuantu.biz/t6/339/1530841393x-1404817497.jpg"}/>
-                )
-            }
-        }
-    }
-    return(
-        <img src={"http://chuantu.biz/t6/339/1530841425x-1404817497.jpg"}/>
-    )
-}
+// const handlePic = ({content}) => {
+//     const data = content.split('#')
+//     let suffix = ''
+//     let imageUrl = ''
+//     for (let index = 0; index < data.length; index++) {
+//         const element = data[index];
+//         if(element.lastIndexOf("\.") != -1){
+//             suffix = element.substring(element.lastIndexOf("\.")+1,element.length)
+//             if(suffix == 'jpg' || suffix=='png' || suffix=='JPEG'){
+//                 imageUrl = element
+//                 return(
+//                     <img src={imageUrl}/>
+//                 )
+//             }else{
+//                 return(
+//                     <img src={"http://chuantu.biz/t6/339/1530841393x-1404817497.jpg"}/>
+//                 )
+//             }
+//         }
+//     }
+//     return(
+//         <img src={"http://chuantu.biz/t6/339/1530841425x-1404817497.jpg"}/>
+//     )
+// }
 
 
-const handleContent = ({content}) => {
-    const data = content.split('#')
-    for (let index = 0; index < data.length; index++) {
-        const element = data[index];
-        if(element.lastIndexOf("\.") != -1){
-            continue;
-        }else{
-            return(
-                <p>
-                    {element.substring(0,20)+'...' }
-                </p>
-            )
-        }
-    }
-}
+// const handleContent = ({content}) => {
+//     const data = content.split('#')
+//     for (let index = 0; index < data.length; index++) {
+//         const element = data[index];
+//         if(element.lastIndexOf("\.") != -1){
+//             continue;
+//         }else{
+//             return(
+//                 <p>
+//                     {element.substring(0,20)+'...' }
+//                 </p>
+//             )
+//         }
+//     }
+// }
 
 
 

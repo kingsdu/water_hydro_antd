@@ -6,23 +6,48 @@ import NewsListBlock from '../common/NewsListBlock'
 import FirstColumHeader from '../../components/common/FirstColumHead'
 import NewsTitCon from '../../components/common/NewsTitCon'
 
+import {getHomeDateByType} from '../../common/utils'
+import { HOME_DEFAULT_START,HOME_DEFAULT_COUNT_1 } from '../../config/constant/commonConstant'
+
+
 export default class NoticeColumn extends Component {
+    state = {
+        data:null
+    }
+
+    componentDidMount(){
+        const type = this.props.type;
+        const serverType = '1'//暂时无用，但是后台需要该参数占位
+        const result = getHomeDateByType(HOME_DEFAULT_START,HOME_DEFAULT_COUNT_1,type,serverType)
+        result.then((data)=>{
+            if(data.Result == 'success'){
+                this.setState({
+                    data: data.Data,
+                }); 
+            }     
+       })
+    }
+
+    renderCarousel(){
+        const carouselImage = this.state.data&&this.state.data.map(
+            item => (
+                <div>
+                    <img src={item.picture_url}/>
+                </div>
+            )
+        )
+        return carouselImage
+    }
+    
+    
     render(){
-        const {isMore, title, isCenter, type, serverType} = this.props;
+        const {isMore, title, isCenter, type} = this.props;
         return(
             <div className ='NoticeColumn'>
                 <Row>
-                    <Col span={9} className='Col-2'>
-                        <Carousel autoplay={true} vertical={true} dots={true}>
-                            <div>
-                                <img src='http://chuantu.biz/t6/337/1530426015x-1404817497.jpg'/>
-                            </div>
-                            <div>
-                                <img src='http://chuantu.biz/t6/337/1530426456x-1404817497.jpg'/>
-                            </div>
-                            <div>
-                                <img src='http://chuantu.biz/t6/337/1530426099x-1404817497.jpg'/>
-                            </div>                           
+                    <Col span={9}>
+                        <Carousel autoplay={true} dots={false}>
+                            {this.renderCarousel()}              
                         </Carousel>          
                     </Col>
                     <Col span={13} offset={1}>
@@ -32,8 +57,8 @@ export default class NoticeColumn extends Component {
                             isCenter={isCenter}
                             isMore={isMore}/>
                         <NewsTitCon
-                        serverType={serverType}
-                        type={type}/>
+                        serverType={'2'}
+                        type={'dynamicNews'}/>
                     </Col>
                 </Row>               
             </div>

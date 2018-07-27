@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { Form, Input, Modal ,Tooltip, Icon, Cascader,Upload,Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 import { TEMP_SERVER_URL } from '../../config/constant/commonConstant'
 import httpServer from '../../common/httpServer'
-import axios from 'axios'
 /**
  * 会员模块登陆
 */
@@ -133,9 +132,6 @@ class MemberFrom extends Component{
           callback();
         }
       }
-
-    
-    //handleSubmit(e) {const value = this.props.form;}  错误
 
     /**
      * 表单提交

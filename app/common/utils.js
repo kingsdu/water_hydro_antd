@@ -393,7 +393,7 @@ export function getContentByModule(startPage,size,module){
         case 'awardsIntroduced' : 
         route = 'AwardInfos/getAwardInfosByType';
         serverType = '2'
-        content =getNewsList(route,startPage,size,serverType);
+        content = getNewsList(route,startPage,size,serverType);
         break;
         //赞助单位
         case 'Sponsors' : 
@@ -617,4 +617,54 @@ export function getDetailRouteByCategory(category){
             break;
     }
     return route;
+}
+
+
+//通过首页类型获取所有首页的数据
+export function getHomeDateByType(startPage,pageSize,type,serverType){
+    const params = {
+        pageNum:startPage,
+        pageSize:pageSize,
+        type:serverType,
+    }
+    let url = '' //请求后台路由，根据type决定
+    let resultData = '' //服务端请求结果
+    switch (type) {
+        case 'eventsNotice':   //改成活动公告为能显示菜单栏
+            url = SERVER_PATH +'BranchDynamic/getBranchDynamicNewsByType';
+            resultData = get_params(url,params);
+            break;
+        case 'notices':
+            url = SERVER_PATH +'Academic/getAcademicInfoByType';
+            resultData = get_params(url,params);
+            break;
+        case 'picNews':
+            url = SERVER_PATH +'BranchDynamic/getPicNews';
+            resultData = get_params(url,params);
+            break;
+        case 'dynamicNews':
+            url = SERVER_PATH +'BranchDynamic/getLastestPicNews';
+            resultData = get_params(url,params);
+            break;
+        case 'academicConference':
+            url = SERVER_PATH +'Academic/getAcademicPicNews';
+            resultData = get_params(url,params);
+            break;
+        case 'rewardDynamics':
+            url = SERVER_PATH +'AwardInfos/getAwardInfosByType';
+            resultData = get_params(url,params);
+            break;
+        case 'technicalDynamics':
+            url = SERVER_PATH +'BranchDynamic/getBranchDynamicNewsByType';
+            resultData = get_params(url,params);
+            break;
+        case 'sciencePropaganda':
+            url = SERVER_PATH +'SciencePark/getScienceParkInfoByType';
+            resultData = get_params(url,params);
+            break;
+        default:
+            break;
+    }
+
+    return resultData;
 }

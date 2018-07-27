@@ -13,7 +13,7 @@ export default class HotNotice extends Component{
                 title={title}
                 isMore={isMore}
                 isCenter={isCenter}/>
-                <NewsListBlock type={type} count={5} haveLine={haveLine} serverType={serverType}/> 
+                <NewsListBlock type={type} haveLine={haveLine} serverType={serverType}/> 
             </div>
         )
     }

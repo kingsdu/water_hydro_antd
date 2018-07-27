@@ -1,18 +1,17 @@
 import React, {Component} from 'react'
 
-import {getHomeDateByType} from '../../common/fetch'
+import {getHomeDateByType} from '../../common/utils'
+import { HOME_DEFAULT_START,HOME_DEFAULT_COUNT_2 } from '../../config/constant/commonConstant'
 import NewsList from './NewsList'
 
 export default class NewsListBlock extends Component {
     state = {
         data: null,
-        startPage: 1,
     }
 
     componentDidMount() {
-        const { startPage} = this.state;
-        const { type,count,serverType } = this.props;
-        const data = getHomeDateByType(startPage,count,type,serverType)
+        const { type,serverType } = this.props;
+        const data = getHomeDateByType(HOME_DEFAULT_START,HOME_DEFAULT_COUNT_2,type,serverType)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -26,7 +25,7 @@ export default class NewsListBlock extends Component {
         const {haveLine} = this.props;
         return(
             <div>
-                {<NewsList newsData={this.state.data} haveLine={haveLine} type={this.props.type}/>}
+                <NewsList newsData={this.state.data} haveLine={haveLine} type={this.props.type}/>
             </div>
         )
     }

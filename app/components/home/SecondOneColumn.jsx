@@ -8,9 +8,9 @@ const SecondOneColumn = () =>{
     return (
         <div>
             <HotNotice
-            title='热点公告'
+            title='通知公告'
             type='eventsNotice'
-            serverType='5'
+            serverType='1'
             isMore={false}
             isCenter={true}
             haveLine={true}

@@ -11,27 +11,27 @@ const SecondSevenColumn = () => {
     return(
         <div className='SecondSevenColumn'>
             <Row>
-                <Col span={7}>
+                <Col span={10}>
                     <ColumnHeader
-                    title={'技术展示'}
-                    type={'skillShow'}
+                    title={'技术动态'}
+                    type='technicalDynamics'
                     isMore={true}
                     isCenter={false}/>
                     <PicContent
-                    type={'skillShow'}
-                    content={'一种规范化度安徽省水利建设'}
-                    imageUrl={'http://chuantu.biz/t6/339/1530841393x-1404817497.jpg'}
-                    serverType='6'/>
-                    <NewsListBlock haveLine={true} count={4} type={'skillShow'}  serverType='6'/> 
+                     type='technicalDynamics'
+                     serverType='3'/>
+                    <NewsListBlock haveLine={true} type='technicalDynamics' serverType='3'/> 
                 </Col>
-                <Col span={16} offset={1}>
-                    <div className='VipShow-out'>
-                        <ColumnHeader
-                        title='会员风采'
-                        isMore={true}
-                        isCenter={false}/>
-                        <VipShow/>
-                    </div>
+                <Col span={10} offset={3}>
+                    <ColumnHeader
+                    title={'科普宣传'}
+                    type='sciencePropaganda'
+                    isMore={true}
+                    isCenter={false}/>
+                    <PicContent
+                    type='sciencePropaganda'
+                    serverType='1'/>
+                    <NewsListBlock haveLine={true} type='sciencePropaganda'  serverType='1'/> 
                 </Col>
             </Row>
             <div>

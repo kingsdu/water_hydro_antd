@@ -8,9 +8,9 @@ const SecondTwoColumn = () =>{
     return(
         <div>
            <PredictionActivity
-           title='活动预告'
+           title='会议通知'
            type='notices'
-           serverType='8'
+           serverType='1'
            isMore={false}
            isCenter={true}
            haveLine={true}

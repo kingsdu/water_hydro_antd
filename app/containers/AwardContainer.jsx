@@ -5,7 +5,7 @@ import BranchSider from '../components/branch/BranchSider'
 import ContentHeader from '../components/common/ContentHeader'
 import ContentHolderList from '../components/branch/ContentHolderList'
 import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/utils'
-
+import AwardForm from '../components/awardService/AwardForm'
 
 /**
  * 表彰奖励
@@ -44,22 +44,44 @@ export default class AwardContainer extends Component{
 
 
     render(){
-        return(
-            <div>
-                <Row>
-                    <Col span={5}>
-                        <Card>
-                            <BranchSider category={this.state.category}/>
-                        </Card>
-                    </Col>
-                    <Col span={18} offset={1}>
-                        <Card>
-                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                            <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
-        )
+        const module = this.props.match.params.module;
+        if(module == 'AwardApplication'){
+            return(
+                <div>
+                    <Row>
+                        <Col span={5}>
+                            <Card>
+                                <BranchSider category={this.state.category}/>
+                            </Card>
+                        </Col>
+                        <Col span={18} offset={1}>
+                            <Card>
+                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                                <AwardForm module={'awardsIntroduced'}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+            )
+        }else{
+            return(
+                <div>
+                    <Row>
+                        <Col span={5}>
+                            <Card>
+                                <BranchSider category={this.state.category}/>
+                            </Card>
+                        </Col>
+                        <Col span={18} offset={1}>
+                            <Card>
+                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                                <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+            )
+        }
+       
     }
 }

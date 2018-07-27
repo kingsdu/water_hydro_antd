@@ -10,7 +10,7 @@ const PredictionActivity = ({title,type,serverType}) => {
         <div className='PredictionActivity'>
             <PredictionAtyHeader
             title={title}/>
-            <NewsListBlock haveLine={true} count={5} type={type} serverType={serverType}/> 
+            <NewsListBlock haveLine={true} type={type} serverType={serverType}/> 
         </div>
     )
 }

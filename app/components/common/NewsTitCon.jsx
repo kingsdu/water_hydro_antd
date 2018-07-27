@@ -1,18 +1,18 @@
 import React, {Component} from 'react'
-import {getHomeDateByType} from '../../common/fetch'
 import { Link } from 'react-router-dom'
+import {getHomeDateByType} from '../../common/utils'
+import { HOME_DEFAULT_START,HOME_DEFAULT_COUNT_1 } from '../../config/constant/commonConstant'
+
+
 
 export default class NewsTitCon extends Component{
     state = {
-        data:null,
-        pageStart:1,
-        size:1
+        data:null
     }
 
     componentDidMount(){
         const {type,serverType} = this.props
-        const {pageStart,size} = this.state
-        const result = getHomeDateByType(pageStart,size,type,serverType)
+        const result = getHomeDateByType(HOME_DEFAULT_START,HOME_DEFAULT_COUNT_1,type,serverType)
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -35,7 +35,11 @@ export default class NewsTitCon extends Component{
                                 </p>
                                 <p className='content'>
                                     {
-                                        item.content.substring(0,80)+"..."
+                                        item.content.split('#')[0].indexOf(':')!= -1
+                                        ? 
+                                        item.content.split('#')[1].substring(0,80)+"..."
+                                        :
+                                        item.content.split('#')[0].substring(0,80)+"..."
                                     }
                                 </p>
                             </div>
