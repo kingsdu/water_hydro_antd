@@ -1,26 +1,22 @@
-.home {
-    margin-bottom: 10px;
-    //整体卡片的边距
-    .ant-card-body{
-        padding: 15px 20px;
-    }
-}
-
 .home-1{
     margin-bottom: 10px;
+    // height: 300px;
+    .ant-card-body{
+        margin: 0px;
+        padding: 0px 10px;
+    }
+
     .carousel{
         img {
-            //float: left;
             width: 100%;
             height: 200px;
         }
     }
-
     //轮播图下方字体颜色展示
     .carousel-font{
         background-color: #45647A;
         text-align: right;
-        line-height: 50px;
+
         border: 1px solid gray;
         p{
             margin-right: 10px;
@@ -28,13 +24,9 @@
             font-size: 28px;
         }
     }
-
-     //整体卡片的边距
-    .ant-card-body{
-        padding: 0px;
-    }
-
 }
+
+
 
 .home-2-1{
     margin-right: 10px;
@@ -159,7 +151,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     .ant-card-body{
-        padding: 32px 20px;
+        padding: 21px 20px;
     }
     .SecondFourColumn{
         border: 1px solid #797979;
@@ -197,8 +189,7 @@
     margin-bottom: 10px;
     //整体卡片的边距
     .ant-card-body{
-        padding: 0px 20px 0px 20px;
-        height: 200px;
+        padding: 10px 0px 10px 20px;
     }
     .NoticeColumn{
         img{
@@ -227,7 +218,6 @@
     .FirstColumHeader{
         img{
             height: 3px;
-            // width: 100px;
         }
         p{
             font-size: 15px;
@@ -241,7 +231,7 @@
     margin-bottom: 10px;
     //整体卡片的边距
     .ant-card-body{
-       // padding: 5px 20px;
+       padding: 10px 20px;
     }
 
     .Col_content{
@@ -268,6 +258,10 @@
     //整体卡片的边距
     .ant-card-body{
         padding: 5px 20px;
+    }
+
+    .Col_content{
+        font-size: 14px;
     }
 
     .SecondSevenColumn{
@@ -321,40 +315,68 @@
     margin-bottom: 10px;
     //整体卡片的边距
     .ant-card-body{
-        padding: 5px 20px;
+        padding: 5px 10px 0px 20px;
     }
 
-
-    //科普乐园
-    .ScienceDomain{
-        p{
-            padding:5px 0px 0px 11px;
-            font-size:16px;
-            color: #0381B4;
-        }
+    //会员风采
+    .vipshow_div{
+        width: 400px;
+        height: 205px;
+        background:url('http://chuantu.biz/t6/349/1532784625x-1566688556.png') no-repeat;
+        margin: -10px 0px 10px 0px;
         img{
-            height: 70px;
-            width: 80px;
+            margin: 10px 0px 10px 20px;
+            width:120px;
+            height:150px;
+        }
+        .title{
+            margin: 10px 0px 0px 0px;
+            font-size: 20px;
+        }
+        .intro{
+            font-size: 16px;
+            text-indent: 2em;
+        }
+
+        .SimpleSlider{
+            padding: 0px;
+            margin: 0px;
+        }
+    
+        //左右滑动图片的颜色
+        .slick-next:before, .slick-prev:before{
+            color:#1F5B93,
+        }
+        //左右按钮的距离
+        .slick-prev{
+            left: -18px;
         }
     }
 
-    .Certification{
-        .Col{
-            background-color: #CEEFFE;
-            border: 1px solid #797979;
-            border-radius: 10px;
-            margin-top:30px;
-            p{
-                background:url('http://chuantu.biz/t6/339/1530841094x-1404817497.jpg') no-repeat;
-                background-position: 12px 15px;
-                text-align: center;
-                line-height:36px;
-                font-size: 14px;               
-            }
+    .ScienceSlider_div{
+        width: 200px;
+        height: 215px;
+        margin: -13px 0px 10px 0px;
+        img{
+            width:120px;
+            height:170px;
+        }
+        p{
+            padding: 10px 0px 0px 0px;
+            text-align: center;
+            font-size: 16px;
+            color: #1F5B93;
+        }
+        //左右滑动图片的颜色
+        .slick-next:before, .slick-prev:before{
+            color:#1F5B93,
+        }
+
+         //左右按钮的距离
+         .slick-prev{
+            left: -18px;
         }
     }
-
-
 }
 
 .home-3-1{

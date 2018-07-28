@@ -11,7 +11,7 @@ const SecondSevenColumn = () => {
     return(
         <div className='SecondSevenColumn'>
             <Row>
-                <Col span={10}>
+                <Col span={11}>
                     <ColumnHeader
                     title={'技术动态'}
                     type='technicalDynamics'
@@ -20,9 +20,9 @@ const SecondSevenColumn = () => {
                     <PicContent
                      type='technicalDynamics'
                      serverType='3'/>
-                    <NewsListBlock haveLine={true} type='technicalDynamics' serverType='3'/> 
+                    <NewsListBlock haveLine={true} type='technicalDynamics' serverType='3' count='4'/> 
                 </Col>
-                <Col span={10} offset={3}>
+                <Col span={11} offset={2}>
                     <ColumnHeader
                     title={'科普宣传'}
                     type='sciencePropaganda'
@@ -31,7 +31,7 @@ const SecondSevenColumn = () => {
                     <PicContent
                     type='sciencePropaganda'
                     serverType='1'/>
-                    <NewsListBlock haveLine={true} type='sciencePropaganda'  serverType='1'/> 
+                    <NewsListBlock haveLine={true} type='sciencePropaganda'  serverType='1' count='4'/> 
                 </Col>
             </Row>
             <div>

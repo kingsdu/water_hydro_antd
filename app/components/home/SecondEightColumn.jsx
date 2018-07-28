@@ -2,49 +2,29 @@ import React, {Component} from 'react'
 
 import {Row, Col} from 'antd'
 import ColumnHeader from './ColumnHeader'
-import NewsListBlock from '../common/NewsListBlock'
-import ScienceDomain from './ScienceDomain'
-import Certification from './Certification'
+import ScienceSliderPic from '../home/ScienceSliderPic'
+import VIPShowPic from '../home/VIPShowPic'
 
 const SecondEightColumn = () => {
     return(
         <div className='SecondEightColumn'>
             <Row>
-                <Col span={7}>
-                    <Row>
-                        <Col span={24}>
-                            <ColumnHeader
-                                title={'专利'}
-                                type='patent'
-                                isMore={true}
-                                isCenter={false}/>
-                                <NewsListBlock haveLine={true} type='patent' count={4}  serverType='1'/> 
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span={24}>
-                            <ColumnHeader
-                                title={'产品'}
-                                type='product'
-                                isMore={true}
-                                isCenter={false}/>
-                                <NewsListBlock haveLine={true} type='product' count={4}  serverType='1'/> 
-                        </Col>
-                    </Row>
+                <Col span={15}>
+                    <ColumnHeader
+                        title={'会员风采'}
+                        type='memberInformation'
+                        isMore={true}
+                        isCenter={false}/>
+                        <VIPShowPic module='memberInformation' serverType='2'/> 
                 </Col>
                 <Col span={8} offset={1}>
                     <ColumnHeader
-                        title='科普乐园'
+                        title={'学会期刊'}
+                        type='scientificJournal'
                         isMore={true}
                         isCenter={false}/>
-                    <ScienceDomain/>             
-                </Col>
-                <Col span={7} offset={1}>
-                    <Certification
-                        title='资质认证'
-                        isMore={true}
-                        isCenter={false}/>    
-                </Col>
+                        <ScienceSliderPic module='scientificJournal' serverType='3'/> 
+                </Col>                
             </Row>
         </div>
     )

@@ -15,13 +15,9 @@ export default class HomeContainer extends Component {
     render(){
         return(
             <div>
-                <Row>
-                    <Col span={24}>
-                        <Card className='home-1'>
-                            <FirstColumn/>     
-                        </Card>
-                    </Col>
-                </Row>
+                <Card className='home-1'>
+                        <FirstColumn/>     
+                </Card>
                 <Row>
                     <Col span={7}>
                         <Card className='home-2-1'>

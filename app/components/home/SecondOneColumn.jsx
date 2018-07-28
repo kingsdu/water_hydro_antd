@@ -11,6 +11,7 @@ const SecondOneColumn = () =>{
             title='通知公告'
             type='eventsNotice'
             serverType='1'
+            count='6'
             isMore={false}
             isCenter={true}
             haveLine={true}

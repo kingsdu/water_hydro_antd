@@ -662,6 +662,14 @@ export function getHomeDateByType(startPage,pageSize,type,serverType){
             url = SERVER_PATH +'SciencePark/getScienceParkInfoByType';
             resultData = get_params(url,params);
             break;
+        case 'memberInformation':
+        url = SERVER_PATH +'member/selectMemberShow';
+        resultData = get_params(url,params);
+            break;
+        case 'scientificJournal':
+        url = SERVER_PATH +'SciencePark/getScienceParkInfoByType';
+        resultData = get_params(url,params);
+            break;
         default:
             break;
     }

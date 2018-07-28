@@ -11,6 +11,7 @@ const SecondTwoColumn = () =>{
            title='会议通知'
            type='notices'
            serverType='1'
+           count='7'
            isMore={false}
            isCenter={true}
            haveLine={true}
