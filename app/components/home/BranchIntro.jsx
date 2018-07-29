@@ -17,21 +17,21 @@ export default class BranchIntro extends Component{
                 </div>
                 <Row>
                     <Col span={8}>
-                        <Link to='/child/branch/brachInfo'><p>简介</p></Link>
+                        <Link to='/child/branch/brachInfo'target="_Blank"><p>简介</p></Link>
                     </Col>
                     <Col span={8}>
-                        <Link to='/child/branch/organization'><p>组织机构</p></Link>
+                        <Link to='/child/branch/organization'target="_Blank"><p>组织机构</p></Link>
                     </Col>
                     <Col span={8}>
-                        <Link to='/child/branch/regulation'><p>章程</p></Link>
+                        <Link to='/child/branch/regulation' target="_Blank"><p>章程</p></Link>
                     </Col>
                 </Row>
                 <Row>
                     <Col span={8}>
-                        <Link to='/child/branch/event'><p>大事记</p></Link>
+                        <Link to='/child/branch/event' target="_Blank"><p>大事记</p></Link>
                     </Col>
                     <Col span={8}>
-                        <Link to='/child/branch/documents'><p>文件</p></Link>
+                        <Link to='/child/branch/documents' target="_Blank"><p>文件</p></Link>
                     </Col>
                 </Row>
             </div>

@@ -67,7 +67,7 @@ export default class MembershipContainer extends Component{
                     <Row>
                         <Col span={5}>
                             <Card>
-                                <BranchSider category={this.state.category}/>
+                                <BranchSider module={module}/>
                             </Card>
                         </Col>
                         <Col span={18} offset={1}>
@@ -85,7 +85,7 @@ export default class MembershipContainer extends Component{
                     <Row>
                         <Col span={5}>
                             <Card>
-                                <BranchSider category={this.state.category}/>
+                                <BranchSider module={module}/>
                             </Card>
                         </Col>
                         <Col span={18} offset={1}>
@@ -103,7 +103,7 @@ export default class MembershipContainer extends Component{
                     <Row>
                         <Col span={5}>
                             <Card>
-                                <BranchSider category={this.state.category}/>
+                                <BranchSider module={module}/>
                             </Card>
                         </Col>
                         <Col span={18} offset={1}>
@@ -121,7 +121,7 @@ export default class MembershipContainer extends Component{
                     <Row>
                         <Col span={5}>
                             <Card>
-                                <BranchSider category={this.state.category}/>
+                                <BranchSider module={module}/>
                             </Card>
                         </Col>
                         <Col span={18} offset={1}>

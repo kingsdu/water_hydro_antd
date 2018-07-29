@@ -14,7 +14,7 @@ const ColumnHeader = ({title,type,isMore,isCenter}) => {
             <span className='column_more'>
                 {
                     isMore ?
-                    <Link to={route}>more</Link>
+                    <Link to={route} target="_Blank">more</Link>
                     :
                     ""
                 }
@@ -29,7 +29,7 @@ const ColumnHeader = ({title,type,isMore,isCenter}) => {
             <span className='column_more'>
                 {
                     isMore ?
-                    <Link to={route}>
+                    <Link to={route}  target="_Blank">
                         more
                     </Link>
                     :

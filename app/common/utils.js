@@ -14,23 +14,23 @@ export function getHomeTarget(type){
         case 'BranchIntro':
             route = '/child/branch/brachInfo'
             break;
-        case 'academicExchange':
-            route = '/child/academic/dynamicsWork'
+        case 'academicConference':
+            route = '/child/academic/academicConference'
             break;
-        case 'recognitionAward':
+        case 'rewardDynamics':
             route = '/child/award/rewardDynamics'
             break;
-        case 'Review':
-            route = '/child/certification/titlereview'
+        case 'technicalDynamics':
+            route = '/child/dynamic/technicalDynamics'
             break;
-        case 'skillShow':
-            route = '/child/SciencePark/scienceDynamics'
+        case 'sciencePropaganda':
+            route = '/child/SciencePark/sciencePropaganda'
             break;
-        case 'patent':
-            route = '/child/SciencePark/publication'
+        case 'memberInformation':
+            route = '/child/membershipService/memberInformation'
             break;
-        case 'product':
-            route = '/child/SciencePark/publication'
+        case 'scientificJournal':
+            route = '/child/SciencePark/scientificJournal'
             break;
         default:
             break;
@@ -176,8 +176,8 @@ export function getInfoCount(module){
         content = getCount(route,serverType);
         break;
         case 'academicConference' : 
-        route = 'Academic/getAcademicCount';
-        serverType = '2'
+        route = 'Academic/getAcademicSelfCount';
+        serverType = '1'
         content = getCount(route,serverType);
         break;
         case 'callForPapers' : 
@@ -334,8 +334,8 @@ export function getContentByModule(startPage,size,module){
         break;
         //学术会议
         case 'academicConference' : 
-        route = 'Academic/getAcademicInfoByType';
-        serverType = '2'
+        route = 'Academic/getAcademicSelf';
+        serverType = '1'
         content = getNewsList(route,startPage,size,serverType);
         break;
         //征文通知
@@ -486,39 +486,112 @@ export function getdefaultName(category){
     let defaultSelectedKeys = ''
     let defaultOpenKeys = ''
     switch (category) {
-        case 'branch':
+        //关于分会
+        case 'brachInfo':
             defaultOpenKeys = 'branch'
             defaultSelectedKeys = '/child/branch/brachInfo'
             break;
-        case 'dynamic':
-        defaultOpenKeys = 'dynamic'
-        defaultSelectedKeys = '/child/dynamic/announcement'
+        case 'organization':
+            defaultOpenKeys = 'branch'
+            defaultSelectedKeys = '/child/branch/organization'
             break;
-        case 'academic':
+        case 'regulation':
+            defaultOpenKeys = 'branch'
+            defaultSelectedKeys = '/child/branch/regulation'
+            break;
+        case 'event':
+            defaultOpenKeys = 'branch'
+            defaultSelectedKeys = '/child/branch/event'
+            break;
+        case 'documents':
+            defaultOpenKeys = 'branch'
+            defaultSelectedKeys = '/child/branch/documents'
+            break;
+        //分会动态
+        case 'announcement':
+            defaultOpenKeys = 'dynamic'
+            defaultSelectedKeys = '/child/dynamic/announcement'
+            break;
+        case 'news':
+            defaultOpenKeys = 'dynamic'
+            defaultSelectedKeys = '/child/dynamic/news'
+            break;
+        case 'technicalDynamics':
+            defaultOpenKeys = 'dynamic'
+            defaultSelectedKeys = '/child/dynamic/technicalDynamics'
+            break;
+        //学术交流
+        case 'meetingAnnouncement':
             defaultOpenKeys = 'academic'
             defaultSelectedKeys = '/child/academic/meetingAnnouncement'
             break;
-        case 'SciencePark':
+        case 'academicConference':
+            defaultOpenKeys = 'academic'
+            defaultSelectedKeys = '/child/academic/academicConference'
+            break;
+        case 'callForPapers':
+            defaultOpenKeys = 'academic'
+            defaultSelectedKeys = '/child/academic/callForPapers'
+            break;
+        //科普园地
+        case 'sciencePropaganda':
             defaultOpenKeys = 'SciencePark'
             defaultSelectedKeys = '/child/SciencePark/sciencePropaganda'
-            break;    
-        case 'membershipService':
+            break;
+        case 'scientificKnowledge':
+            defaultOpenKeys = 'SciencePark'
+            defaultSelectedKeys = '/child/SciencePark/scientificKnowledge'
+            break; 
+        case 'scientificJournal':
+            defaultOpenKeys = 'SciencePark'
+            defaultSelectedKeys = '/child/SciencePark/scientificJournal'
+            break; 
+        //会员专区
+        case 'incorporationProcess':
             defaultOpenKeys = 'membershipService'
             defaultSelectedKeys = '/child/membershipService/incorporationProcess'
             break;
-        case 'award':
+        case 'rightsAndObligations':
+            defaultOpenKeys = 'membershipService'
+            defaultSelectedKeys = '/child/membershipService/rightsAndObligations'
+            break;
+        case 'memberInformation':
+            defaultOpenKeys = 'membershipService'
+            defaultSelectedKeys = '/child/membershipService/memberInformation'
+            break;
+        case 'applicationForMembership':
+            defaultOpenKeys = 'membershipService'
+            defaultSelectedKeys = '/child/membershipService/applicationForMembership'
+            break;
+        //表彰奖励
+        case 'rewardDynamics':
             defaultOpenKeys = 'award'
             defaultSelectedKeys = '/child/award/rewardDynamics'
             break;
-        case 'membershipService':
-            defaultOpenKeys = 'membershipService'
-            defaultSelectedKeys = '/child/membershipService/titlereview'
+        case 'awardsIntroduced':
+            defaultOpenKeys = 'award'
+            defaultSelectedKeys = '/child/award/awardsIntroduced'
             break;
-        case 'digitalData':
+        case 'AwardApplication':
+            defaultOpenKeys = 'award'
+            defaultSelectedKeys = '/child/award/AwardApplication'
+            break;
+        case 'Sponsors':
+            defaultOpenKeys = 'award'
+            defaultSelectedKeys = '/child/award/Sponsors'
+            break;
+        //数字资料
+        case 'annualMeeting':
             defaultOpenKeys = 'digitalData'
-            defaultSelectedKeys = '/child/digitalData/annualMeeting'
+            defaultSelectedKeys = '/child/digitalData/digital1/annualMeeting'
             break;
-        default:
+        case 'digitalConference':
+            defaultOpenKeys = 'digitalData'
+            defaultSelectedKeys = '/child/digitalData/digital1/digitalConference'
+            break;
+        case 'commemorativeEvent':
+            defaultOpenKeys = 'digitalData'
+            defaultSelectedKeys = '/child/digitalData/digital1/commemorativeEvent'
             break;
     }
     return defaultOpenKeys+"|"+defaultSelectedKeys
@@ -583,11 +656,23 @@ export function getDigtalCount(route,id,type){
 
 export function getChildItem(category){
     let resCategory = ''
-    if(category === 'dynamicsWork' || category === 'eventsNotice' || category === 'notices'
-    || category === 'skillDynamics'){
+    if(category === 'brachInfo' || category === 'organization' || category === 'regulation'
+    || category === 'event' || category === 'documents'){
+        resCategory = 'branch'
+    }else if(category === 'announcement' || category === 'news' || category === 'technicalDynamics'){
+        resCategory = 'dynamic'
+    }else if(category === 'meetingAnnouncement' || category === 'academicConference' || category === 'callForPapers'){
         resCategory = 'academic'
-    }else{
-        resCategory = category
+    }else if(category === 'sciencePropaganda' || category === 'scientificKnowledge' || category === 'scientificJournal'){
+        resCategory = 'SciencePark'
+    }else if(category === 'incorporationProcess' || category === 'rightsAndObligations' || category === 'memberInformation'
+    || category === 'applicationForMembership'){
+        resCategory = 'membershipService'
+    }else if(category === 'rewardDynamics' || category === 'awardsIntroduced' || category === 'AwardApplication'
+    || category === 'Sponsors'){
+        resCategory = 'award'
+    }else if(category === 'annualMeeting' || category === 'digitalConference' || category === 'commemorativeEvent'){
+        resCategory = 'digitalData'
     }
     return resCategory
 }
@@ -598,19 +683,26 @@ export function getChildItem(category){
 export function getDetailRouteByCategory(category){
     let route = ''
     switch (category) {
-        case "dynamic":
+        case 'dynamic':
+        case 'eventsNotice':
+        case 'dynamicNews':
+        case 'technicalDynamics':
             route = 'BranchDynamic/getBranchDynamicById'
             break;
         case 'academic':
+        case 'notices':
+        case 'academicConference':
             route = 'Academic/getAcademicById'
             break;
         case 'SciencePark':
+        case 'sciencePropaganda':
             route = 'SciencePark/getScienceParkInfoById'
             break;
         case 'SciencePark_Journal':
             route = 'SciencePark/getScienceJournalById'
             break;
         case 'award':
+        case 'rewardDynamics':
             route = 'AwardInfos/getAwardInfosById'
             break;
         default:

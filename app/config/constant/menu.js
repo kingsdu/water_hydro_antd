@@ -52,14 +52,6 @@ export const menu = [
         ],
     },
     {
-        key: 'certification', title: '资质认证', icon: 'appstore',
-        sub: [
-            { key: '/child/certification/certificationProject', title: '认证项目', icon: '', },
-            { key: '/child/certification/qualificatioApplication', title: '资质申请', icon: '', },
-            { key: '/child/certification/certificateInquiry', title: '证书查询', icon: '', }
-        ],
-    },
-    {
         key: 'digitalData', title: '数字资料', icon: 'appstore',
         sub: [
             { key: '/child/digitalData/digital1/annualMeeting', title: '学术年会', icon: '', },

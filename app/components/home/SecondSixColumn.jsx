@@ -13,7 +13,7 @@ const SecondSixColumn = () =>{
             <Col span={11}>
                 <ColumnHeader
                 title={'学术会议'}
-                type='academicExchange'
+                type='academicConference'
                 isMore={true}
                 isCenter={false}/>
                 <PicContent

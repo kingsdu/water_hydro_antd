@@ -4,9 +4,9 @@ import SiderMenu from '../../components/common/SiderMenu';
 
 export default class BranchSider extends Component {
     render() {
-        const category = this.props.category
+        const module = this.props.module
         return (
-            <SiderMenu category={this.props.category}/>
+            <SiderMenu module={this.props.module}/>
         )
     }
 }

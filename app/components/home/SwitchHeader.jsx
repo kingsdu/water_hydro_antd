@@ -14,16 +14,16 @@ export default class SwitchHeader extends Component{
                     <TabPane tab="在线服务" key="1" className='SwitchHeader-TabPane'>
                         <Row className='SwitchHeader-row-1'>
                             <Col span={9} offset={3}>
-                                <img src='http://chuantu.biz/t6/337/1530456748x-1404817497.png'/>
-                                <p>
-                                    <Link className='link' to={'/child/membershipService/applicationForMembership'} target="_Blank">{'入会申请'}</Link>
-                                </p>
+                                <Link className='link' to={'/child/membershipService/applicationForMembership'} target="_Blank">
+                                    <img src='http://chuantu.biz/t6/337/1530456748x-1404817497.png'/>
+                                    <p>{'入会申请'}</p>
+                                </Link>
                             </Col>
                             <Col span={9} offset={3}>
-                                <img src='http://chuantu.biz/t6/337/1530456988x-1404817497.png'/>
-                                <p>
-                                    <Link className='link' to={'/child/award/AwardApplication'} target="_Blank">{'奖项申报'}</Link>
-                                </p>
+                                <Link className='link' to={'/child/award/AwardApplication'} target="_Blank">
+                                    <img src='http://chuantu.biz/t6/337/1530456988x-1404817497.png'/>
+                                    <p>{'奖项申报'}</p>
+                                </Link>
                             </Col>
                         </Row>
                     </TabPane>

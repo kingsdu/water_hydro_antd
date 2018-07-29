@@ -12,16 +12,15 @@ export default class SliderMenu extends Component{
     };
 
     render() {
-        const category = this.props.category;
-        const resCategory = getChildItem(category)
+        const module = this.props.module;
+        const resCategory = getChildItem(module)
         const menuData = menu.filter(function(item){
             if(item.key == resCategory){
                 return item.key
             }
         })
-        const defaultOpenKeys = getdefaultName(resCategory).split("|")[0]
-        const defaultSelectedKeys = getdefaultName(resCategory).split("|")[1]
-
+        const defaultOpenKeys = getdefaultName(module).split("|")[0]
+        const defaultSelectedKeys = getdefaultName(module).split("|")[1]
         /*
         此处需要使用
         openKeys 和 defaultSelectedKeys的组合

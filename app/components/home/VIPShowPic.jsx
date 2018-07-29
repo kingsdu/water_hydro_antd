@@ -3,6 +3,9 @@ import {getHomeDateByType} from '../../common/utils'
 import { HOME_DEFAULT_START,HOME_DEFAULT_COUNT_1 } from '../../config/constant/commonConstant'
 import {Row, Col} from 'antd'
 import SimpleSlider from '../home/SimpleSlider'
+//import {Link} from 'react-router-dom'
+
+
 /**
  * 会员风采轮播图片功能
  */

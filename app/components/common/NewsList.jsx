@@ -8,7 +8,7 @@ const NewsList = ({newsData,haveLine,type}) => {
 
     const newsList = newsData.map((newsItem) =>(
         <li key={newsItem.id}>
-            <Link to={'/child/'+type+'/'+newsItem.id}>
+            <Link to={'/child/detail/'+type+'/'+newsItem.id} target="_Blank">
                 {newsItem.title}
             </Link>
         </li>

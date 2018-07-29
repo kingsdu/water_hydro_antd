@@ -31,7 +31,7 @@ export default class NewsTitCon extends Component{
                         return(
                             <div className='newsTitCon' key={item.id}>   
                                 <p className='title'>
-                                    <Link to={'/child/'+this.props.type+'/'+item.id}>{item.title}</Link>
+                                    <Link to={'/child/detail/'+this.props.type+'/'+item.id} target="_Blank">{item.title}</Link>
                                 </p>
                                 <p className='content'>
                                     {

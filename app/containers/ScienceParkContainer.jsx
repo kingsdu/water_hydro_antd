@@ -44,12 +44,13 @@ export default class ScienceParkContainer extends Component{
 
 
     render(){
+        const module = this.props.match.params.module;
         return(
             <div>
                 <Row>
                     <Col span={5}>
                         <Card>
-                            <BranchSider category={this.state.category}/>
+                            <BranchSider module={module}/>
                         </Card>
                     </Col>
                     <Col span={18} offset={1}>

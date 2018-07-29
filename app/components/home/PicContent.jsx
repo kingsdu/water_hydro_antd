@@ -2,6 +2,7 @@ import React, {Component}from 'react'
 import {Row, Col} from 'antd'
 import {getHomeDateByType} from '../../common/utils'
 import { HOME_DEFAULT_START} from '../../config/constant/commonConstant'
+import { Link } from 'react-router-dom';
 
 
 //图片和新闻内容共同显示模块
@@ -32,13 +33,15 @@ export default class PicContent extends Component{
                         <img src={item.picture_url}/>
                     </Col>
                     <Col span={11} className='Col_content'>
-                        {
-                            item.content.split('#')[0].indexOf(':')!= -1
-                            ? 
-                            item.content.split('#')[1].substring(0,40)+"..."
-                            :
-                            item.content.split('#')[0].substring(0,40)+"..."
-                        }
+                        <Link to={'/child/detail/'+this.props.type+'/'+item.id}  target="_Blank"> 
+                            {
+                                item.content.split('#')[0].indexOf(':')!= -1
+                                ? 
+                                item.content.split('#')[1].substring(0,40)+"..."
+                                :
+                                item.content.split('#')[0].substring(0,40)+"..."
+                            }
+                        </Link>
                     </Col>
                 </Row>
             )

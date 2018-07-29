@@ -84,6 +84,7 @@ export default class DigitalDataContainer extends Component{
 
 
     render(){
+        const module = this.props.match.params.module;
         //分为三个不同的状态层，第一层（List展示）、第二层（某个会议三种不同模式展示）、第三层（某类资源详情：图片、视频）
         if(this.props.match.params.category == 'digital1'){
             return(
@@ -91,7 +92,7 @@ export default class DigitalDataContainer extends Component{
                     <Row>
                         <Col span={5}>
                             <Card>
-                                <BranchSider category={this.state.category}/>
+                                <BranchSider module={module}/>
                             </Card>
                         </Col>
                         <Col span={18} offset={1}>

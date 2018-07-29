@@ -31,7 +31,7 @@ export default class ContentHolderList extends Component{
             }      
        })
     }
-
+    
     
     componentWillReceiveProps(nextProps) {
         const module = nextProps.module
