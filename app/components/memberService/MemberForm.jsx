@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import { Form, Input, Modal ,Tooltip, Icon, Cascader,Upload,Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 import { TEMP_SERVER_URL } from '../../config/constant/commonConstant'
 import httpServer from '../../common/httpServer'
+import {uploadForm} from '../../common/utils'
+import axios from 'axios';
+import {Link} from 'react-router-dom'
+
 /**
  * 会员模块登陆
 */
@@ -16,8 +20,12 @@ class MemberFrom extends Component{
         status:'',
         agreeRule:false,
         loading: false,
-        imageUrl:''
+        imageUrl:'',
+        fileList:[],
+        dragFlieList:[],
+        data:null
     };
+
 
     /**
      * 上传图片
@@ -139,21 +147,25 @@ class MemberFrom extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                httpServer({
-                    url : TEMP_SERVER_URL+"/member/front/register",
-                    method : 'post'
-                  },{
-                    account : values.account,
-                    // password : values.password,
-                    // name : values.name,
-                    // idCard : values.idCard,
-                    // email : values.email,
-                    // company : values.company,
-                    // phone : values.phone,
-                    // education : values.education,
-                    // jobTitle : values.jobTitle,
-                })
+            if (!err) {  
+                console.log("values",values)     
+                const formData = new FormData();  
+                formData.append("account",values.account);
+                formData.append("passwords",values.passwords);
+                formData.append("name",values.name);
+                formData.append("idCard",values.idCard);
+                formData.append("email",values.email);
+                formData.append("company",values.company);
+                formData.append("phone",values.phone);
+                formData.append("education",values.education);
+                formData.append("jobTitle",values.jobTitle);
+                formData.append('pic',values.upload.file,values.upload.file.name);
+                formData.append("appendix",values.dropbox.file,values.dropbox.file.name);
+                axios.post(TEMP_SERVER_URL + "member/uploadAvatorPic", formData).then( res => {
+                    if(res.data.Result === 'success'){
+                        this.props.form.resetFields()
+                    }
+                }).catch( err => console.log(err))
             }
         });
     }
@@ -167,7 +179,6 @@ class MemberFrom extends Component{
             agreeRule: !this.state.agreeRule,
         })
     }
-
 
     render(){
         const { getFieldDecorator } = this.props.form;
@@ -222,11 +233,56 @@ class MemberFrom extends Component{
             },
         };
 
+        const uploadProps={
+            name:"avatar",
+            action: TEMP_SERVER_URL + "member/uploadAvatorPic",
+            onRemove: (file) => {
+                this.setState(({ fileList }) => {
+                  const index = fileList.indexOf(file);
+                  const newFileList = fileList.slice();
+                  newFileList.splice(index, 1);
+                  return {
+                    fileList: newFileList,
+                  };
+                });
+            },
+            beforeUpload: (file) => {
+                console.log('beforeUpload:',file)
+                this.setState((state) => ({
+                  fileList: [...state.fileList, file],
+                }));
+                return false;
+            }, 
+            fileList: this.state.fileList,
+        }
         
 
+        const dragUploadProps={
+            name:"drager",
+            action: TEMP_SERVER_URL + "member/uploadAvatorPic",
+            onRemove: (file) => {
+                this.setState(({ dragFlieList }) => {
+                  const index = dragFlieList.indexOf(file);
+                  const newFileList = dragFlieList.slice();
+                  newFileList.splice(index, 1);
+                  return {
+                    dragFlieList: newFileList,
+                  };
+                });
+            },
+            beforeUpload: (file) => {
+                console.log('beforeUpload:',file)
+                this.setState((state) => ({
+                    dragFlieList: [...state.dragFlieList, file],
+                }));
+                return false;
+            }, 
+            dragFlieList: this.state.dragFlieList,
+        }
+
         return(
-            <Form onSubmit={this.handleSubmit} encType="multipart/form-data">
-                  <FormItem 
+            <Form onSubmit={this.handleSubmit} encType="multipart/form-data">           
+            <FormItem 
                 {...formItemLayout} 
                 label={(
                     <span>
@@ -288,7 +344,7 @@ class MemberFrom extends Component{
                         <Input />
                     )}
                 </FormItem>
-				<FormItem
+                <FormItem
                     {...formItemLayout}
                     label={(
                         <span>
@@ -301,14 +357,10 @@ class MemberFrom extends Component{
                     {getFieldDecorator('upload', {
                         rules: [{ required: true, message: '请上传本人证件照'}],
                     })(
-                        <Upload
-                            name="avatar"
-                            listType="picture-card"
-                            showUploadList={false}
-                            action={TEMP_SERVER_URL + "member/front/uploadAvator"}
-                            beforeUpload={this.beforeUpload}
-                            onChange={this.handleChangePic}>
-                            {imageUrl ? <img src={imageUrl} alt="avatar" className='avatorImage'/> : uploadButton}
+                        <Upload {...uploadProps}>
+                            <Button>
+                                <Icon type="upload"/> Select File
+                            </Button>
                         </Upload>
                     )}
                 </FormItem>
@@ -323,8 +375,7 @@ class MemberFrom extends Component{
                         </span>
                     )}>
                     {getFieldDecorator('idCard', {
-                        rules: [{ required: true, message: '请输入本人真实身份证号', whitespace: true,
-                        pattern:'^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$'}],
+                        rules: [{ required: true, message: '请输入本人真实身份证号', whitespace: true}],
                     })(
                         <Input />
                     )}
@@ -385,10 +436,10 @@ class MemberFrom extends Component{
                             optionFilterProp="children"
                             onChange={this.handleChange}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                            <Option value="College">大专</Option>
-                            <Option value="Bachelor">本科</Option>
-                            <Option value="Postgraduate">研究生</Option>
-                            <Option value="Doctor">博士生</Option>
+                            <Option value="大专">大专</Option>
+                            <Option value="本科">本科</Option>
+                            <Option value="研究生">研究生</Option>
+                            <Option value="博士生">博士生</Option>
                         </Select>
                     )}
                 </FormItem>
@@ -410,19 +461,20 @@ class MemberFrom extends Component{
                          <Input />
                     )}
                 </FormItem>
-               <FormItem
+                <FormItem
                     {...formItemLayout}
                     label="相关附件上传"
                     >
                     <div className="dropbox">
-                        <Upload.Dragger name="avatar" 
-                            action={TEMP_SERVER_URL + "member/front/uploadAvator"}>
+                    {getFieldDecorator('dropbox', {})(
+                        <Upload.Dragger {...dragUploadProps}>
                             <p className="ant-upload-drag-icon">
                             <Icon type="inbox" />
                             </p>
                             <p className="ant-upload-text">点击或者拖拽文件到该区域</p>
                             <p className="ant-upload-hint">支持单个和多个文件</p>
                         </Upload.Dragger>
+                    )}
                     </div>
                 </FormItem>
                 <FormItem {...agreeFormItemLayout }>
@@ -431,7 +483,7 @@ class MemberFrom extends Component{
                             onChange={this.handleAgreeRule}>
                         </Checkbox>
                         <span>
-                            我已仔细阅读<a href="#" target="_blank">会员细则</a>
+                            我已仔细阅读<Link to={'/child/membershipService/rightsAndObligations'} target="_blank">会员细则</Link>
                         </span>
                     </div>
                 </FormItem>

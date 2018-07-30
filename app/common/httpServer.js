@@ -69,7 +69,7 @@ const httpServer = (opts, data) => {
     let baseURL = "";
 
     if(!opts.method) {
-        opts.method = "get";//默认提交方式
+        opts.method = "post";//默认提交方式
     }
 
     let httpDefaultOpts = {
@@ -103,7 +103,7 @@ const httpServer = (opts, data) => {
         }
         : {
             'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            "Content-Type": "multipart/form-data",
         }
     }
 

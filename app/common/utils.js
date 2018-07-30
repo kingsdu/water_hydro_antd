@@ -1,6 +1,6 @@
 import { SERVER_PATH } from '../config/constant/commonConstant'
 import { get , get_params} from './get'
-
+import { post} from './post'
 
 /**
  * 公共工具封装
@@ -767,4 +767,18 @@ export function getHomeDateByType(startPage,pageSize,type,serverType){
     }
 
     return resultData;
+}
+
+
+
+//上传表单的方法,使用post
+
+export function uploadForm(url,formData){
+    // const params = {
+    //     // account:account,
+    //     // passwords:passwords
+    //     formData:formData
+    // }
+    const data = post(url,formData);
+    return data
 }
