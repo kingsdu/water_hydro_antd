@@ -22,18 +22,14 @@ export default class BranchContainer extends Component{
     render(){
         const module = this.props.match.params.module;
         return(
-            <div>
+            <div className='BranchContainer'>
                 <Row>
                     <Col span={5}>
-                        <Card>
-                            <BranchSider module={module}/>
-                        </Card>
+                        <BranchSider module={module}/>
                     </Col>
-                    <Col span={18} offset={1}>
-                        <Card>
-                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                            <ContentHolder module={this.props.match.params.module} count={20}/>
-                        </Card>
+                    <Col span={18} offset={1} className='col_content'>
+                        <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                        <ContentHolder module={this.props.match.params.module} count={20}/>
                     </Col>
                 </Row>
             </div>

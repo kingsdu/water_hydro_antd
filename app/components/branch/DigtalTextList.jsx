@@ -17,7 +17,7 @@ export default class DigtalTextList extends Component{
                                         <Link className='link' to={'/child/digitalData/digital2/'+item.id+'|1'} target="_Blank">{item.title}</Link>
                                     </Col>
                                     <Col span={3} offset={1}>
-                                        {item.pubtime}
+                                        {item.startTime}
                                     </Col>   
                                 </Row> 
                             </div>

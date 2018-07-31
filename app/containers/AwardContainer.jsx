@@ -4,8 +4,10 @@ import {Col, Row ,Card} from 'antd'
 import BranchSider from '../components/branch/BranchSider'
 import ContentHeader from '../components/common/ContentHeader'
 import ContentHolderList from '../components/branch/ContentHolderList'
+import SponsorHolderList from '../components/branch/SponsorHolderList'
 import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/utils'
 import AwardForm from '../components/awardService/AwardForm'
+
 
 /**
  * 表彰奖励
@@ -58,6 +60,24 @@ export default class AwardContainer extends Component{
                             <Card>
                                 <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
                                 <AwardForm module={'awardsIntroduced'}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+            )
+        }else if(module == 'Sponsors'){
+            return(
+                <div>
+                    <Row>
+                        <Col span={5}>
+                            <Card>
+                                <BranchSider module={module}/>
+                            </Card>
+                        </Col>
+                        <Col span={18} offset={1}>
+                            <Card>
+                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                                <SponsorHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
                             </Card>
                         </Col>
                     </Row>

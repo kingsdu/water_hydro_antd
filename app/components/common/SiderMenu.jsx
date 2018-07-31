@@ -28,23 +28,25 @@ export default class SliderMenu extends Component{
         defaultSelectedKeys：初始选中的菜单项 key 数组   //item层
         */
         return(
-            <Menu
-            mode={'inline'} 
-            defaultSelectedKeys={[defaultSelectedKeys]}
-            openKeys={[defaultOpenKeys]}
-            style={{ width: 197 }}>
-                {
-                    menuData && menuData.map((item) => {
-                        return (
-                            <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.title}</span></span>}>
-                                {item.sub && item.sub.map(subItem => (
-                                    <Menu.Item key={subItem.key}> <Link to={subItem.key}>{subItem.title}</Link></Menu.Item>
-                                ))}
-                            </Menu.SubMenu>
-                        )
-                    })
-                }
-            </Menu>
+            <div className='Menu_div'>
+                <Menu
+                mode={'inline'} 
+                defaultSelectedKeys={[defaultSelectedKeys]}
+                openKeys={[defaultOpenKeys]}
+                style={{ width: 197 }}>
+                    {
+                        menuData && menuData.map((item) => {
+                            return (
+                                <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.title}</span></span>}>
+                                    {item.sub && item.sub.map(subItem => (
+                                        <Menu.Item key={subItem.key}> <Link to={subItem.key}>{subItem.title}</Link></Menu.Item>
+                                    ))}
+                                </Menu.SubMenu>
+                            )
+                        })
+                    }
+                </Menu>
+            </div>
         )
     }
 

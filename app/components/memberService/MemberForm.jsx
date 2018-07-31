@@ -247,7 +247,6 @@ class MemberFrom extends Component{
                 });
             },
             beforeUpload: (file) => {
-                console.log('beforeUpload:',file)
                 this.setState((state) => ({
                   fileList: [...state.fileList, file],
                 }));
@@ -271,7 +270,6 @@ class MemberFrom extends Component{
                 });
             },
             beforeUpload: (file) => {
-                console.log('beforeUpload:',file)
                 this.setState((state) => ({
                     dragFlieList: [...state.dragFlieList, file],
                 }));
@@ -375,7 +373,8 @@ class MemberFrom extends Component{
                         </span>
                     )}>
                     {getFieldDecorator('idCard', {
-                        rules: [{ required: true, message: '请输入本人真实身份证号', whitespace: true}],
+                        rules: [{ required: true, message: '请输入本人真实身份证号', whitespace: true,
+                        pattern:"^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$"}],
                     })(
                         <Input />
                     )}

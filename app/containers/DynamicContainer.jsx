@@ -45,18 +45,14 @@ export default class DynamicContainer extends Component{
     render(){
         const module = this.props.match.params.module;
         return(
-            <div>
+            <div className='DynamicContainer'>
                 <Row>
                     <Col span={5}>
-                        <Card>
-                            <BranchSider module={module}/>
-                        </Card>
+                        <BranchSider module={module}/>
                     </Col>
-                    <Col span={18} offset={1}>
-                        <Card>
-                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                            <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
-                        </Card>
+                    <Col span={18} offset={1} className='col_content'>
+                        <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                        <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
                     </Col>
                 </Row>
             </div>

@@ -17,7 +17,7 @@ export default class DigtaSecondlTextList extends Component{
                                         <Link className='link' to={'/child/digitalDataDetail/'+type+'/'+item.id} target="_Blank">{item.title}</Link>
                                     </Col>
                                     <Col span={3} offset={1}>
-                                        {item.date}
+                                        {item.pubtime}
                                     </Col>   
                                 </Row> 
                             </div>

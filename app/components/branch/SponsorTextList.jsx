@@ -1,12 +1,9 @@
 import React, {Component} from 'react'
-import {Card, Col, Row} from 'antd'
-import {Link} from 'react-router-dom'
+import {Row,Col} from 'antd'
 
-
-export default class ContentTextList extends Component{
-
+export default class SponsorTextList extends Component{
     render(){
-        const {data,category} = this.props
+        const {data} = this.props
         return(
             <div>
                 {
@@ -15,7 +12,7 @@ export default class ContentTextList extends Component{
                             <div className='ContentTextList' key={item.id}>
                                 <Row className='Row'>
                                     <Col className='content-link' span={20}>
-                                        <Link className='link' to={'/child/detail/'+category+'/'+item.id} target="_Blank">{item.title}</Link>
+                                        <a href={item.content}  target="_Blank">{item.title}</a>
                                     </Col>
                                     <Col span={3} offset={1}>
                                         {item.pubtime}
