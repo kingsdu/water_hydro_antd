@@ -1,9 +1,10 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
-import {Layout, Row, Col} from 'antd'
-import { Button } from 'antd'
+import {NavLink,Link} from 'react-router-dom'
+import {Layout,Row, Col,Button} from 'antd'
+
 
 const {Header} = Layout
+///login
 
 const CommonHeader = () => {
     return (
@@ -17,7 +18,9 @@ const CommonHeader = () => {
                         <img src='http://chuantu.biz/t6/337/1530425991x-1404817497.jpg' className='branch-title'/>
                     </Col>
                     <Col span={2} offset={5}>
-                        <Button type="primary">登录</Button>
+                        <Button type="primary">
+                            <Link to='/login' target="_Blank">登录</Link>
+                        </Button>
                     </Col>
                 </Row>
                 <Row>

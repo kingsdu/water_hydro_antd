@@ -9,6 +9,7 @@ import './style/Base'
 import './style/Home'
 import './style/Branch'
 import './style/member'
+import './style/Back'
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"

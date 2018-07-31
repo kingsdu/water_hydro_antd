@@ -1,0 +1,86 @@
+/* 主界面 */
+/* base.css */
+.f-r {
+  float: right;
+}
+
+.f-l {
+  float: left;
+}
+
+.m-l-20 {
+  margin-left: 20px;
+}
+.m-r-20 {
+  margin-right: 20px;
+}
+.m-t-20 {
+  margin-top: 20px;
+}
+.m-b-20 {
+  margin-bottom: 20px;
+}
+.bold {
+  font-weight: bold;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+  height: 0 ;
+  visibility: hidden ;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+/* 左侧导航栏 */
+#leftMenu {
+    position: absolute;
+    width: 200px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid #e9e9e9;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  #leftMenu .logo {
+    display: block;
+    width: 130px;
+    margin: 50px auto;
+  }
+  
+  #leftMenu .ant-menu-inline {
+    border-right: none;
+}
+
+
+/* 右侧内容 */
+
+#rightWrap {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 700px;
+    padding: 20px 20px 0 20px;
+    position: absolute;
+    top: 0;
+    left: 200px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+
+
+#rightWrap .ant-menu-submenu {
+    float: right;
+}
+
+.right-box {
+  padding: 20px 20px 0 20px;
+}

@@ -26,7 +26,6 @@ class MemberFrom extends Component{
         data:null
     };
 
-
     /**
      * 上传图片
      */
@@ -148,7 +147,6 @@ class MemberFrom extends Component{
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {  
-                console.log("values",values)     
                 const formData = new FormData();  
                 formData.append("account",values.account);
                 formData.append("passwords",values.passwords);
