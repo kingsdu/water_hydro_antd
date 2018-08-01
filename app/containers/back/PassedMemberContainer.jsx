@@ -13,14 +13,13 @@ const confirm = Modal.confirm;
 
 class PassedMemberContainer extends Component{
     state = {
-        selectedRowKeys : [], //选择的行
         data : [],
         pagination : {
             pageSize : 10,
             current : 0,
             total : 0,
+            defaultCurrent : 0,
         },
-        visibleChangeModal : false,//修改框是否显示
     }
 
     componentDidMount(){
@@ -35,8 +34,22 @@ class PassedMemberContainer extends Component{
                 this.state.pagination.total = data.Data;
             }      
         })
+        const data = getBackDataByModule(this.state.pagination.current,this.state.pagination.pageSize,module)
+        data.then((data)=>{
+            if(data.Result == 'success'){
+                this.setState({
+                    data: data.Data,
+                    pagination : this.state.pagination
+                }); 
 
-        const data = getBackDataByModule(this.state.current,this.state.pageSize,module)
+            }      
+       })    
+    }
+
+    
+    getServerNewsData(){
+        const module = this.props.match.params.module;
+        const data = getBackDataByModule(this.state.pagination.current,this.state.pagination.pageSize,module)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -51,12 +64,14 @@ class PassedMemberContainer extends Component{
      //翻页
      handleTableChange(pagination, filters, sorter){
         const pager = this.state.pagination;
-        pager.current = pagination.current;
+        pager.current = (pagination.current-1) * 10;
         pager.pageSize = pagination.pageSize;
         this.setState({
             pagination: pager,
         });
+        this.getServerNewsData()
     }
+
 
     render(){
         const { getFieldDecorator } = this.props.form;

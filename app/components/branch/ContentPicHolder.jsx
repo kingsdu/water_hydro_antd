@@ -20,7 +20,7 @@ export default class ContentPicHolder extends Component{
 
     componentDidMount() {
         const module = this.props.module;
-        const data = getContentByModule(this.state.start,this.state.count,module)
+        const data = getContentByModule(this.state.start,5,module)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -34,7 +34,7 @@ export default class ContentPicHolder extends Component{
     componentWillReceiveProps(nextProps) {
         const module = nextProps.module
         if(module !== this.props.module){
-            const data = getContentByModule(this.state.start,this.state.count,module)
+            const data = getContentByModule(this.state.start,5,module)
             data.then((data)=>{
                 if(data.Result == 'success'){
                     this.setState({
@@ -54,9 +54,9 @@ export default class ContentPicHolder extends Component{
             current: page
         })
         const module = this.props.module;
-        const start = page;
+        const start = (page-1)*5;
         const count = DEFAULT_COUNT;
-        const result = getContentByModule(start,count,module);
+        const result = getContentByModule(start,5,module);
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -71,7 +71,7 @@ export default class ContentPicHolder extends Component{
         return(
             <div className='ContentHolderList'>
                 <MemberShowHolder data={this.state.data}/>
-                <PaginationBlock current={this.state.current} total={this.props.total} defaultPageSize={DEFAULT_COUNT} onChange={this.pageChange}/>
+                <PaginationBlock current={this.state.current} total={this.props.total} defaultPageSize={5} onChange={this.pageChange}/>
             </div>
         )
     }

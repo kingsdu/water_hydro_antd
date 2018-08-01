@@ -54,7 +54,7 @@ export default class ContentHolderList extends Component{
             current: page
         })
         const module = this.props.module;
-        const start = page;
+        const start = (page-1)*15;
         const count = DEFAULT_COUNT;
         const result = getContentByModule(start,count,module);
         result.then((data)=>{

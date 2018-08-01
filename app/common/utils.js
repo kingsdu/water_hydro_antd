@@ -809,9 +809,6 @@ export function getBackDataByModule(startIndex,size,module){
         serverType = '3'
         content = getNewsList(route,startIndex,size,serverType);
             break;
-        // case '':
-            
-        //     break;
         default:
             break;
     }

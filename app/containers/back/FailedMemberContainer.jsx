@@ -37,7 +37,7 @@ export default class FailedMemberContainer extends Component{
             }      
         })
 
-        const data = getBackDataByModule(0,10,module)
+        const data = getBackDataByModule(this.state.pagination.current,this.state.pagination.pageSize,module)
         data.then((data)=>{
             if(data.Result == 'success'){
                 this.setState({
@@ -51,11 +51,12 @@ export default class FailedMemberContainer extends Component{
     //翻页
     handleTableChange(pagination, filters, sorter){
         const pager = this.state.pagination;
-        pager.current = pagination.current;
+        pager.current = (pagination.current-1) * 10;
         pager.pageSize = pagination.pageSize;
         this.setState({
             pagination: pager,
         });
+        this.getServerData()
     }
 
     render(){

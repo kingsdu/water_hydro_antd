@@ -28,7 +28,7 @@ export default class BranchContainer extends Component{
                     </Col>
                     <Col span={18} offset={1} className='col_content'>
                         <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                        <ContentHolder module={this.props.match.params.module} count={20}/>
+                        <ContentHolder module={this.props.match.params.module} count={15}/>
                     </Col>
                 </Row>
             </div>
