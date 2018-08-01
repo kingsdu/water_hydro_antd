@@ -15,9 +15,11 @@ module.exports = {
     // 可以在sources里调试
     devtool: "cheap-module-eval-source-map",
 
+
     resolve:{
         extensions: ['', '.js', '.jsx', '.json', '.less']
     },
+
 
     module: {
         loaders: [

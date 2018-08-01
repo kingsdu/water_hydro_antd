@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 
-export default class WaitAwardApprovalContainer extends Component{
+export default class PendingAwardContainer extends Component{
     render(){
         return(
             <div>
-                <p>WaitAwardApprovalContainer</p>
+                <p>PendingAwardContainer</p>
             </div>
         )
     }

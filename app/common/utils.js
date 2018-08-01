@@ -782,3 +782,85 @@ export function uploadForm(url,formData){
     const data = post(url,formData);
     return data
 }
+
+
+
+
+/* 获取后台管理系统数据部分 */
+
+//获取后台表格需要的数据
+export function getBackDataByModule(startIndex,size,module){
+    let route = ''
+    let content = ''
+    let serverType = ''
+    switch (module) {
+        case 'PendingMember':
+        route = 'member/selectMemberShow'
+        serverType = '1'
+        content = getNewsList(route,startIndex,size,serverType);
+            break;
+        case 'PassedMember':
+        route = 'member/selectMemberShow'
+        serverType = '2'
+        content = getNewsList(route,startIndex,size,serverType);
+            break;
+        case 'FailedMember':
+        route = 'member/selectMemberShow'
+        serverType = '3'
+        content = getNewsList(route,startIndex,size,serverType);
+            break;
+        // case '':
+            
+        //     break;
+        default:
+            break;
+    }
+    return content;
+}
+
+// 获取后台数据条数
+export function getBackCount(module){
+    let route = ''
+    let content = ''
+    let  serverType = ''
+    switch (module) {
+        case 'PendingMember':
+            route = 'member/getPassedMembersCount'
+            serverType = '1'
+            content = getCount(route,serverType);
+        break;
+        case 'PassedMember':
+            route = 'member/getPassedMembersCount'
+            serverType = '2'
+            content = getCount(route,serverType);
+        break;
+        case 'FailedMember':
+            route = 'member/getPassedMembersCount'
+            serverType = '3'
+            content = getCount(route,serverType);
+            break;
+        default:
+            break;
+    }
+    return content;
+}
+
+
+//更新会员的状态
+export function updateMemberState(account,state){
+    const params = {
+        type:type,
+    }   
+    const route = '' 
+    axios.post(route, {
+        account: account,
+        state: state
+      }).then(response => {
+        if(res.data.Result === 'success'){
+            this.props.form.resetFields()
+        }
+      }).catch(error => {
+        console.log(error);
+    });
+    return data;
+}

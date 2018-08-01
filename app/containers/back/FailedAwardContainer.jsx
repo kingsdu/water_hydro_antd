@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 
-export default class MemberReviewContainer extends Component{
+export default class FailedAwardContainer extends Component{
     render(){
         return(
             <div>
-                <p>MemberReviewContainer</p>
+                <p>FailedAwardContainer</p>
             </div>
         )
     }

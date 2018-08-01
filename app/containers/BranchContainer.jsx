@@ -9,7 +9,6 @@ import BranchSider from '../components/branch/BranchSider'
 import {getContentByModule,getMenuDetailByModule,getInfoCount} from '../common/utils'
 import {DEFAULT_COUNT , DEFAULT_START} from '../config/constant/commonConstant'
 
-
 /**
  * 分会介绍模块
  */

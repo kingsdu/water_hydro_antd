@@ -3,11 +3,14 @@ import { Menu, Icon, Button } from 'antd';
 //路由组件
 import { Route,Link,Switch  } from 'react-router-dom';
 
-import AwardApprovalContainer from '../back/AwardApprovalContainer'
-import WaitAwardApprovalContainer from '../back/WaitAwardApprovalContainer'
-import MemberReviewContainer from '../back/MemberReviewContainer'
-import WaitMemberReviewContainer from '../back/WaitMemberReviewContainer'
-import EditUserInformation from '../back/EditUserInformation'
+import PendingMemberContainer from '../back/PendingMemberContainer'
+import PassedMemberContainer from '../back/PassedMemberContainer'
+import FailedMemberContainer from '../back/FailedMemberContainer'
+import PendingAwardContainer from '../back/PendingAwardContainer'
+import PassedAwardContainer from '../back/PassedAwardContainer'
+import FailedAwardContainer from '../back/FailedAwardContainer'
+import ModifyUserContainer from '../back/ModifyUserContainer'
+import BackHomepageContainer from '../back/BackHomepageContainer'
 import HeaderBar from '../back/HeaderBar'
 
 const SubMenu = Menu.SubMenu;
@@ -18,27 +21,25 @@ export default class BackMainContainer extends Component{
         defaultOpenKeys : [],//菜单默认打开项
         defaultSelectedKeys : [],//菜单默认选择项
         openKeys: [],
-        rootSubmenuKeys : ['BackMainContainer', 'AwardApprovalContainer','MemberReviewContainer']
+        rootSubmenuKeys : ['PendingMemberContainer', 'PendingAwardContainer','ModifyUserContainer']
     }
 
-
-
     whoIsChecked(){
-        if(this.props.location.pathname.indexOf('/back/AwardApprovalContainer') != -1) {
-            this.setState({defaultOpenKeys : ['AwardApprovalContainer']})
-            this.setState({openKeys : ['AwardApprovalContainer']})
+        if(this.props.location.pathname.indexOf('/back/PendingMemberContainer') != -1) {
+            this.setState({defaultOpenKeys : ['PendingMemberContainer']})
+            this.setState({openKeys : ['PendingMemberContainer']})
             let arr = this.props.location.pathname.split('/');
 			let str = arr[arr.length-2] + '_' + arr[arr.length-1];
 			this.setState({defaultSelectedKeys : [str]})
-        }else if(this.props.location.pathname.indexOf('/back/MemberReviewContainer') != -1){
-            this.setState({defaultOpenKeys : ['MemberReviewContainer']})
-            this.setState({openKeys : ['MemberReviewContainer']})
+        }else if(this.props.location.pathname.indexOf('/back/PendingAwardContainer') != -1){
+            this.setState({defaultOpenKeys : ['PendingAwardContainer']})
+            this.setState({openKeys : ['PendingAwardContainer']})
             let arr = this.props.location.pathname.split('/');
 			let str = arr[arr.length-2] + '_' + arr[arr.length-1];
 			this.setState({defaultSelectedKeys : [str]})
-        }else if(this.props.location.pathname.indexOf('/back/EditUserInformation') != -1){
-            this.setState({defaultOpenKeys : ['EditUserInformation']})
-            this.setState({openKeys : ['EditUserInformation']})
+        }else if(this.props.location.pathname.indexOf('/back/ModifyUserContainer') != -1){
+            this.setState({defaultOpenKeys : ['ModifyUserContainer']})
+            this.setState({openKeys : ['ModifyUserContainer']})
             let arr = this.props.location.pathname.split('/');
 			let str = arr[arr.length-2] + '_' + arr[arr.length-1];
 			this.setState({defaultSelectedKeys : [str]})
@@ -72,24 +73,30 @@ export default class BackMainContainer extends Component{
                         openKeys={this.state.openKeys}
                         onOpenChange={this.onOpenChange.bind(this)}>
                         <SubMenu key="award_manage" title={<span><Icon type="solution" /><span>会员管理</span></span>}>
-                            <Menu.Item key="WaitMember">
-                                <Link to="/back/WaitMemberReviewContainer"><Icon type="solution" /><span>待审批会员</span></Link>
+                            <Menu.Item key="PendingMember">
+                                <Link to="/back/PendingMemberContainer/PendingMember"><span>待审批会员</span></Link>
                             </Menu.Item>
-                            <Menu.Item key="Member">
-                                <Link to="/back/MemberReviewContainer"><Icon type="solution" /><span>已审批会员</span></Link>
+                            <Menu.Item key="PassedMember">
+                                <Link to="/back/PassedMemberContainer/PassedMember"><span>审批通过会员</span></Link>
+                            </Menu.Item>
+                            <Menu.Item key="FailedMember">
+                                <Link to="/back/FailedMemberContainer/FailedMember"><span>审批未通过会员</span></Link>
                             </Menu.Item>
                         </SubMenu>
                         <SubMenu key="member_manage" title={<span><Icon type="red-envelope" /><span>奖项管理</span></span>}>
-                            <Menu.Item key="WaitAward">
-                                <Link to="/back/WaitAwardApprovalContainer"><Icon type="solution" /><span>待审批奖项</span></Link>
+                            <Menu.Item key="PendingAward">
+                                <Link to="/back/PendingAwardContainer/PendingAward"><span>待审批奖项</span></Link>
                             </Menu.Item>
-                            <Menu.Item key="Award">
-                                <Link to="/back/AwardApprovalContainer"><Icon type="solution" /><span>已审批奖项</span></Link>
+                            <Menu.Item key="PassedAward">
+                                <Link to="/back/PassedAwardContainer/PassedAward"><span>审批通过奖项</span></Link>
+                            </Menu.Item>
+                            <Menu.Item key="FailedAward">
+                                <Link to="/back/FailedAwardContainer/FailedAward"><span>未审批通过奖项</span></Link>
                             </Menu.Item>
                         </SubMenu>
                         <SubMenu key="user_manage" title={<span><Icon type="user" /><span>个人中心</span></span>}>
                             <Menu.Item key="choose_questions">
-                                <Link to="/back/EditUserInformation"><Icon type="solution" /><span>修改个人资料</span></Link>
+                                <Link to="/back/ModifyUserContainer/ModifyUser"><span>修改密码</span></Link>
                             </Menu.Item>
                         </SubMenu>
                      </Menu>
@@ -98,11 +105,14 @@ export default class BackMainContainer extends Component{
                     <HeaderBar  />
                     <div className="right-box">
                         <Switch>
-                            <Route path="/back/AwardApprovalContainer" component={AwardApprovalContainer}/>
-                            <Route path="/back/MemberReviewContainer" component={MemberReviewContainer}/>
-                            <Route path="/back/WaitAwardApprovalContainer" component={WaitAwardApprovalContainer}/>
-                            <Route path="/back/WaitMemberReviewContainer" component={WaitMemberReviewContainer}/>
-                            <Route path="/back/EditUserInformation" component={EditUserInformation}/>
+                            <Route path="/back/BackMainContainer" component={BackHomepageContainer}/>
+                            <Route path="/back/PendingMemberContainer/:module" component={PendingMemberContainer}/>
+                            <Route path="/back/PassedMemberContainer/:module" component={PassedMemberContainer}/>
+                            <Route path="/back/FailedMemberContainer/:module" component={FailedMemberContainer}/>
+                            <Route path="/back/PendingAwardContainer/:module" component={PendingAwardContainer}/>
+                            <Route path="/back/PassedAwardContainer/:module" component={PassedAwardContainer}/>
+                            <Route path="/back/FailedAwardContainer/:module" component={FailedAwardContainer}/>
+                            <Route path="/back/ModifyUserContainer/:module" component={ModifyUserContainer}/>
                         </Switch>
                     </div>
                 </div>
