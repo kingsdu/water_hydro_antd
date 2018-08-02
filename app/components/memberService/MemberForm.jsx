@@ -23,13 +23,22 @@ class MemberFrom extends Component{
         imageUrl:'',
         fileList:[],
         dragFlieList:[],
-        data:null
+        data:null,
+        successTip:false,
     };
+
+
+    renderSuccessLabel(){
+        return(
+            <div className='label_div'>
+                <label className='label_help'>提交成功</label>
+            </div>
+        )
+    }
 
     /**
      * 上传图片
      */
-
     getBase64(img, callback) {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result));
@@ -484,6 +493,7 @@ class MemberFrom extends Component{
                         </span>
                     </div>
                 </FormItem>
+                {this.state.successTip ? this.renderSuccessLabel():null}
                 <FormItem {...tailFormItemLayout}>
                     {
                         this.state.agreeRule

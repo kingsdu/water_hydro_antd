@@ -74,7 +74,6 @@ class PassedMemberContainer extends Component{
 
 
     render(){
-        const { getFieldDecorator } = this.props.form;
         const columns = [{
             title: '姓名',
             dataIndex: 'name',
@@ -143,4 +142,4 @@ class PassedMemberContainer extends Component{
     }
 }
 
-export default Form.create()(PassedMemberContainer)
+export default PassedMemberContainer

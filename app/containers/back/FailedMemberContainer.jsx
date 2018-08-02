@@ -21,7 +21,6 @@ export default class FailedMemberContainer extends Component{
             current : 0,
             total : 0,
         },
-        visibleChangeModal : false,//修改框是否显示
     }
 
     componentDidMount(){
@@ -34,9 +33,8 @@ export default class FailedMemberContainer extends Component{
         result.then((data)=>{
             if(data.Result == 'success'){
                 this.state.pagination.total = data.Data;
-            }      
+            }    
         })
-
         const data = getBackDataByModule(this.state.pagination.current,this.state.pagination.pageSize,module)
         data.then((data)=>{
             if(data.Result == 'success'){

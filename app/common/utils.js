@@ -809,6 +809,21 @@ export function getBackDataByModule(startIndex,size,module){
         serverType = '3'
         content = getNewsList(route,startIndex,size,serverType);
             break;
+        case 'PendingAward':
+        route = 'AwardInfos/getAwardSelfByType'
+        serverType = '1'
+        content = getNewsList(route,startIndex,size,serverType);
+            break;
+        case 'PassedAward':
+        route = 'AwardInfos/getAwardSelfByType'
+        serverType = '2'
+        content = getNewsList(route,startIndex,size,serverType);
+            break;
+        case 'FailedAward':
+        route = 'AwardInfos/getAwardSelfByType'
+        serverType = '3'
+        content = getNewsList(route,startIndex,size,serverType);
+            break;
         default:
             break;
     }
@@ -835,7 +850,22 @@ export function getBackCount(module){
             route = 'member/getPassedMembersCount'
             serverType = '3'
             content = getCount(route,serverType);
-            break;
+        break;
+        case 'PendingAward':
+            route = 'AwardInfos/getAwardSelfCount'
+            serverType = '1'
+            content = getCount(route,serverType);
+        break;
+        case 'PassedAward':
+            route = 'AwardInfos/getAwardSelfCount'
+            serverType = '2'
+            content = getCount(route,serverType);
+        break;
+        case 'FailedAward':
+            route = 'AwardInfos/getAwardSelfCount'
+            serverType = '3'
+            content = getCount(route,serverType);
+        break;
         default:
             break;
     }
