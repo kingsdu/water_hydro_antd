@@ -49,7 +49,16 @@ class ModifyUserContainer extends Component{
 
         return(
             <div>
-                <BreadcrumbCustom pathList={['个人中心','修改密码']}></BreadcrumbCustom>
+                <p>正在开发中。。。。</p>
+            </div>
+        )
+    }
+}
+
+export default Form.create()(ModifyUserContainer);
+
+
+{/* <BreadcrumbCustom pathList={['个人中心','修改密码']}></BreadcrumbCustom>
                 <div className="change-password-content">
                     <Form onSubmit={this.submitChange.bind(this)}>
                     <FormItem
@@ -88,10 +97,4 @@ class ModifyUserContainer extends Component{
                         </Col>
                         </Row>
                     </Form>
-                </div>
-            </div>
-        )
-    }
-}
-
-export default Form.create()(ModifyUserContainer);
+                </div> */}

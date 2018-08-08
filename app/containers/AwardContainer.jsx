@@ -49,54 +49,42 @@ export default class AwardContainer extends Component{
         const module = this.props.match.params.module;
         if(module == 'AwardApplication'){
             return(
-                <div>
+                <div className="AwardContainer">
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <AwardForm module={'awardsIntroduced'}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <AwardForm module={'awardsIntroduced'}/>
                         </Col>
                     </Row>
                 </div>
             )
         }else if(module == 'Sponsors'){
             return(
-                <div>
+                <div className="AwardContainer">
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <SponsorHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <SponsorHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
                         </Col>
                     </Row>
                 </div>
             )
         }else{
             return(
-                <div>
+                <div className="AwardContainer">
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>                
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>                     
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <ContentHolderList category={this.state.category} module={this.props.match.params.module} total={this.state.data}/>                     
                         </Col>
                     </Row>
                 </div>

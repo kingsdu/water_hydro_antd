@@ -12,7 +12,7 @@ const CommonHeader = () => {
             <Header className='wrap'>
                 <Row>
                     <Col span={4}>
-                        <a href='/' className='logo'/>
+                        <a href='javascript:void(0)' className='logo'/>
                     </Col>
                     <Col span={11} offset={2}>
                         <img src='http://chuantu.biz/t6/337/1530425991x-1404817497.jpg' className='branch-title'/>

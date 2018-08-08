@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Form, Input, Modal ,Tooltip, Icon, Cascader,Upload,Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Modal ,Tooltip, Icon, Cascader,Upload,Select, Row, Col, Checkbox, Button, AutoComplete,message } from 'antd';
 import { TEMP_SERVER_URL } from '../../config/constant/commonConstant'
 import httpServer from '../../common/httpServer'
 import {uploadForm} from '../../common/utils'
@@ -160,17 +160,24 @@ class MemberFrom extends Component{
                 formData.append("account",values.account);
                 formData.append("passwords",values.passwords);
                 formData.append("name",values.name);
+                formData.append("sex",values.sex);
+                formData.append('pic',values.upload.file,values.upload.file.name);
+                formData.append("nationality",values.nationality);
+                formData.append("birthplace",values.birthplace);       
+                formData.append("politicalStatus",values.politicalStatus);
                 formData.append("idCard",values.idCard);
                 formData.append("email",values.email);
-                formData.append("company",values.company);
+                formData.append("company",values.company);            
                 formData.append("phone",values.phone);
                 formData.append("education",values.education);
-                formData.append("jobTitle",values.jobTitle);
-                formData.append('pic',values.upload.file,values.upload.file.name);
+                formData.append("jobTitle",values.jobTitle); 
                 formData.append("appendix",values.dropbox.file,values.dropbox.file.name);
                 axios.post(TEMP_SERVER_URL + "member/uploadAvatorPic", formData).then( res => {
                     if(res.data.Result === 'success'){
+                        this.successInfo()
                         this.props.form.resetFields()
+                    }else{
+                        this.errorInfo()
                     }
                 }).catch( err => console.log(err))
             }
@@ -185,6 +192,15 @@ class MemberFrom extends Component{
         this.setState({
             agreeRule: !this.state.agreeRule,
         })
+    }
+
+    successInfo = () =>{
+        message.info('上传成功，请等待审批！');
+    }
+
+
+    errorInfo = () =>{
+        message.info('上传失败，请等待审批！');
     }
 
     render(){
@@ -313,7 +329,7 @@ class MemberFrom extends Component{
                     validateStatus={this.state.status}>
                     {getFieldDecorator('passwords', {
                         rules: [{
-                        required: true,validator: this.checkConfirm
+                        required: true
                         }],
                     })(
                         <div>
@@ -351,6 +367,22 @@ class MemberFrom extends Component{
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
+                    label="性别"
+                    >
+                    {getFieldDecorator('sex',{
+                        rules: [{ required: true, message: '请选择性别', whitespace: true }],
+                    })(
+                        <Select
+                            showSearch
+                            style={{ width: 200 }}
+                            placeholder="请选择性别">
+                            <Option value="男">男</Option>
+                            <Option value="女">女</Option>
+                        </Select>
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
                     label={(
                         <span>
                         上传头像&nbsp;
@@ -367,6 +399,45 @@ class MemberFrom extends Component{
                                 <Icon type="upload"/> Select File
                             </Button>
                         </Upload>
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="民族"
+                    >
+                    {getFieldDecorator('nationality', {
+                        rules: [{ required: true, 
+                            message: '请输入所属民族', 
+                            whitespace: true,
+                            pattern:'^[\u4e00-\u9fa5]{2,4}$'}],
+                    })(
+                        <Input />
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="籍贯"
+                    >
+                    {getFieldDecorator('birthplace', {
+                        rules: [{ required: true, 
+                            message: '请输入籍贯', 
+                            whitespace: true,
+                            pattern:'^[\u4e00-\u9fa5]{2,4}$'}],
+                    })(
+                        <Input />
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="政治面貌"
+                    >
+                    {getFieldDecorator('politicalStatus', {
+                        rules: [{ required: true, 
+                            message: '请输入政治面貌', 
+                            whitespace: true,
+                            pattern:'^[\u4e00-\u9fa5]{2,4}$'}],
+                    })(
+                        <Input />
                     )}
                 </FormItem>
                 <FormItem
@@ -409,8 +480,7 @@ class MemberFrom extends Component{
                             <Icon type="question-circle-o" />
                         </Tooltip>
                         </span>
-                    )}
-                    >
+                    )}>
                     {getFieldDecorator('company', {
                         rules: [{ required: false,pattern:'^[\u4e00-\u9fa5]{2,30}$',message:"请输入本人所在单位"}],
                     })(
@@ -478,7 +548,6 @@ class MemberFrom extends Component{
                             <Icon type="inbox" />
                             </p>
                             <p className="ant-upload-text">点击或者拖拽文件到该区域</p>
-                            <p className="ant-upload-hint">支持单个和多个文件</p>
                         </Upload.Dragger>
                     )}
                     </div>
@@ -498,7 +567,7 @@ class MemberFrom extends Component{
                     {
                         this.state.agreeRule
                         ?
-                        <Button type="primary" htmlType="submit">提交</Button>
+                        <Button type="primary" htmlType="submit" >提交</Button>
                         :
                         <Button type="primary" htmlType="submit" disabled>提交</Button>
                     }

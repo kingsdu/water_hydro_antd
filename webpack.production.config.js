@@ -3,7 +3,7 @@ var path = require('path');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+// var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 var ROOT_PATH = path.resolve(__dirname); // 项目跟路径
 var APP_PATH = path.resolve(ROOT_PATH, 'app'); // 项目开发目录src
@@ -46,6 +46,10 @@ module.exports = {
       {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192&name=image/[hash:8].[name].[ext]'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'url'
       }
     ]
   },

@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
-import { Form,Upload,Select,AutoComplete,Icon,Button,Alert} from 'antd';
+import { Form,Upload,Select,AutoComplete,Icon,Button,Alert,message} from 'antd';
 import { TEMP_SERVER_URL } from '../../config/constant/commonConstant'
 import { getContentByModule,switchNameByModule,getNewsList } from '../../common/utils'
 import { DEFAULT_COUNT,DEFAULT_START } from '../../config/constant/commonConstant'
+import axios from 'axios';
+
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -18,10 +20,6 @@ class AwardForm extends Component{
         successTip:false,
     }
 
-    selectHandleChange(value) {
-        console.log(`selected ${value}`);
-    }
-
     //获取type=2的新闻
     componentDidMount(){
         this.getDataFromServer()
@@ -32,6 +30,7 @@ class AwardForm extends Component{
         const data = getContentByModule(DEFAULT_START,DEFAULT_COUNT,module);
         data.then((data)=>{
             if(data.Result == 'success'){
+                console.log("data",data);
                 this.setState({
                     data: data.Data
                 }); 
@@ -39,10 +38,19 @@ class AwardForm extends Component{
        })
     }
 
+    successInfo = () =>{
+        message.info('上传成功，请等待审批！');
+    }
+
+
+    errorInfo = () =>{
+        message.info('上传失败，请联系管理员！');
+    }
+
     renderSelectData(){
         const option = this.state.data&&this.state.data.map(
             item =>(
-                <Option value={item.title}>{item.title}</Option>
+                <Option value={item.id}>{item.title}</Option>
             )
         )
         return option
@@ -54,32 +62,23 @@ class AwardForm extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {  
-                console.log("values",values)     
-                // const formData = new FormData();  
-                // formData.append("account",values.account);
-                this.state.successTip = true
-                this.state.dragFlieList = []
-                this.getDataFromServer()
-                // this.setState()successTip
-                // axios.post(TEMP_SERVER_URL + "member/uploadAvatorPic", formData).then( res => {
-                //     if(res.data.Result === 'success'){
-                //         this.props.form.resetFields()
-                //     }
-                // }).catch( err => console.log(err))
+            if (!err) {      
+                const formData = new FormData();  
+                console.log("values",values)
+                formData.append("award_id",values.education);
+                formData.append("appendix",values.appendix.file,values.appendix.file.name);
+                axios.post(TEMP_SERVER_URL + "AwardInfos/applyAward", formData).then( res => {
+                    if(res.data.Result === 'success'){
+                        this.successInfo()
+                        this.props.form.resetFields()
+                    }else{
+                        console.log("res.data",res.data)
+                        this.errorInfo()
+                    }
+                }).catch( err => console.log(err))
             }
         });
     }
-
-
-    renderSuccessLabel(){
-        return(
-            <div className='label_div'>
-                <label className='label_help'>提交成功</label>
-            </div>
-        )
-    }
-
 
 
     render(){
@@ -143,7 +142,7 @@ class AwardForm extends Component{
                         label="申报奖项"
                         >
                         {getFieldDecorator('education',{
-                            rules: [{ required: true, message: '请选择学历', whitespace: true }],
+                            rules: [{ required: true, message: '请选择申报奖项'}],
                         })(
                             <Select
                                 placeholder={'请选择申报奖项'}
@@ -157,13 +156,12 @@ class AwardForm extends Component{
                         label="相关附件上传"
                         >
                         <div className="dropbox">
-                        {getFieldDecorator('dropbox', {})(
+                        {getFieldDecorator('appendix', {})(
                             <Upload.Dragger {...dragUploadProps}>
                                 <p className="ant-upload-drag-icon">
                                 <Icon type="inbox" />
                                 </p>
                                 <p className="ant-upload-text">点击或者拖拽文件到该区域</p>
-                                <p className="ant-upload-hint">支持单个和多个文件</p>
                             </Upload.Dragger>
                         )}
                         </div>

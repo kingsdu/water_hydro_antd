@@ -63,72 +63,56 @@ export default class MembershipContainer extends Component{
         //4 入会申请
         if(module == 'incorporationProcess'){
             return(
-                <div>
+                <div className='MembershipContainer'>
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <ContentHolder module={this.props.match.params.module}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <ContentHolder module={this.props.match.params.module}/>
                         </Col>
                     </Row>
                 </div>
             )
         }else if(module == 'rightsAndObligations'){
             return(
-                <div>
+                <div className='MembershipContainer'>
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <ContentHolder module={this.props.match.params.module}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <ContentHolder module={this.props.match.params.module}/>
                         </Col>
                     </Row>
                 </div>
             )
         }else if(module == 'memberInformation'){
             return(
-                <div>
+                <div className='MembershipContainer'>
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <ContentPicHolder total={this.state.data} module={this.props.match.params.module}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <ContentPicHolder total={this.state.data} module={this.props.match.params.module}/>
                         </Col>
                     </Row>
                 </div>
             )
         }else if(module == 'applicationForMembership'){
             return(
-                <div>
+                <div className='MembershipContainer'>
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <MemberFrom/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <MemberFrom/>
                         </Col>
                     </Row>
                 </div>

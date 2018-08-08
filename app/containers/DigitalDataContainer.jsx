@@ -88,18 +88,14 @@ export default class DigitalDataContainer extends Component{
         //分为三个不同的状态层，第一层（List展示）、第二层（某个会议三种不同模式展示）、第三层（某类资源详情：图片、视频）
         if(this.props.match.params.category == 'digital1'){
             return(
-                <div>
+                <div className='DigitalDataContainer'>
                     <Row>
                         <Col span={5}>
-                            <Card>
-                                <BranchSider module={module}/>
-                            </Card>
+                            <BranchSider module={module}/>
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
-                                <DigitalHolderList module={this.props.match.params.module} total={this.state.data}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>                       
+                            <ContentHeader category={this.state.category} module={this.props.match.params.module}/>
+                            <DigitalHolderList module={this.props.match.params.module} total={this.state.data}/>                         
                         </Col>
                     </Row>
                 </div>
@@ -124,31 +120,27 @@ export default class DigitalDataContainer extends Component{
                         break;
             }
             return(
-                <div>
+                <div className='DigitalDataContainer'>
                     <Row>
-                        <Col span={5}>
-                            <Card>
-                                <Menu
-                                    mode={'inline'} 
-                                    defaultSelectedKeys={['key01']}
-                                    openKeys={['key']}
-                                    style={{ width: 197 }}>
-                                    <Menu.SubMenu key={'key'} title={<span><Icon type={'appstore'}/><span>{'会议资料集'}</span></span>}>
-                                        <Menu.Item key={'key01'}> <Link to={'/child/digitalData/digital2/'+id+'|1'}>{'会议图集'}</Link></Menu.Item>
-                                        <Menu.Item key={'key02'}> <Link to={'/child/digitalData/digital2/'+id+'|2'}>{'会议讲稿'}</Link></Menu.Item>
-                                        <Menu.Item key={'key03'}> <Link to={'/child/digitalData/digital2/'+id+'|3'}>{'会议视频'}</Link></Menu.Item>
-                                    </Menu.SubMenu>
-                                </Menu>
-                            </Card>
+                        <Col span={5} className='Menu_div'>     
+                            <Menu
+                                mode={'inline'} 
+                                defaultSelectedKeys={['key01']}
+                                openKeys={['key']}
+                                style={{ width: 197 }}>
+                                <Menu.SubMenu key={'key'} title={<span><Icon type={'appstore'}/><span>{'会议资料集'}</span></span>}>
+                                    <Menu.Item key={'key01'}> <Link to={'/child/digitalData/digital2/'+id+'|1'}>{'会议图集'}</Link></Menu.Item>
+                                    <Menu.Item key={'key02'}> <Link to={'/child/digitalData/digital2/'+id+'|2'}>{'会议讲稿'}</Link></Menu.Item>
+                                    <Menu.Item key={'key03'}> <Link to={'/child/digitalData/digital2/'+id+'|3'}>{'会议视频'}</Link></Menu.Item>
+                                </Menu.SubMenu>
+                            </Menu>          
                         </Col>
-                        <Col span={18} offset={1}>
-                            <Card>
-                                <div className='ContentHeader'>
-                                    <span className='span-left'>{childMenu}</span>
-                                    <span className='span-right'>{childMenu}<Icon type="right" />{'会议资料'}</span>
-                                </div>
-                                <DigitalSecond id={id} type={type} total={this.state.data}/>
-                            </Card>
+                        <Col span={18} offset={1} className='col_content'>   
+                            <div className='ContentHeader'>
+                                <span className='span-left'>{childMenu}</span>
+                                <span className='span-right'>{childMenu}<Icon type="right" />{'会议资料'}</span>
+                            </div>
+                            <DigitalSecond id={id} type={type} total={this.state.data}/>
                         </Col>
                     </Row>
                 </div>

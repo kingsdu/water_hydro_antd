@@ -32,15 +32,15 @@ const ContentText = ({contentData}) => {
                                             ?
                                             <div className='contentText-a'>
                                                 <a href={item.substring(item.indexOf('^')+1,item.length)}>相关附件</a>
-                                            </div>
+                                            </div> 
                                             :
                                             <p className='ContentText_p' key={item.id}>
                                                 {item}
-                                            </p> 
+                                            </p>
                                             :
                                             <p className='ContentText_p' key={item.id}>
                                                 {item}
-                                            </p>  
+                                            </p>
                                         )
                                    ) 
                                 }

@@ -66,7 +66,7 @@ export default class BackMainContainer extends Component{
         return(
             <div>
                 <div id="leftMenu">
-                    <img className="logo" src={'http://chuantu.biz/t6/351/1533043173x-1404817491.jpg'}/>
+                    <p className="back_login_title">后台管理系统</p>
                     <Menu mode="inline"
                         defaultOpenKeys={this.state.defaultOpenKeys}
                         defaultSelectedKeys={this.state.defaultSelectedKeys}

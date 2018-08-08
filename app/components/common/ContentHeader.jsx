@@ -9,7 +9,7 @@ const ContentHeader = ({category,module}) => {
     return(
         <div className='ContentHeader'>
             <span className='span-left'>{title[1]}</span>
-            <span className='span-right'>{title[0]}<Icon type="right" />{title[1]}</span>
+            <span className='span-right'>{title[0]}<Icon type="right"/>{title[1]}</span>
         </div>
     )
 }

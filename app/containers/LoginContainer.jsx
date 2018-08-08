@@ -32,7 +32,7 @@ class Login extends React.Component {
             <div className="login">
                 <div className="login-content-wrap">
                     <div className="login-content">
-                        <img className="logo" src={'http://chuantu.biz/t6/351/1533043173x-1404817491.jpg'}/>
+                        <p className="login-title">中国物理学会水电分会</p>
                         <div className="login-from">
                             <Form onSubmit={this.handleSubmit.bind(this)} className="login-form">
                                 <FormItem>
